@@ -1,21 +1,3 @@
-Skip to content
- 
-Search or jump to…
-
-Pull requests
-Issues
-Marketplace
-Explore
- @dorbae Sign out
-111
-4,517 7,872 mmistakes/minimal-mistakes
- Code  Issues 15  Pull requests 6  Projects 0  Insights
-minimal-mistakes/_config.yml
-a2620d3  on 22 Nov
-@mmistakes mmistakes Add support for utterances (#1966)
-@mmistakes @ohadschn @Pradhyo @yihangho @LoveMeWithoutAll @YuyingWu @westes @vlajos @tony-ho @rriemann @nickgarlis @maxheld83 @maxime-michel @matiasfrndz @kennonkwok @jeremyvoltz @thoemmi @hbarudin @rschaerer @gabor-meszaros @cdodd @4brunu
-     
-293 lines (265 sloc)  8.24 KB
 # Welcome to Jekyll!
 #
 # This config file is meant for settings that affect your entire site, values
@@ -29,7 +11,7 @@ a2620d3  on 22 Nov
 # https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/#installing-the-theme
 
 # theme                  : "minimal-mistakes-jekyll"
-remote_theme           : "mmistakes/minimal-mistakes"
+remote_theme             : "mmistakes/minimal-mistakes"
 minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
@@ -39,7 +21,7 @@ title_separator          : "-"
 name                     : "dorbae"
 description              : "IT Tech Blog for me."
 url                      : "https://dorbae.github.io"
-baseurl                  : "/techblog"
+baseurl                  : ""
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 # breadcrumbs            : false # true, false (default)
