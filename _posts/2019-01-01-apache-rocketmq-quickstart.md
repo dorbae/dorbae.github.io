@@ -4,6 +4,9 @@
 * 메시지의 신뢰성을 보장하고, 조 단위의 처리량과 유연한 확장성을 자랑
 * 알리바바가 2012년부터 다량의 메시지를 처리하기 위해서, Apache ActiveMQ 5.13 버전 기반에서 분산 아키텍처를 도입하여 개발하기 시작
 * 2016년 11월에 알리바바가 Apache 재단에 danation 하고, 2017년 2월에 Apache Top-Level 프로젝트로 선정
+  
+![RocketMQ Architecture](/assets/images/posts/2019/01/2019-01-01-apache-rocketmq-quickstart-001.png)
+  
 ---
   
 ## 1. Download install file and unzip
@@ -21,6 +24,9 @@
 </pre>
 </div>
   
+![RocketMQ Architecture](/assets/images/posts/2019/01/2019-01-01-apache-rocketmq-quickstart-002.png)  
+![RocketMQ Architecture](/assets/images/posts/2019/01/2019-01-01-apache-rocketmq-quickstart-003.png)  
+  
 ## 2. Setup environment variables
 <div style="background: #f8f8f8; border-width: 0.1em 0.1em 0.1em 0.8em; border: solid gray; overflow: auto; padding: 0.2em 0.6em; width: auto;">
 <pre style="line-height: 125%; margin: 0;"><span style="color: #8f5902;">$</span> vi ~/.profile
@@ -29,8 +35,11 @@
 
 <span style="color: #8f5902;">$</span> . ~/.profile
 </pre>
-</div>
+</div>  
 
+![RocketMQ Architecture](/assets/images/posts/2019/01/2019-01-01-apache-rocketmq-quickstart-004.png)    
+![RocketMQ Architecture](/assets/images/posts/2019/01/2019-01-01-apache-rocketmq-quickstart-005.png)
+  
 **export ROCKETMQ_HOME=[installed_directory]**  
 **export PATH=$PATH:$ROCEKTMQ_HOME/bin**  
 **export NAMESRV_ADDR={host}:{port}**    # for Name server connector address  
@@ -44,7 +53,10 @@
 <span style="color: black; font-style: italic;">[Edit : Optimize memory size in your system]</span>
 </pre>
 </div>
-
+  
+![RocketMQ Architecture](/assets/images/posts/2019/01/2019-01-01-apache-rocketmq-quickstart-006.png)  
+![RocketMQ Architecture](/assets/images/posts/2019/01/2019-01-01-apache-rocketmq-quickstart-007.png)  
+  
 #### 3.2 Start Name Server in background
 
 <div style="background: #f8f8f8; border-width: 0.1em 0.1em 0.1em 0.8em; border: solid gray; overflow: auto; padding: 0.2em 0.6em; width: auto;">
@@ -53,6 +65,7 @@
 </pre>
 </div>
   
+![RocketMQ Architecture](/assets/images/posts/2019/01/2019-01-01-apache-rocketmq-quickstart-008.png)  
   
 ## 4. Start Broker Server
 
@@ -61,7 +74,9 @@
 <span style="color: #8f5902;">$</span> tail -f <span style="color: black;">$ROCKETMQ_HOME</span>/log/mqbroker.log
 </pre>
 </div>
-
+  
+![RocketMQ Architecture](/assets/images/posts/2019/01/2019-01-01-apache-rocketmq-quickstart-009.png)  
+  
 #### 4.1. Run Error -> Edit JVM Options
 
 <div style="background: #f8f8f8; border-width: 0.1em 0.1em 0.1em 0.8em; border: solid gray; overflow: auto; padding: 0.2em 0.6em; width: auto;">
@@ -70,8 +85,10 @@
 <span style="color: black; font-style: italic;">[Edit : Optimize memory size in your system]</span>
 </pre>
 </div>
-  
     
+![RocketMQ Architecture](/assets/images/posts/2019/01/2019-01-01-apache-rocketmq-quickstart-010.png)  
+![RocketMQ Architecture](/assets/images/posts/2019/01/2019-01-01-apache-rocketmq-quickstart-011.png)  
+  
 ## 5. Test Message Produce/Consume
 #### 5.1. Start Producer
 
@@ -79,15 +96,18 @@
 <pre style="line-height: 125%; margin: 0;"><span style="color: #8f5902;">$</span> sh <span style="color: black;">$ROCKETMQ_HOME</span>/bin/tools.sh org.apache.rocketmq.example.quickstart.Producer
 </pre>
 </div>
-
+  
+![RocketMQ Architecture](/assets/images/posts/2019/01/2019-01-01-apache-rocketmq-quickstart-012.png)  
+  
 #### 5.2. Start Consumer
 
 <div style="background: #f8f8f8; border-width: 0.1em 0.1em 0.1em 0.8em; border: solid gray; overflow: auto; padding: 0.2em 0.6em; width: auto;">
 <pre style="line-height: 125%; margin: 0;"><span style="color: #8f5902;">$</span> sh <span style="color: black;">$ROCKETMQ_HOME</span>/bin/tools.sh org.apache.rocketmq.example.quickstart.Consumer
 </pre>
 </div>
-  
     
+![RocketMQ Architecture](/assets/images/posts/2019/01/2019-01-01-apache-rocketmq-quickstart-013.png)  
+  
 ## 6. Shutdown
 
 <div style="background: #f8f8f8; border-width: 0.1em 0.1em 0.1em 0.8em; border: solid gray; overflow: auto; padding: 0.2em 0.6em; width: auto;">
@@ -98,7 +118,8 @@
 <span style="color: #8f5902;">#</span> mqshtudown namesrv
 </pre>
 </div>
-
+  
+![RocketMQ Architecture](/assets/images/posts/2019/01/2019-01-01-apache-rocketmq-quickstart-014.png)  
 * References  
   * [RocketMQ Tutorial](https://rocketmq.apache.org/docs/quick-start/)
   * [RocketMQ WiKi] \(https://en.wikipedia.org/wiki/Apache_RocketMQ)
