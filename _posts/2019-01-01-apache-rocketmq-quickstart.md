@@ -105,6 +105,6 @@
 ![RocketMQ Architecture](/assets/images/posts/2019/01/2019-01-01-apache-rocketmq-quickstart-014.png)  
 * References  
   * [RocketMQ Tutorial](https://rocketmq.apache.org/docs/quick-start/)
-  * [RocketMQ WiKi] \(https://en.wikipedia.org/wiki/Apache_RocketMQ)
+  * [RocketMQ WiKi](https://en.wikipedia.org/wiki/Apache_RocketMQ)
 
 
