@@ -4,7 +4,7 @@ title: "[MariaDB/MySQL] JDBC Driver 'server time zone' 에러 해결방법"
 comments: true
 author: dorbae
 date: 2019-01-02 +0900
-image: ../assets/images/posts/2019/01/2019-01-02-dbms-mysql-jdbc-timezone-troubleshooting_thumnail.png
+image: /assets/images/posts/2019/01/2019-01-02-dbms-mysql-jdbc-timezone-troubleshooting_thumnail.png
 categories: [DBMS, MySQL]
 tags: [MariaDB, MySQL, DBMS, trouble shooting, jdbc]  
 ---  
