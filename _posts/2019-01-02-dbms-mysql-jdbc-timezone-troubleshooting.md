@@ -1,5 +1,5 @@
 ---
-layout: posts
+layout: post
 title: "[MariaDB/MySQL] JDBC Driver 'server time zone' 에러 해결방법"
 comments: true
 author: dorbae
