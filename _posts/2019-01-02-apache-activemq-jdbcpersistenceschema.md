@@ -2,6 +2,9 @@
 layout: posts
 title: "[ActiveMQ] JDBC Persistence Table Schema"
 comments: true
+author: dorbae
+date: 2019-01-02 +0900
+image: ../assets/images/posts/2019/01/2019-01-02-apache-activemq-jdbcpersistenceschema_thumnail.png
 categories: [Apache, ActiveMQ]
 tags: [apache, activemq, mq, queue, messaging queue, persistence]
 ---
