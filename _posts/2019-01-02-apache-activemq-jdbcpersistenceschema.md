@@ -1,5 +1,5 @@
 ---
-layout: posts
+layout: post
 title: "[ActiveMQ] JDBC Persistence Table Schema"
 comments: true
 author: dorbae
