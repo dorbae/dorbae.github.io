@@ -1,5 +1,5 @@
 ---
-layout: posts
+layout: post
 title: "[RocketMQ] Quick-Start"
 comments: true
 author: dorbae
