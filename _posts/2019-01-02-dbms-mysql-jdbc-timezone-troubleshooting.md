@@ -1,3 +1,11 @@
+---
+layout: post
+title: [MariaDB/MySQL] JDBC Driver 'server time zone' 에러 해결방법
+comments: true
+categories : DBMS MariaDB MySQL JDBC java
+tags: MariaDB MySQL DBMS 'trouble shooting' jdbc
+---
+
 # The server time zone value ‘KST’ is unrecognized or represents more than one time zone. 에러 해결
 
 * MySQL JDBC Driver 5.1.X 버전 이후 버전부터 'KST' 타임존을 인식불가로 인한 오류 발생.(기타 타임존도 발생)
