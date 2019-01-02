@@ -1,6 +1,6 @@
 ---
-layout: post
-title: \[ActiveMQ\] JDBC Persistence Table Schema
+layout: posts
+title: "[ActiveMQ] JDBC Persistence Table Schema"
 comments: true
 categories: [Apache, ActiveMQ]
 tags: [apache, activemq, mq, queue, messaging queue, persistence]
