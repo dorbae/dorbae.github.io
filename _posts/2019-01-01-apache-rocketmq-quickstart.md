@@ -2,7 +2,7 @@
 layout: posts
 title: \[RocketMQ\] Quick-Start
 comments: true
-categories : [RocketMQ, Apache]
+categories : [Apache,RocketMQ]
 tags: [RocketMQ, quick-start, alibaba, mq, messaging queue, 알리바바]
 ---
 
