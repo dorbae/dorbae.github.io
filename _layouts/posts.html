@@ -1,9 +1,19 @@
 ---
 layout: archive
 ---
-<div class="initial-content">
-  {{ content }}
-</div>
+
+<html>
+<body class="layout--{{ page.layout | default: layout.layout }}{% if page.classes or layout.classes %}{{ page.classes | default: layout.classes | join: ' ' | prepend: ' ' }}{% endif %}">
+
+    {% include_cached browser-upgrade.html %}
+    {% include_cached masthead.html %}
+    <div class="initial-content">
+      {{ content }}
+    </div>
+  {% include scripts.html %}
+
+</body>
+</html>
 
 <ul class="taxonomy__index">
   {% assign postsInYear = site.posts | group_by_exp: 'post', 'post.date | date: "%Y"' %}
