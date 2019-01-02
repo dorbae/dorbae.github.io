@@ -1,6 +1,6 @@
 ---
 layout: post
-title: RocketMQ Quick-Start
+title: \[RocketMQ\] Quick-Start
 comments: true
 categories : [RocketMQ, Apache]
 tags: [RocketMQ, quick-start, alibaba, mq, messaging queue, 알리바바]
