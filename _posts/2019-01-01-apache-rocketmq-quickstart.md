@@ -3,7 +3,7 @@ layout: post
 title: RocketMQ Quick-Start
 comments: true
 categories : RocketMQ
-tags: RocketMQ quick-start alibaba mq 'messaging queue' '알리바바'
+tags: RocketMQ quick-start alibaba mq messaging queue 알리바바
 ---
 
 # RocketMQ
