@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: posts
 title: \[RocketMQ\] Quick-Start
 comments: true
 categories : [RocketMQ, Apache]
