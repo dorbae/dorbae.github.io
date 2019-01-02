@@ -4,7 +4,7 @@ title: "[RocketMQ] Quick-Start"
 comments: true
 author: dorbae
 date: 2019-01-01 +0900
-image: ../assets/images/posts/2019/01/2019-01-01-apache-rocketmq-quickstart_thumnail.png
+image: https://dorbae.github.io/assets/images/posts/2019/01/2019-01-01-apache-rocketmq-quickstart_thumnail.png
 categories : [Apache,RocketMQ]
 tags: [RocketMQ, quick-start, alibaba, mq, messaging queue, 알리바바]
 ---
