@@ -33,10 +33,10 @@ tags: [python,django,tutorial]
 * pip는 파이썬 패키지 관리자
 
 ```mermaid
-graph TD
-Linux --> yum: Package Manager
-Mac --> brew : Package Manager
-Python --> pip : Package Manager
+graph LR
+  Linux---| Package Manager|yum
+  Mac---| Package Manager|brew
+  Python---| Package Manager|pip
 ```
    
 <div markdown="1" style="background: #f8f8f8; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #000080; font-weight: bold">$</span> pip3 install pipenv
