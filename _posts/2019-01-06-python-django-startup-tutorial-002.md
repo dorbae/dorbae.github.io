@@ -81,7 +81,7 @@ tags: [python,django,tutorial]
 
 ## 5. 서버 구동/재구동
 
-<div markdown="1", style="background: #f8f8f8; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #000080; font-weight: bold">$</span> python manage.py runserver
+<div markdown="1" style="background: #f8f8f8; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #000080; font-weight: bold">$</span> python manage.py runserver
 </pre></div>      
 
 ![Tutorial010](/assets/images/posts/2019/01/2019-01-06-python-django-startup-tutorial-002-010.png)  
