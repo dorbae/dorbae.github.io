@@ -32,12 +32,12 @@ tags: [python,django,tutorial]
 * pipenv는 파이썬을 위한 가상 환경을 구성해 줌
 * pip는 파이썬 패키지 관리자
 
-```mermaid
-graph LR
-  Linux---| Package Manager|yum
-  Mac---| Package Manager|brew
-  Python---| Package Manager|pip
-```
+| Type | Package Manager |
+|---:|:---|
+| Linux | yum |
+| Mac | brew |
+| Python | pip |
+
    
 <div markdown="1" style="background: #f8f8f8; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #000080; font-weight: bold">$</span> pip3 install pipenv
 </pre></div>    
@@ -98,7 +98,7 @@ graph LR
 ------------
 
 ### 관련 포스트
-* [Django Startup Tutorial 002]()
+* [Django Startup Tutorial 002]({{site.url}}//python/django/python-django-startup-tutorial-002/)
 * [Django Startup Tutorial 003]()
 * [Django Startup Tutorial 004]()
 * [Django Startup Tutorial 005]()
