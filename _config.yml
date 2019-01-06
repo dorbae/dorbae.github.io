@@ -55,7 +55,7 @@ defaults:
       author_profile: true
       # 해당 포스트를 읽은 시간이 표시
       read_time: true
-      comments: # true
+      comments: true
       # 포스트 공유 기능을 활성화 할 것인지
       share: true
       related: true
