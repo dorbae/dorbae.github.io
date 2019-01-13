@@ -32,7 +32,7 @@ tags: [distribute,system,log,linkedin,Jay Kreps]
 ![logisenssential](/assets/images/posts/2019/01/2019-01-11-distribution-log-linkedin-004.png)
 * 로그는 시간 순으로 정렬된 레코드들로 이뤄진 파일, 테이블의 한 종류
 ![logisrecord](/assets/images/posts/2019/01/2019-01-11-distribution-log-linkedin-005.png)
-* 로그는 언제, 무엇이 일어났는지에 대한 기록
+* 로그는 **언제, 무엇이 일어났는지**에 대한 기록
 * 더 깊이 들어가기 전에, 명확히 해야할 것이 있다. 모든 프로그래머들은 어플리케이션에서 syslog나 log4j같은 로깅 프레임워크를 통하여 대부분 로컬에 쓰여지는 비정형화된 에러 메시지나 Trace만을 로그로 생각
 * 필자는 이후부터 명확하게 하기 위해서 이러한 로그를 'application logging' 이라고 표현
 * 'application logging'의 가장 큰 차이점은 사람이 주로 사람이 읽기 위해서, 'journal', 'data logs'를 위한 텍스트 로그라는 것
@@ -40,7 +40,22 @@ tags: [distribute,system,log,linkedin,Jay Kreps]
 <br/>
 
 ### 데이터베이스에서의 로그
+* 데이터베이스에서 로그는 여러 충돌이 일어날 수 있는 상황에서 다양하게 변화하는 데이터구조, 인덱스를 동기화 시킨다.
+* 원자성과 지속성을 위해서 데이터베이스는 로그를 사용한다. 데이터베이스는 다양한 데이터구조를 변경하기 전에 변경할 레코드에 대한 정보를 로그로 쓴다.
+* 즉, 로그는 무슨 일이 일어났는지에 대한 레코드이고, 데이터베이스의 테이블과 인덱스는 이 로그들 중의 유용한 데이터구조와 인덱스를 투영한다(나타낸다).
+![logisprojection](/assets/images/posts/2019/01/2019-01-11-distribution-log-linkedin-006.jpeg)
+* 또한 로그는 바로 지속 가능한 상태로 저장되기 때문에 문제가 생겼을 때, 다른 구조들을 복구하는데 중요하게 사용된다.
+![datarestore](/assets/images/posts/2019/01/2019-01-11-distribution-log-linkedin-007.jpeg)
+* 로그는 ACID를 충족하기 위해서 사용되기 시작해서 데이터베이스 간의 데이터 복제를 위해서 사용되고 있다. 이는 데이터베이스에서 일어난 변화의 순차적인 기록이 복제 데이터베이스 간의 동기화를 위해 필요하다는 것을 말한다.
+![ideal](/assets/images/posts/2019/01/2019-01-11-distribution-log-linkedin-008.jpeg)
+* 이러한 로그를 이용하는 방법은 데이터베이스 내부적으로만 사용되어 왔다. 하지만 이는 **모든 종류의 메시징, 데이터 흐름, 실시간 데이터 처리에 주요한 사상**이다.
 
+<br/>
+
+## 분산시스템에서의 로그
+* 중앙화 로그에서 분산시스템으로의 접근은 State Machine Replication Principle의 관점에서 도래했다.
+* **State Machine Replication Principle**이란 두 개의 의사결정을 할 수 있는 프로세스가 같은 상태에서 같은 입력과 같은 명령을 받으면, 같은 결과를 내고 결국에는 다시 같은 상태로 있게된다는 원리이다.
+![smrp](/assets/images/posts/2019/01/2019-01-11-distribution-log-linkedin-009.jpeg)
 
 
 
