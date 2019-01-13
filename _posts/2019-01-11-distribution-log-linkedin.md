@@ -6,7 +6,7 @@ author: dorbae
 date: 2019-01-11 +0900
 image: https://dorbae.github.io/assets/images/posts/2019/01/2019-01-01-apache-rocketmq-quickstart_thumnail.png
 categories : [Distributed System,Log]
-tags: [distribute,sysstem,log]
+tags: [distribute,system,log,linkedin,Jay Kreps]
 ---
 
 * 다음 글은 링크드인 엔지니어링에 기재된 [The Log: What every software engineer should know about real-time data's unifying abstraction(Jay Kreps, December 16, 2013)](https://engineering.linkedin.com/distributed-systems/log-what-every-software-engineer-should-know-about-real-time-datas-unifying) 를 해석 및 재정리    
@@ -23,4 +23,27 @@ tags: [distribute,sysstem,log]
 * 하지만 대부분의 S/W 엔지니어들은 로그에 관심을 갖지 않는다.
 * 그래서 필자는 이런 로그에 대한 이해도를 높이고자 글을 쓰게 되었고, 글에서는 로그란 무엇이고, 데이터 통합, 실시간 처리, 시스템 구축에 있어서 로그는 어떻게 쓰이는지를 설명한다.
 
+<br/>
+
 ## Part 1. 로그란 무엇인가?
+* 로그는 시간 순으로 정렬된 레코드의 집합체이며, 추가만 가능
+![logstructure](/assets/images/posts/2019/01/2019-01-11-distribution-log-linkedin-003.png)
+* 시간으로 정렬된 데이터 => 분산 시스템을 이루는 본질 (bc, 물리적인 시간으로부터 decouple)
+![logisenssential](/assets/images/posts/2019/01/2019-01-11-distribution-log-linkedin-004.png)
+* 로그는 시간 순으로 정렬된 레코드들로 이뤄진 파일, 테이블의 한 종류
+![logisrecord](/assets/images/posts/2019/01/2019-01-11-distribution-log-linkedin-005.png)
+* 로그는 언제, 무엇이 일어났는지에 대한 기록
+* 더 깊이 들어가기 전에, 명확히 해야할 것이 있다. 모든 프로그래머들은 어플리케이션에서 syslog나 log4j같은 로깅 프레임워크를 통하여 대부분 로컬에 쓰여지는 비정형화된 에러 메시지나 Trace만을 로그로 생각
+* 필자는 이후부터 명확하게 하기 위해서 이러한 로그를 'application logging' 이라고 표현
+* 'application logging'의 가장 큰 차이점은 사람이 주로 사람이 읽기 위해서, 'journal', 'data logs'를 위한 텍스트 로그라는 것
+
+<br/>
+
+### 데이터베이스에서의 로그
+
+
+
+
+--------     
+## References
+* [The Log: What every software engineer should know about real-time data's unifying abstraction(Jay Kreps, December 16, 2013)](https://engineering.linkedin.com/distributed-systems/log-what-every-software-engineer-should-know-about-real-time-datas-unifying)
