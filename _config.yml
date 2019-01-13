@@ -70,7 +70,7 @@ google_analytics:
 comments:
   provider               : "disqus"
   disqus:
-    shortname            : dev-hundred-blog
+    shortname            : "dorbae.io"
       
 # Reading Files
 include:
