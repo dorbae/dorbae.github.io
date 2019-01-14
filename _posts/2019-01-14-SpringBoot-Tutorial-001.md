@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[Spring Boot] Spring Boot Tutorial 001 - Hello World"
+title: "[Spring Boot] Spring Boot Tutorial #1 - Hello World"
 comments: true
 author: dorbae
 date: 2019-01-14 +0900
@@ -26,7 +26,7 @@ tags: [spring boot,spring,java,tutorial]
     - Spring의 복잡한 XML 설정 생략
     - 쉽게 완성도 있는 Spring 어플리케이션을 개발하기 위해서
     - 어플리케이션을 쉽게 구축하기 위한 더 쉬운 방법을 제공
-    
+
 ### [특장점]
     - Java Beans, XML 설정, 데이터베이스 트랜잭션 등을 유연하게 설정할 수 있다.
     - 강력한 배치 처리와 REST endpoints를 관리
