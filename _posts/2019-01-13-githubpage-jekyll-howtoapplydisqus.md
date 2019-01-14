@@ -82,8 +82,6 @@ tags: [github page,jekyll,disqus]
 
 <br/>
 
-**작성 중...**
-
 ## Reference
 * [Discus 홈페이지](https://help.disqus.com/what-is-disqus/what-is-disqus)
 * [생활코딩](https://opentutorials.org/course/2473/13865)
