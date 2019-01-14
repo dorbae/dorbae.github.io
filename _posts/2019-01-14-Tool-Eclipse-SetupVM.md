@@ -34,3 +34,8 @@ tags: [tool,eclipse,ide,vm,jdk9,jdk10,jdk11]
 * 그래서 Eclipse 실행하는 VM을 기존의 Oracle JDK8 로 변경
 * eclipse.ini 파일에 아래와 같은 옵션 추가
 ![screenshot002](/assets/images/posts/2019/01/2019-01-14-Tool-Eclipse-SetupVM-003.png)
+
+<br/>
+
+## References
+* [IOTINFRA'S BLOG](http://blog.iotinfra.net/?p=256)
