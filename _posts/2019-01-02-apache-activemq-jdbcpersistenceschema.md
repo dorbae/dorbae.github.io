@@ -7,6 +7,8 @@ date: 2019-01-02 +0900
 image: ../assets/images/posts/2019/01/2019-01-02-apache-activemq-jdbcpersistenceschema_thumnail.png
 categories: [Apache, ActiveMQ]
 tags: [apache, activemq, mq, queue, messaging queue, persistence]
+sitemap :
+  changefreq : weekly
 ---
 
 # ActiveMQ JDBC Persistence 스키마 정보

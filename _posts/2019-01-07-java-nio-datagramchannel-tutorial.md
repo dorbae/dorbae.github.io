@@ -6,6 +6,8 @@ author: dorbae
 date: 2019-01-07 +0900
 categories : [Java,NIO]
 tags: [java, nio, tutorial, datagram, channel, udp, socket]
+sitemap :
+  changefreq : weekly
 ---
 
 ## DatgramChannel Receiver

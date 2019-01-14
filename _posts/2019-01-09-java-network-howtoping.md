@@ -6,6 +6,8 @@ author: dorbae
 date: 2019-01-09 +0900
 categories : [Java,Network]
 tags: [java, network, ping, icmp]
+sitemap :
+  changefreq : weekly
 ---
 
 * Java에서는 ICMP 프로토콜을 지원하지 않는다. 따라서 아래와 같은 방법으로 네트워크가 닿을 수 있는지 구현 가능      

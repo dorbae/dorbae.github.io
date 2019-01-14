@@ -7,6 +7,8 @@ date: 2019-01-06 +0900
 image: https://dorbae.github.io/assets/images/posts/2019/01/2019-01-06-python-django-startup-tutorial-001-thumnail.png
 categories : [Python,Django]
 tags: [python,django,tutorial]
+sitemap :
+  changefreq : weekly
 ---
 
 * 앞선 [Tutorial 001]({{site.url}}/python/django/python-django-startup-tutorial-001/)에서는 Django 설치 및 환경 구성 과정을 실습

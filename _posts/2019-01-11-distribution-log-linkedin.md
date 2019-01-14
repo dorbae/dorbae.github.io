@@ -7,6 +7,8 @@ date: 2019-01-11 +0900
 image: https://dorbae.github.io/assets/images/posts/2019/01/2019-01-01-apache-rocketmq-quickstart_thumnail.png
 categories : [Distributed System,Log]
 tags: [distribute,system,log,linkedin,Jay Kreps]
+sitemap :
+  changefreq : weekly
 ---
 
 * 다음 글은 링크드인 엔지니어링에 기재된 [The Log: What every software engineer should know about real-time data's unifying abstraction(Jay Kreps, December 16, 2013)](https://engineering.linkedin.com/distributed-systems/log-what-every-software-engineer-should-know-about-real-time-datas-unifying) 를 해석 및 재정리    

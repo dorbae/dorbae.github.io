@@ -7,6 +7,8 @@ date: 2019-01-06 +0900
 image: https://dorbae.github.io/assets/images/posts/2019/01/2019-01-01-apache-rocketmq-quickstart_thumnail.png
 categories : [DBMS,Oracle]
 tags: [dbms,oracle,jdbc,java,troubleshooting]
+sitemap :
+  changefreq : weekly
 ---
 
 # MAC OS 업데이트 후, Oracle JDBC 연결 할 때, 로케일 인식 오류 발생
