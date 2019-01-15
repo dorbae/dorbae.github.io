@@ -140,11 +140,12 @@ sitemap :
 * 빌드 파일에 실행될 main class를 지정해줘야한다.
     * **Maven**: pom.xml에 추가
 
-    <div markdown="1" style="background: #f8f8f8; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008000; font-weight: bold">&lt;start-class&gt;</span>com.tutorialspoint.demo.DemoApplication<span style="color: #008000; font-weight: bold">&lt;/start-class&gt;</span>
+    <div markdown="1" style="background: #eeeedd; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #8B008B; font-weight: bold">&lt;start-class&gt;</span>io.dorbae.springboot.tutorial.TutorialSpringbootApplication<span style="color: #8B008B; font-weight: bold">&lt;/start-class&gt;</span>
     </pre></div>
 
+
     * **Gradle**: build.gradle에 추가
-    <div markdown="1" style="background: #f8f8f8; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">mainClassName=&quot;com.tutorialspoint.demo.DemoApplication&quot;
+    <div markdown="1" style="background: #111111; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #ffffff">mainClassName=&quot;io.dorbae.springboot.tutorial.TutorialSpringbootApplication&quot;</span>
     </pre></div>
 
 ![screenshot001](/assets/images/posts/2019/01/2019-01-15-SpringBoot-Tutorial-002-001.png)
