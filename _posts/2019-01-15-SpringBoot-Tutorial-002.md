@@ -140,8 +140,9 @@ sitemap :
 * 빌드 파일에 실행될 main class를 지정해줘야한다.
     * **Maven**: pom.xml에 추가
 
-    <div markdown="1" style="background: #eeeedd; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #8B008B; font-weight: bold">&lt;start-class&gt;</span>io.dorbae.springboot.tutorial.TutorialSpringbootApplication<span style="color: #8B008B; font-weight: bold">&lt;/start-class&gt;</span>
+    <div markdown="1" style="background: #111111; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #fb660a; font-weight: bold">&lt;start-class&gt;</span>io.dorbae.springboot.tutorial.TutorialSpringbootApplication<span style="color: #fb660a; font-weight: bold">&lt;/start-class&gt;</span>
     </pre></div>
+
 
 
     * **Gradle**: build.gradle에 추가
