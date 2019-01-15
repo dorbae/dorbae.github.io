@@ -145,6 +145,7 @@ sitemap :
 
 
 
+
     * **Gradle**: build.gradle에 추가
     <div markdown="1" style="background: #111111; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #ffffff">mainClassName=&quot;io.dorbae.springboot.tutorial.TutorialSpringbootApplication&quot;</span>
     </pre></div>
@@ -156,13 +157,15 @@ sitemap :
 ## 3. paacking JAR를 WAR에 Update
 * WAR 형태로 배포하기 위해서 아래 항목들을 추가해줘야한다.
     * **Maven**: pom.xml에 추가
-    <div markdown="1" style="background: #f8f8f8; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008000; font-weight: bold">&lt;packaging&gt;</span>war<span style="color: #008000; font-weight: bold">&lt;/packaging&gt;</span>
+    <div markdown="1" style="background: #111111; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #fb660a; font-weight: bold">&lt;packaging&gt;</span>war<span style="color: #fb660a; font-weight: bold">&lt;/packaging&gt;</span>
     </pre></div>
 
+
     * **Gradle**: build.gradle에 추가
-    <div style="background: #f8f8f8; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">apply plugin: ‘war’
-apply plugin: ‘application’
+    <div markdown="1" style="background: #111111; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #ffffff">apply plugin:</span> <span style="color: #ffffff">‘war’</span>
+    <span style="color: #ffffff">apply plugin:</span> <span style="color: #ffffff">‘application’</span>
     </pre></div>
+
 
 ![screenshot002](/assets/images/posts/2019/01/2019-01-15-SpringBoot-Tutorial-002-002.png)
 
@@ -171,17 +174,19 @@ apply plugin: ‘application’
 ## 4. REST Endpoint 사용을 위한 Dependencies 수정
 * REST Endpoint를 사용하기 위해서는 **spring-boot-starter-web** 을 의존성에 추가해줘야한다.
     * **Maven**: pom.xml에 추가
-    <div markdown="1" style="background: #f8f8f8; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008000; font-weight: bold">&lt;dependency&gt;</span>
-   <span style="color: #008000; font-weight: bold">&lt;groupId&gt;</span>org.springframework.boot<span style="color: #008000; font-weight: bold">&lt;/groupId&gt;</span>
-   <span style="color: #008000; font-weight: bold">&lt;artifactId&gt;</span>spring-boot-starter-web<span style="color: #008000; font-weight: bold">&lt;/artifactId&gt;</span>
-    <span style="color: #008000; font-weight: bold">&lt;/dependency&gt;</span>
+    <div markdown="1" style="background: #111111; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #fb660a; font-weight: bold">&lt;dependency&gt;</span>
+     <span style="color: #fb660a; font-weight: bold">&lt;groupId&gt;</span>org.springframework.boot<span style="color: #fb660a; font-weight: bold">&lt;/groupId&gt;</span>
+     <span style="color: #fb660a; font-weight: bold">&lt;artifactId&gt;</span>spring-boot-starter-web<span style="color: #fb660a; font-weight: bold">&lt;/artifactId&gt;</span>
+     <span style="color: #fb660a; font-weight: bold">&lt;/dependency&gt;</span>
     </pre></div>
 
+
     * **Gradle**: build.gradle에 추가
-    <div markdown="1" style="background: #f8f8f8; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">dependencies {
-   compile(&#39;org.springframework.boot:spring-boot-starter-web&#39;)
-}
+    <div markdown="1" style="background: #111111; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #ffffff">dependencies {</span>
+    <span style="color: #ffffff">compile(&#39;org.springframework.boot:spring-boot-starter-web&#39;)</span>
+    <span style="color: #ffffff">}</span>
     </pre></div>
+
 
 ![screenshot003](/assets/images/posts/2019/01/2019-01-15-SpringBoot-Tutorial-002-003.png)
 
@@ -190,12 +195,14 @@ apply plugin: ‘application’
 ## 5. Packaging Application
 * WAR 파일 Packaging
     * **Maven**:
-    <div markdown="1" style="background: #f8f8f8; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">mvn package
+    <div markdown="1" style="background: #111111; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #ffffff">mvn package</span>
     </pre></div>
 
+
     * **Gradle**:
-    <div markdown="1" style="background: #f8f8f8; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">gradle clean build
+    <div style="background: #111111; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #ffffff">gradle clean build</span>
     </pre></div>
+
 
 ![screenshot004](/assets/images/posts/2019/01/2019-01-15-SpringBoot-Tutorial-002-004.png)
 
