@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[ActiveMQ] Message Expiration(Time to Live) Confision"
+title: "[ActiveMQ] Message Expiration(Time to Live) Confusion"
 comments: true
 author: dorbae
 date: 2019-01-16 +0900
