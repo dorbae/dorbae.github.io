@@ -27,6 +27,7 @@ sitemap :
 * 투자 라운드 (Investment Round)
     * 투자 모금 회차
     * 일반적으로 스타트업은 5개의 단계를 거친다.[^note001]
+    
         | 단계 | 이름 | 설명 |
         | :--: | :--: | :-- |
         | 1 | Pre-Seed | 아이디어 단계에서 창업자 본인이나 지인들을 통해 자금 조달 | 
@@ -74,7 +75,7 @@ sitemap :
 <br/>
 
 ## References
-[인터비즈](https://m.blog.naver.com/PostView.nhn?blogId=businessinsight&logNo=221387828032&proxyReferer=&proxyReferer=http%3A%2F%2Fblog.naver.com%2Fbusinessinsight%2F221387828032)
+[인터비즈 스타트업 투자유치 실전 가이드](https://m.blog.naver.com/PostView.nhn?blogId=businessinsight&logNo=221387828032&proxyReferer=&proxyReferer=http%3A%2F%2Fblog.naver.com%2Fbusinessinsight%2F221387828032)
 
 
 ------
