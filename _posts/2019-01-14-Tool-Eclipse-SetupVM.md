@@ -9,7 +9,12 @@ categories : [Tool,Eclipse]
 tags: [tool,eclipse,ide,vm,jdk9,jdk10,jdk11]
 ---
 
-## 문제
+# Goal
+* 기본 실행 Java 버전 변경 후, Eclipse 실행 오류 해결
+
+<br/>
+
+## 발생 원인
 * OpenJDK 11 설치 후에 잘 실행되던 Eclipse에서 아래와 같은 에러 발생
 * org.eclipse.e4.core.di.InjectionException: java.lang.NoClassDefFoundError: javax/annotation/PostConstruct
 ![Error](/assets/images/posts/2019/01/2019-01-14-Tool-Eclipse-SetupVM-001.png)
@@ -22,7 +27,7 @@ tags: [tool,eclipse,ide,vm,jdk9,jdk10,jdk11]
 
 <br/>
 
-## 해결방법
+## 해결 방법
 ### 1. eclipse.ini에 모듈 옵션 추가
 * eclipse.ini 파일에 **--add-modules=ALL-SYSTEM** 옵션 추가
 ![screenshot001](/assets/images/posts/2019/01/2019-01-14-Tool-Eclipse-SetupVM-002.png)

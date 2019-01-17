@@ -10,6 +10,13 @@ sitemap :
   changefreq : weekly
 ---
 
+# Goal
+* Spring Boot 사용법 익히기
+* Spring Boot 란
+* Spring Boot 프로젝트 생성 및 빌드
+
+<br/>
+
 # 들어가며
 * 이 튜토리얼은 [Tutorialpoint Spring Boot](https://www.tutorialspoint.com/spring_boot/index.htm)을 기반으로 작
 성
@@ -49,7 +56,8 @@ sitemap :
 
 <br/>
 
-# Hello World 출력 Spring Boot 프로젝트
+# Practice
+* Hello World 출력 Spring Boot 프로젝트
 ## 1. Eclipse Spring Boot 프로젝트 생성
 * New -> Other... -> Spring Boot -> Spring Starter Project
 ![screenshot001](/assets/images/posts/2019/01/2019-01-14-SpringBoot-Tutorial-001-001.png)
@@ -60,32 +68,32 @@ sitemap :
 
 ## 2. Maven Dependecies 추가
 
-<div markdown="1" style="background: #eeeedd; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #228B22">&lt;!-- Application 모니터링 및 관리에 필요 --&gt;</span>
-		<span style="color: #8B008B; font-weight: bold">&lt;dependency&gt;</span>
-			<span style="color: #8B008B; font-weight: bold">&lt;groupId&gt;</span>org.springframework.boot<span style="color: #8B008B; font-weight: bold">&lt;/groupId&gt;</span>
-			<span style="color: #8B008B; font-weight: bold">&lt;artifactId&gt;</span>spring-boot-starter-actuator<span style="color: #8B008B; font-weight: bold">&lt;/artifactId&gt;</span>
-		<span style="color: #8B008B; font-weight: bold">&lt;/dependency&gt;</span>
-		<span style="color: #228B22">&lt;!-- 보안에 필요 --&gt;</span>
-		<span style="color: #8B008B; font-weight: bold">&lt;dependency&gt;</span>
-			<span style="color: #8B008B; font-weight: bold">&lt;groupId&gt;</span>org.springframework.boot<span style="color: #8B008B; font-weight: bold">&lt;/groupId&gt;</span>
-			<span style="color: #8B008B; font-weight: bold">&lt;artifactId&gt;</span>spring-boot-starter-security<span style="color: #8B008B; font-weight: bold">&lt;/artifactId&gt;</span>
-		<span style="color: #8B008B; font-weight: bold">&lt;/dependency&gt;</span>
-		<span style="color: #228B22">&lt;!-- REST Endpoints 사용에 필요 --&gt;</span>
-		<span style="color: #8B008B; font-weight: bold">&lt;dependency&gt;</span>
-			<span style="color: #8B008B; font-weight: bold">&lt;groupId&gt;</span>org.springframework.boot<span style="color: #8B008B; font-weight: bold">&lt;/groupId&gt;</span>
-			<span style="color: #8B008B; font-weight: bold">&lt;artifactId&gt;</span>spring-boot-starter-web<span style="color: #8B008B; font-weight: bold">&lt;/artifactId&gt;</span>
-		<span style="color: #8B008B; font-weight: bold">&lt;/dependency&gt;</span>
-		<span style="color: #228B22">&lt;!-- 웹 어플리케이션을 생성에 필요 --&gt;</span>
-		<span style="color: #8B008B; font-weight: bold">&lt;dependency&gt;</span>
-			<span style="color: #8B008B; font-weight: bold">&lt;groupId&gt;</span>org.springframework.boot<span style="color: #8B008B; font-weight: bold">&lt;/groupId&gt;</span>
-			<span style="color: #8B008B; font-weight: bold">&lt;artifactId&gt;</span>spring-boot-starter-thymeleaf<span style="color: #8B008B; font-weight: bold">&lt;/artifactId&gt;</span>
-		<span style="color: #8B008B; font-weight: bold">&lt;/dependency&gt;</span>
-		<span style="color: #228B22">&lt;!--  테스트에 필요 --&gt;</span>
-		<span style="color: #8B008B; font-weight: bold">&lt;dependency&gt;</span>
-			<span style="color: #8B008B; font-weight: bold">&lt;groupId&gt;</span>org.springframework.boot<span style="color: #8B008B; font-weight: bold">&lt;/groupId&gt;</span>
-			<span style="color: #8B008B; font-weight: bold">&lt;artifactId&gt;</span>spring-boot-starter-test<span style="color: #8B008B; font-weight: bold">&lt;/artifactId&gt;</span>
-			<span style="color: #8B008B; font-weight: bold">&lt;scope&gt;</span>test<span style="color: #8B008B; font-weight: bold">&lt;/scope&gt;</span>
-		<span style="color: #8B008B; font-weight: bold">&lt;/dependency&gt;</span>
+<div markdown="1" style="background: #111111; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-style: italic; background-color: #0f140f">&lt;!-- Application 모니터링 및 관리에 필요 --&gt;</span>
+		<span style="color: #fb660a; font-weight: bold">&lt;dependency&gt;</span>
+			<span style="color: #fb660a; font-weight: bold">&lt;groupId&gt;</span>org.springframework.boot<span style="color: #fb660a; font-weight: bold">&lt;/groupId&gt;</span>
+			<span style="color: #fb660a; font-weight: bold">&lt;artifactId&gt;</span>spring-boot-starter-actuator<span style="color: #fb660a; font-weight: bold">&lt;/artifactId&gt;</span>
+		<span style="color: #fb660a; font-weight: bold">&lt;/dependency&gt;</span>
+		<span style="color: #008800; font-style: italic; background-color: #0f140f">&lt;!-- 보안에 필요 --&gt;</span>
+		<span style="color: #fb660a; font-weight: bold">&lt;dependency&gt;</span>
+			<span style="color: #fb660a; font-weight: bold">&lt;groupId&gt;</span>org.springframework.boot<span style="color: #fb660a; font-weight: bold">&lt;/groupId&gt;</span>
+			<span style="color: #fb660a; font-weight: bold">&lt;artifactId&gt;</span>spring-boot-starter-security<span style="color: #fb660a; font-weight: bold">&lt;/artifactId&gt;</span>
+		<span style="color: #fb660a; font-weight: bold">&lt;/dependency&gt;</span>
+		<span style="color: #008800; font-style: italic; background-color: #0f140f">&lt;!-- REST Endpoints 사용에 필요 --&gt;</span>
+		<span style="color: #fb660a; font-weight: bold">&lt;dependency&gt;</span>
+			<span style="color: #fb660a; font-weight: bold">&lt;groupId&gt;</span>org.springframework.boot<span style="color: #fb660a; font-weight: bold">&lt;/groupId&gt;</span>
+			<span style="color: #fb660a; font-weight: bold">&lt;artifactId&gt;</span>spring-boot-starter-web<span style="color: #fb660a; font-weight: bold">&lt;/artifactId&gt;</span>
+		<span style="color: #fb660a; font-weight: bold">&lt;/dependency&gt;</span>
+		<span style="color: #008800; font-style: italic; background-color: #0f140f">&lt;!-- 웹 어플리케이션을 생성에 필요 --&gt;</span>
+		<span style="color: #fb660a; font-weight: bold">&lt;dependency&gt;</span>
+			<span style="color: #fb660a; font-weight: bold">&lt;groupId&gt;</span>org.springframework.boot<span style="color: #fb660a; font-weight: bold">&lt;/groupId&gt;</span>
+			<span style="color: #fb660a; font-weight: bold">&lt;artifactId&gt;</span>spring-boot-starter-thymeleaf<span style="color: #fb660a; font-weight: bold">&lt;/artifactId&gt;</span>
+		<span style="color: #fb660a; font-weight: bold">&lt;/dependency&gt;</span>
+		<span style="color: #008800; font-style: italic; background-color: #0f140f">&lt;!--  테스트에 필요 --&gt;</span>
+		<span style="color: #fb660a; font-weight: bold">&lt;dependency&gt;</span>
+			<span style="color: #fb660a; font-weight: bold">&lt;groupId&gt;</span>org.springframework.boot<span style="color: #fb660a; font-weight: bold">&lt;/groupId&gt;</span>
+			<span style="color: #fb660a; font-weight: bold">&lt;artifactId&gt;</span>spring-boot-starter-test<span style="color: #fb660a; font-weight: bold">&lt;/artifactId&gt;</span>
+			<span style="color: #fb660a; font-weight: bold">&lt;scope&gt;</span>test<span style="color: #fb660a; font-weight: bold">&lt;/scope&gt;</span>
+		<span style="color: #fb660a; font-weight: bold">&lt;/dependency&gt;</span>
 </pre></div>
 
 ![screenshot004](/assets/images/posts/2019/01/2019-01-14-SpringBoot-Tutorial-001-004.png)
@@ -235,7 +243,9 @@ sitemap :
 <br/>
 
 ## 5. 빌드
-* mvn clean install
+<div markdown="1" style="background: #111111; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #ffffff">mvn clean install</span>
+</pre></div>
+
 
 ![screenshot006](/assets/images/posts/2019/01/2019-01-14-SpringBoot-Tutorial-001-006.png)
 
@@ -243,8 +253,9 @@ sitemap :
 
 ## 6. 실행
 
-<div markdown="1" style="background: #f8f8f8; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #888888">java -jar [JAR_NAME]</span>
-</pre></td></tr></table></div>    
+<div markdown="1" style="background: #111111; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #ffffff">java -jar [JAR_NAME]</span>
+</pre></div>
+  
 
 ![screenshot007](/assets/images/posts/2019/01/2019-01-14-SpringBoot-Tutorial-001-007.png)
 

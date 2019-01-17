@@ -14,6 +14,8 @@ sitemap :
 * Spring Boot 어플리케이션을 이용하여 웹 서버에 war 배포 가능
 * 어떻게 war 파일 형태로 만들고, 어떻게 Tomcat 웹서버에 Spring Boot 어플리케이션을 배포하는지 학습
 
+<br/>
+
 # Practice
 ## 1. Spring Boot Servlet Initializer
 * Spring Boot 어플리케이션을 배포하기 위학 가장 전통적인 방법은 <span style:color="green">**SpringBootServletInitializer**</span> 클래스를 상속하는 것
