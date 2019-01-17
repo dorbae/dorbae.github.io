@@ -11,10 +11,14 @@ sitemap :
   changefreq : weekly
 ---
 
+# Goal
+* 로그란 어떤 것인지 알아보자
+* 로그가 분산시스템과 실시간 데이터 처리에 있어서 어떻게 활용되는지 알아보자
 * 다음 글은 링크드인 엔지니어링에 기재된 [The Log: What every software engineer should know about real-time data's unifying abstraction(Jay Kreps, December 16, 2013)](https://engineering.linkedin.com/distributed-systems/log-what-every-software-engineer-should-know-about-real-time-datas-unifying) 를 해석 및 재정리    
-      
 
-## 들어가며    
+<br/>    
+
+# 들어가며    
 * 필자는 2007년 LinkedIn에 들어가, Monolithic, 중앙화된 데이터베이스의 한계를 뛰어넘어 분산 시스템으로 전환해왔다
 ![distibutedsystem](/assets/images/posts/2019/01/2019-01-11-distribution-log-linkedin-001.jpg)
 * 필자는 분산 그래프 데이터베이스, 백엔드 분산 검색 엔진, 하둡 1/2 세대 Key/Value 저장소를 개발하고 구축/적용했다.
@@ -26,6 +30,8 @@ sitemap :
 * 그래서 필자는 이런 로그에 대한 이해도를 높이고자 글을 쓰게 되었고, 글에서는 로그란 무엇이고, 데이터 통합, 실시간 처리, 시스템 구축에 있어서 로그는 어떻게 쓰이는지를 설명한다.
 
 <br/>
+
+# Practice
 
 ## Part 1. 로그란 무엇인가?
 * 로그는 시간 순으로 정렬된 레코드의 집합체이며, 추가만 가능

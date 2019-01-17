@@ -10,6 +10,10 @@ sitemap :
   changefreq : weekly
 ---
 
+# Goal
+* Java의 HashMap이 어떤 원리로 동작하는지
+
+# 들어가며
 * Naver 기술블로그 HelloWorld 에 기재된 ['Java HashMap은 어떻게 동작하는가?'](https://d2.naver.com/helloworld/831311) 자료 공부    
 
 -----------
@@ -30,5 +34,5 @@ sitemap :
      
 ----------     
 
-### 참조
-[Java HashMap은 어떻게 동작하는가?](https://d2.naver.com/helloworld/831311)
+## References
+* [Java HashMap은 어떻게 동작하는가?](https://d2.naver.com/helloworld/831311)

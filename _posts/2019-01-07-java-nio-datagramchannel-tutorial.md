@@ -10,6 +10,13 @@ sitemap :
   changefreq : weekly
 ---
 
+# Goal
+* Java NIO DatagramChannel을 이용하여 UDP Send/Receive 구현
+
+<br/>
+
+# Practice
+
 ## DatgramChannel Receiver
 
 <div markdown="1" style="background: #272822; border-width: 0.1em 0.1em 0.1em 0.8em; border: solid gray; overflow: auto; padding: 0.2em 0.6em; width: auto;">
@@ -187,7 +194,7 @@ sitemap :
 </tbody></table>
 </div>
      
-        
+<br/>        
     
 ## DatagramChannel Sender     
     

@@ -11,6 +11,12 @@ sitemap :
   changefreq : weekly
 ---
 
+# Goal
+* RocketMQ란 무엇인가
+* RocketMQ 설치 및 간단한 테스트
+
+<br/>
+
 # RocketMQ
   
 * 낮은 latency와 고성능으로 분산 메시징과 스트리밍 처리를 제공하는 플랫폼

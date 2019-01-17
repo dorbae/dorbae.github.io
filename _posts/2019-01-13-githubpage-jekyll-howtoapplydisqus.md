@@ -11,11 +11,19 @@ sitemap :
   changefreq : weekly
 ---
 
-# Disqus
+# Goal
+* Jekyll에 Disqus를 이용하여 Post 댓글 기능 구현
+
+<br>
+
+# 들어가며
+## Disqus
 * 댓글을 직접 구현하지 않고 위젯의 형태로 서비스에 삽입할 수 있는 댓글 전문 서비스
 * Disqus를 이용하여 자신의 웹사이트에 다양한 기능의 소셜네트워크 통합 기능을 적용 가능
 * 소셜네트워크의 향상된 관리 기능과 커뮤니티를 위한 다양한 기능을 제공
 * [공식사이트](disqus.com )
+
+<br/>
 
 ## Disqus를 사용하는 이유
 * 다양한 기능
@@ -32,15 +40,15 @@ sitemap :
     * 이용자와 관련된 광고를 표시
     * 관련 광고를 통해 광고 수익 창출 가능
 
--------
+<br/>
 
-## Disqus Jekyll에 적용하기
-### 1. Disqus 가입
+# Practice
+## 1. Disqus 가입
 * [Disqus 홈페이지](https://disqus.com/) 접속
 
 <br/>
 
-### 2. Disqus 사이트 설정
+## 2. Disqus 사이트 설정
 * Disqus 타입 설정
 ![type](/assets/images/posts/2019/01/2019-01-13-githubpage-jekyll-howtoapplydisqus-001.png)
 
@@ -56,7 +64,7 @@ sitemap :
 
 <br/>
 
-### 3. Disqus 코드 적용하기
+## 3. Disqus 코드 적용하기
 * GitHub Page에 적용할 코드 복사
 ![code](/assets/images/posts/2019/01/2019-01-13-githubpage-jekyll-howtoapplydisqus-004.png)
 ![codecopy](/assets/images/posts/2019/01/2019-01-13-githubpage-jekyll-howtoapplydisqus-005.png)

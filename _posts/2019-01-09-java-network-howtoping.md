@@ -10,6 +10,12 @@ sitemap :
   changefreq : weekly
 ---
 
+# Goal
+* Java에서 Ping 구현
+
+<br/>
+
+# Practice
 * Java에서는 ICMP 프로토콜을 지원하지 않는다. 따라서 아래와 같은 방법으로 네트워크가 닿을 수 있는지 구현 가능      
       
 <div markdown="1" style="background: #272822; border-width: 0.1em 0.1em 0.1em 0.8em; border: solid gray; overflow: auto; padding: 0.2em 0.6em; width: auto;">
