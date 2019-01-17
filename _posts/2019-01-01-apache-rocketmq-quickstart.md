@@ -31,21 +31,24 @@ sitemap :
   * Git
   * 4g+ free disk for Broker server
   
-<div style="background: #f8f8f8; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #000080; font-weight: bold">$</span> wget http://mirror.navercorp.com/apache/rocketmq/<span style="color: #666666">{</span>version<span style="color: #666666">}</span>/rocketmq-all-<span style="color: #666666">{</span>version<span style="color: #666666">}</span>-bin-release.zip
-<span style="color: #000080; font-weight: bold">$</span> unzip rocketmq-all-<span style="color: #666666">{</span>version<span style="color: #666666">}</span>-bin-realase.zip
-</pre></div>  
+<div markdown="1" style="background: #111111; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #ffffff">$ wget http://mirror.navercorp.com/apache/rocketmq/{version}/rocketmq-all-{version}-bin-release.zip</span>
+<span style="color: #ffffff">$ unzip rocketmq-all-{version}-bin-realase.zip</span>
+</pre></div>
+
 
   
 ![RocketMQ Architecture](/assets/images/posts/2019/01/2019-01-01-apache-rocketmq-quickstart-002.png)  
 ![RocketMQ Architecture](/assets/images/posts/2019/01/2019-01-01-apache-rocketmq-quickstart-003.png)  
-  
+
+<br/>
+
 ## 2. Setup environment variables
-<div style="background: #f8f8f8; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #000080; font-weight: bold">$</span> vi ~/.profile
-<span style="color: #888888">[edit]</span>
 
-
-<span style="color: #000080; font-weight: bold">$</span> . ~/.profile
-</pre></div>    
+<div markdown="1" style="background: #111111; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #ffffff">$ vi ~/.profile</span>
+<span style="color: #ffffff">[edit]</span>
+<span style="color: #ffffff">$ . ~/.profile</span>
+</pre></div>
+    
  
 
 ![RocketMQ Architecture](/assets/images/posts/2019/01/2019-01-01-apache-rocketmq-quickstart-004.png)    
@@ -55,69 +58,87 @@ sitemap :
 **export PATH=$PATH:$ROCEKTMQ_HOME/bin**  
 **export NAMESRV_ADDR={host}:{port}**    # for Name server connector address  
 
-  
+<br/>
+
 ## 3. Startup Name Server
 #### 3.1. Run Error -> Edit JVM Options
 
-<!-- HTML generated using hilite.me --><div style="background: #f8f8f8; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #000080; font-weight: bold">$</span> vi <span style="color: #19177C">$ROCKETMQ_HOME</span>/bin/runserver.sh
-<span style="color: #888888">[Edit : Optimize memory size in your system]</span>
-</pre></div>  
+<div markdown="1" style="background: #111111; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #ffffff">$ vi $ROCKETMQ_HOME/bin/runserver.sh</span>
+
+<span style="color: #ffffff">[Edit</span> <span style="color: #ffffff">:</span> <span style="color: #ffffff">Optimize memory size in your system]</span>
+</pre></div>
+
+
 
   
 ![RocketMQ Architecture](/assets/images/posts/2019/01/2019-01-01-apache-rocketmq-quickstart-006.png)  
 ![RocketMQ Architecture](/assets/images/posts/2019/01/2019-01-01-apache-rocketmq-quickstart-007.png)  
-  
+
+<br/>  
+
 #### 3.2 Start Name Server in background
 
-<div style="background: #f8f8f8; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #000080; font-weight: bold">$</span> nohup mqnamesrv &gt; <span style="color: #19177C">$ROCKETMQ_HOME</span>/log/mqnamesrv.log  2&gt;&amp;1 &amp;
-<span style="color: #000080; font-weight: bold">$</span> tail -f <span style="color: #19177C">$ROCKETMQ_HOME</span>/log/mqnamesrv.log
-</pre></div>  
-
+<div markdown="1" style="background: #111111; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #ffffff">$ nohup mqnamesrv &gt; $ROCKETMQ_HOME/log/mqnamesrv.log  2&gt;&amp;1 &amp;</span>
+<span style="color: #ffffff">$ tail -f $ROCKETMQ_HOME/log/mqnamesrv.log</span>
+</pre></div>
   
 ![RocketMQ Architecture](/assets/images/posts/2019/01/2019-01-01-apache-rocketmq-quickstart-008.png)  
   
+<br/> 
+
 ## 4. Start Broker Server
 
-<div style="background: #f8f8f8; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #000080; font-weight: bold">$</span> nohup mqbroker &gt; <span style="color: #19177C">$ROCKETMQ_HOME</span>/log/mqbroker.log  2&gt;&amp;1 &amp;
-<span style="color: #000080; font-weight: bold">$</span> tail -f <span style="color: #19177C">$ROCKETMQ_HOME</span>/log/mqbroker.log
-</pre></div>  
-
+<div markdown="1" style="background: #111111; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #ffffff">$ nohup mqbroker &gt; $ROCKETMQ_HOME/log/mqbroker.log  2&gt;&amp;1 &amp;</span>
+<span style="color: #ffffff">$ tail -f $ROCKETMQ_HOME/log/mqbroker.log</span>
+</pre></div>
   
 ![RocketMQ Architecture](/assets/images/posts/2019/01/2019-01-01-apache-rocketmq-quickstart-009.png)  
-  
+
+<br/>
+
 #### 4.1. Run Error -> Edit JVM Options
 
-<div style="background: #f8f8f8; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #000080; font-weight: bold">$</span> vi <span style="color: #19177C">$ROCKETMQ_HOME</span>/bin/runbroker.sh
-<span style="color: #888888">[Edit : Optimize memory size in your system]</span>
-</pre></div>  
-
+<div markdown="1" style="background: #111111; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #ffffff">$ vi $ROCKETMQ_HOME/bin/runbroker.sh</span>
+<span style="color: #ffffff">[Edit</span> <span style="color: #ffffff">:</span> <span style="color: #ffffff">Optimize memory size in your system]</span>
+</pre></div>
     
 ![RocketMQ Architecture](/assets/images/posts/2019/01/2019-01-01-apache-rocketmq-quickstart-010.png)  
 ![RocketMQ Architecture](/assets/images/posts/2019/01/2019-01-01-apache-rocketmq-quickstart-011.png)  
   
+<br/>
+
 ## 5. Test Message Produce/Consume
 #### 5.1. Start Producer
 
-<div style="background: #f8f8f8; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #000080; font-weight: bold">$</span> sh <span style="color: #19177C">$ROCKETMQ_HOME</span>/bin/tools.sh org.apache.rocketmq.example.quickstart.Producer
-</pre></div>  
-<!-- HTML generated using hilite.me --><div style="background: #f8f8f8; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #000080; font-weight: bold">$</span> sh <span style="color: #19177C">$ROCKETMQ_HOME</span>/bin/tools.sh org.apache.rocketmq.example.quickstart.Consumer
-</pre></div>  
+<div markdown="1" style="background: #111111; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #ffffff">$ sh $ROCKETMQ_HOME/bin/tools.sh org.apache.rocketmq.example.quickstart.Producer</span>
+</pre></div>
+ 
+<br/>
 
-    
+#### 5.2. Start Consumer
+
+<div markdown="1" style="background: #111111; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #ffffff">$ sh $ROCKETMQ_HOME/bin/tools.sh org.apache.rocketmq.example.quickstart.Consumer</span>
+</pre></div>
+
+ 
 ![RocketMQ Architecture](/assets/images/posts/2019/01/2019-01-01-apache-rocketmq-quickstart-013.png)  
-  
+
+<br/>
+
 ## 6. Shutdown
 
-<div style="background: #f8f8f8; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #000080; font-weight: bold">#</span> Shutdown Broker
-<span style="color: #000080; font-weight: bold">$</span> mqshutdown broker
-<span style="color: #000080; font-weight: bold">#</span> Shutdown Name Server
-<span style="color: #000080; font-weight: bold">#</span> mqshtudown namesrv
-</pre></div>  
+<div markdown="1" style="background: #111111; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-style: italic; background-color: #0f140f"># Shutdown Broker</span>
+<span style="color: #ffffff">$ mqshutdown broker</span>
+<span style="color: #ffffff"># Shutdown Name Server</span>
+<span style="color: #ffffff"># mqshtudown namesrv</span>
+</pre></div>
 
-  
 ![RocketMQ Architecture](/assets/images/posts/2019/01/2019-01-01-apache-rocketmq-quickstart-014.png)  
-* References  
-  * [RocketMQ Tutorial](https://rocketmq.apache.org/docs/quick-start/)
-  * [RocketMQ WiKi](https://en.wikipedia.org/wiki/Apache_RocketMQ)
+
+<br/>
+
+## References
+* [RocketMQ Tutorial](https://rocketmq.apache.org/docs/quick-start/)
+* [RocketMQ WiKi](https://en.wikipedia.org/wiki/Apache_RocketMQ)
 
 
