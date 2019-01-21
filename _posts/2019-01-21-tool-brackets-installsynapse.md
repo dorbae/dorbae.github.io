@@ -26,33 +26,33 @@ sitemap :
 ## 1. 확장 기능 관리자 열기
 * 파일 > 확장 기능 관리자...
      
-![screenshot001](/assets/images/posts/2019/01/2019-01-21-tool-brackets-installsynapse-001.jpg)     
+![screenshot001](/assets/images/posts/2019/01/2019-01-21-tool-brackets-installsynapse-001.png)     
 
 <br/>
 
 ## 2. Synapse 플러그인 검색 및 설치
 * 검색창에 'synapse' 검색 > 설치
 
-![screenshot002](/assets/images/posts/2019/01/2019-01-21-tool-brackets-installsynapse-002.jpg)
+![screenshot002](/assets/images/posts/2019/01/2019-01-21-tool-brackets-installsynapse-002.png)
 
 <br/>
 
 ## 3. 원격 서버 등록
 * 에디터 왼쪽에 Synapse 플러그인 아이콘 클릭
-![screenshot003](/assets/images/posts/2019/01/2019-01-21-tool-brackets-installsynapse-003.jpg)
+![screenshot003](/assets/images/posts/2019/01/2019-01-21-tool-brackets-installsynapse-003.png)
 
 * 원격 서버 추가 > 서버 정보 입력
 
-![screenshot004](/assets/images/posts/2019/01/2019-01-21-tool-brackets-installsynapse-004.jpg)
+![screenshot004](/assets/images/posts/2019/01/2019-01-21-tool-brackets-installsynapse-004.png)
 
-![screenshot005](/assets/images/posts/2019/01/2019-01-21-tool-brackets-installsynapse-005.jpg)
+![screenshot005](/assets/images/posts/2019/01/2019-01-21-tool-brackets-installsynapse-005.png)
 
 <br/>
 
 ## 4. 서버 연결
 * 서버 정보에 마우스를 가져가면 CONNECT 버튼이 활성화
 
-![screenshot006](/assets/images/posts/2019/01/2019-01-21-tool-brackets-installsynapse-006.jpg)
+![screenshot006](/assets/images/posts/2019/01/2019-01-21-tool-brackets-installsynapse-006.png)
 
 > 서버 연결 로딩 화면에서 연결 상태로 넘어가지 않아서, 결과 화면은 보지 못했다.
 
