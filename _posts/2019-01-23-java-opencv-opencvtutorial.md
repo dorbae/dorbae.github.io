@@ -6,7 +6,7 @@ author: dorbae
 date: 2019-01-23 +0900
 image: /assets/images/posts/2019/01/2019-01-23-java-opencv-opencvtutorial-thumbnail.png
 categories : [Java,OpenCV]
-tags: [java.opencv,cv,tutorial]
+tags: [java,opencv,cv,tutorial]
 sitemap :
   changefreq : weekly
 ---
