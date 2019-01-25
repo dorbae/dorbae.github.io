@@ -25,7 +25,7 @@ sitemap :
 ## 1. OpenCV 라이브러리 생성
 * Ant 설치 
     <div style="background: #111111; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #ffffff">$ brew install ant</span>
-</pre></div>
+    </pre></div>
 
 > Ant 설치를 위해서는 /usr/local/bin에 권한이 있어야함
 
@@ -39,14 +39,14 @@ sitemap :
     <div style="background: #111111; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #ffffff">$ brew edit opencv</span>
 
     <span style="color: #ffffff">[edit]</span>
-</pre></div>
+    </pre></div>
 
 ![screenshot002](/assets/images/posts/2019/01/2019-01-23-java-opencv-opencvtutorial-002.gif)
 
 * OpenCV 빌드
 
     <div style="background: #111111; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #ffffff">$ brew install --build-from-source opencv</span>
-</pre></div>
+    </pre></div>
 
 ![screenshot003](/assets/images/posts/2019/01/2019-01-23-java-opencv-opencvtutorial-003.gif)
 
