@@ -94,8 +94,8 @@ sitemap :
 <br/>
 
 ## 2. 데이터베이스 생성
-* test DB 생성
-* [자세한 createdb 명령어에 대한 설명](https://www.cubrid.org/manual/ko/9.3.0/admin/admin_utils.html#creating-database)
+* [자세한 createdb 명령어에 대한 설명]
+* test DB 생성(https://www.cubrid.org/manual/ko/9.3.0/admin/admin_utils.html#creating-database)
     
 <div style="background: #202020; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #d0d0d0">$ cd $CUBRID_DATABASE</span>
 <span style="color: #d0d0d0">$ mkdir [DATABASE_DIRECTORY_NAME]</span>
