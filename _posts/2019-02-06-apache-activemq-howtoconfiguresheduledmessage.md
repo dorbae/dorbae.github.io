@@ -36,7 +36,7 @@ sitemap :
 </pre></div>
 
 > Message property 중 **scheduledJobId** Job Scheduler가 사용하기 위해서 지정된 값이다. 메시지가 전송하기 전에 설정되는데, 메시지가 즉시 전송되거나 스케줄이 적용이 안 될 수도 있다.    
-[Message Expiration(Time to Live) Confusion](/posts/2019/01/2019-01-16-Apache-ActiveMQ-MessageExpirationConfusion.md) 참조
+[Message Expiration(Time to Live) Confusion](/posts/2019-01-16-Apache-ActiveMQ-MessageExpirationConfusion.md) 참조
 
 > 메시지를 수신했을 때, scheduledJobId를 사용할 경우, Camel Route를 적용할 때 message properties도 복사 후에 라우팅 시키도록 적용해야한다.
 
