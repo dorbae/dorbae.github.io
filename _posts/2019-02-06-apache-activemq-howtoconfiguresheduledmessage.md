@@ -40,6 +40,7 @@ sitemap :
 
 > 메시지를 수신했을 때, scheduledJobId를 사용할 경우, Camel Route를 적용할 때 message properties도 복사 후에 라우팅 시키도록 적용해야한다.
 
+
 <br/>
 
 ## 2. Scheduled Message 전송
