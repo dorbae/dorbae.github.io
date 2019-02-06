@@ -52,12 +52,13 @@ sitemap :
 | AMQ_SCHEDULED_REPEAT | int | 메시지가 몇 번 반복적으로 전송할지 |
 | AMQ_SCHEDULED_CRON | String | Cron 패턴에 따라서 메시지 전송 |
 
-> AMQ_SCHEDULED_PERIOD, AMQ_SCHEDULED_REPEAT를 설정했을 때, 총 전송되는 메시지 건수는 AMQ_SCHEDULED_REPEAT를 + 1 (최초 전송)
+> AMQ_SCHEDULED_PERIOD, AMQ_SCHEDULED_REPEAT를 설정했을 때, 총 전송되는 메시지 건수는 AMQ_SCHEDULED_REPEAT + 1 (최초 전송)
 
 > AMQ_SCHEDULED_CRON, AMQ_SCHEDULED_REPEAT를 설정할 경우, AMQ_SCHEDULED_REPEAT 횟수는 스케줄 때마다 적용된다.    
 AMQ_SCHEDULED_REPEAT = 5    
 AMQ_SCHEDULED_CRON = * * * * *    
-와 같이 설정할 경우, 매 분마다 (AMQ_SCHEDULED_REPEAT + 1) 건이 전송. 60분동안 (60 * (5+1)) = 360건 전송
+와 같이 설정할 경우, 매 분마다 (AMQ_SCHEDULED_REPEAT + 1) 건이 전송.        
+60분동안 (60 * (5+1)) = 360건 전송
 
 
 ### 2.2. Client Java 코드
