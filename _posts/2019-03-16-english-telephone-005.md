@@ -12,7 +12,7 @@ sitemap :
 
 # 전화영어 - Day 005 (20190316)
 
-## Part 2
+## Part 1
 * Question
     * Who is your favorite movie star?
 
