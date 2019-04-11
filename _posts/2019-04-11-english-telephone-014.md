@@ -74,9 +74,13 @@ sitemap :
 * Answer (Correction)
     * I'd like to talk about my university friend who I met when we were both freshman. When I met him in the university's welcome party for new students, I saw him there and later I learned that we were in the same class. I wanted to be friends with him because he looked nice however, he was somewhat taciturn. Nevertheless, I though he was very good-lookig. He had bushy eyebrows and his eyes were much bigger compared to other guys and they were very expressive too.  He's very tall, in fact I think he's more than 185cm tall. He has great muscles so he looked like a movie star. But when I got to know him more eventually, I realized that he is handsome not only because of his great appearance but also smart. In fact, when we graduated from the university, he studied for another 6 months then got admitted to another university which many people thought was so much better than our previous univesity. 
 
+> who/where 같은 관계대명사를 이용해서 한 문장이 너무 짧지 않도록 할 것!
+
 <br />
+
+-------
 
 ------
 
 ## Correction Others
-* 불이 꺼지다 : It was put off 또는 It was  
+* 불이 꺼지다 : It was put off 또는 It was extinguished 
