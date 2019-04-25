@@ -79,15 +79,23 @@ sitemap :
 
 ## Part 3
 
+* Queestion
+    * What is advantage and disadvantage of family business?
+
+* Answer (No correction)
+    * I think there are a lot of advantage and disadvantage of it. First, advantage of it is that they can work efficiently, becuase they are close than other people and they know each other well. So it can be very helpful in business. However, it has disadvantage also. I think family business usually not give a change to operate the business to other people. Because they are not family. It can loose a change to expand their business.
+
+    > walk /wok/
+
+    > work /werk/
+    
+<br />
+
 * Question
     * How can someone be a successful businessman in your country?
 
 * Answer
     * (Homework)
-
-    > walk /wok/
-
-    > work /werk/
 
 <br />
 
