@@ -86,6 +86,10 @@ sitemap :
 
     [To be continue]
 
+    > reconcile : 화해하다
+
+<br />
+
 ------
 
 ## Correction Others
