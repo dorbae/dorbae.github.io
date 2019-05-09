@@ -95,6 +95,9 @@ sitemap :
 
 * Answer (Homework)
     * I think they have passion for their work and modesty. Becase if they aren't, people are going to loose their attention for them. And they are always faithful and do the efforts for what they do.
+
+* Answer (Correction)
+    * I think they have passion for their work and modesty. Becase if they (aren't) DON'T, people are NOT going to (loose their) PAY attention (for) TO them. And they are always faithful and (do) GIVE (the) efforts (for) TO what they do.
     
 
 <br />
