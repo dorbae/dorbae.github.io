@@ -1,26 +1,78 @@
 ---
 layout: post
-title: "[Telephone English] Learning English by phone #024"
+title: "[Telephone English] Learning English by phone #025"
 comments: true
 author: dorbae
-date: 2019-05-09 +0900
+date: 2019-05-14 +0900
 categories : [English,Telephone]
 tags: [english,telephone,telephone english]
 sitemap :
   changefreq : weekly
 ---
 
-# 전화영어 - Day 024 (20190509)
+# 전화영어 - Day 025 (20190514)
+
+## Part 1
+* Question
+    * Do you think math is important?
+
+* Answer (No correction)
+    * Yes, I think math is very important to us. It is because if we were good at math, we can do many things such as computer programmin or Machine learning which is new technology. 
+
+<br />
+
+* Question
+    * Do you thinkg learn Math is difficult as well?
+
+* Answer (In my case)
+    * Yes, I thinkg learning Math is very difficult. So, to be honest, when I was a high school student, I **forgave** Mathematics. Becase it was very difficult.
+
+* Answer (Correction)
+    * Yes, I thinkg learning Math is very difficult. So, to be honest, when I was a high school student, I **gave up** Mathematics. Becase it was very difficult.
+
+    > forgive 는 용서하다
+
+    > give up 썼어야 함
+
+<br />
+
+* Question
+    * Are girls generally good at Mathematics?
+
+* Answer (In my case)
+    * Frankly speaking, I have no idea about **that**. But, **in my case**, when I was a high school student, in average, girls generally had higher score than boys in Math. They had higher score than boys in other subjects also.
+
+* Answer (Correction)
+    * I have no idea about it, but **based on my experience** when I was in high school, girls generally get better scores than boys in many subjects inluding Math.
+
+<br />
+
+* Question
+    * Do you often use calculator?
+
+* Answer (No correction)
+    * Yes, I often use calculator in computer or smart phone. Becasue I alwasy develop program/software. So, I always need to calculate somthing. So, I use caculator everyday.
+
+<br />
+
+----------------------
+
 
 ## Part 2
 
 * Question
-    * Describe a time you enjoyed your free time
+    * Describe a time when you received money as a present
     * You should say: 
-        * When it was
-        * Where you were
-        * What you did
-        * And how you felt about it
+        * Who gave it
+        * When you received it
+        * What you did with it
+        * How you felt about it
+
+* Answer (In my case)
+    * When I entered university, my father gave me some money. The reason he gave money was that he suggest to make a computer, because I specialized computer science. He thought I was able to make computer from beginning to end. But I spent money whith my friends. I felt guilty, Because I had no mney to buy component of computer.    
+
+* Answer (Correction)
+    * When I entered university, my father gave me some money because he was suggesting me to make a computer myself since I especialize in computer software. He had so much confidence in me that I would be able to make a computer all by myself. However, I spent the money to drink with my friends because during that time I was younger and I thought that it was more fun to hang out with my friends. In addition, I also thought that it would be easy for me to make a computer just by watching some videos on the internet. Of course, I felt guilty because I had no money to buy materials for making a computer. So I tried my best to save some money to be able to do what my father asked me to do.
 
 * Answer (Correction)
     * Last year, I got married so was entitled for a long vacation for honeymoon. I took this opportunity to also be free from anything related to my work. We went to Cancun, Mexico where we enjoyed our stay in a hotel with a lot of amenities. We also enjoyed the beautiful beach of Mexico and visited their pyrmids. After then, we also went to New York City where we enjoyed a lot of food and drinks. We even visited a brewery where we learned about beer-making and drank fresh beer. We also attended an interactive musical play which was very fun and exciting. This experience is very unforgettable and it made me relieve my stress. I was also glad to spend a lot of free time with my wife.
@@ -73,3 +125,5 @@ sitemap :
 ------
 
 ## Correction Others
+
+* I went to wedding ceremony becase my cousin got married -> I attended my cousin's wedding
