@@ -26,17 +26,17 @@ sitemap :
 <br />
 
 # Solution
-## Activate virtual env and install Django
-* Check virtual env name and path
+## 1. Activate virtual env and install Django
+### 1.1. Check virtual env name and path
 
 ![screenshot002](/assets/images/posts/2019/05/2019-05-28-Python-Django-Importerror-002.png)
 
-* Activate virtual env which is used in my project
+### 1.2. Activate virtual env which is used in my project
 
 <div markdown="1" style="background: #202020; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #d0d0d0">$ conda activate [ENV_NAME]</span>
 </pre></div>
 
-* Install Django
+### 1.3. Install Django
 
 <div markdown="1" style="background: #202020; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #d0d0d0">(env) $ pip install django</span>
 </pre></div>
@@ -45,7 +45,7 @@ sitemap :
 
 <br />
 
-## Run Django application
+## 2. Run Django application
 
 ![screenshot004](/assets/images/posts/2019/05/2019-05-28-Python-Django-Importerror-004.png)
 
