@@ -29,7 +29,7 @@ sitemap :
 <div markdown="1" style="background: #202020; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #d0d0d0">(venv) $ python manage.py startapp [APP_NAME]</span>
 </pre></div>
 
-[!screenshot001](/assets/images/posts/2019/06/2019-06-26-python-django-downloadfile-001.png)
+![screenshot001](/assets/images/posts/2019/06/2019-06-26-python-django-downloadfile-001.png)
 
 <br />
 
@@ -37,7 +37,7 @@ sitemap :
 * You can put files in anywhere, but I made 'files' directory in created app directory. And I put my files in there.
 * In my case, I created new sub directory name 'apk' and put my apk files in there.
 
-[!screenshot002](/assets/images/posts/2019/06/2019-06-26-python-django-downloadfile-002.png)
+![screenshot002](/assets/images/posts/2019/06/2019-06-26-python-django-downloadfile-002.png)
 
 <br />
 
@@ -135,13 +135,13 @@ sitemap :
 ### 3.2. Edit [PROJECT]/urls.py
 * Add URL Pattern
 
-[!screenshot003](/assets/images/posts/2019/06/2019-06-26-python-django-downloadfile-003.png)
+![screenshot003](/assets/images/posts/2019/06/2019-06-26-python-django-downloadfile-003.png)
 
 <br />
 
 ## 4. Test
 
-[!screenshot004](/assets/images/posts/2019/06/2019-06-26-python-django-downloadfile-004.png)
+![screenshot004](/assets/images/posts/2019/06/2019-06-26-python-django-downloadfile-004.png)
 
 <br />
 
