@@ -32,8 +32,8 @@ sitemap :
 
 <br />
 
-<div style="background: #eeeedd; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #888888">$</span>&gt; touch -t 201907150700 backup_mariadb_agriculture_19.07.15.0700.sql
-<span style="color: #888888">$</span>&gt; touch -t 201907220700 backup_mariadb_agriculture_19.07.22.0700.sql
+<div style="background: #eeeedd; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #888888">$ touch -t 201907150700 backup_mariadb_agriculture_19.07.15.0700.sql</span>
+<span style="color: #888888">$ touch -t 201907220700 backup_mariadb_agriculture_19.07.22.0700.sql</span>
 </pre></div>
 
 <br />
@@ -45,12 +45,12 @@ sitemap :
 ## 2. Remove old files
 * You can find only the files that you want and execute a specific command to them by **___find___** command
 
-<div markdown="1" style="background: #eeeedd; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #888888">$</span>&gt; find [DIRECTORY] -name [FILE_NAME] -mtime +[DAYS] -exec rm -f {} <span style="color: #CD5555">\;</span>
+<div markdown="1" style="background: #eeeedd; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #888888">$ find [DIRECTORY] -name [FILE_NAME] -mtime +[DAYS] -exec rm -f {} </span><span style="color: #CD5555">\;</span>
 </pre></div>
 
 <br />
 
-<div markdown="1" style="background: #eeeedd; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #888888">$</span>&gt; find ~/ -name <span style="color: #CD5555">&#39;backup_mariadb_agriculture_*.sql&#39;</span> -mtime +6 -exec rm -f {} <span style="color: #CD5555">\;</span>
+<div markdown="1" style="background: #eeeedd; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #888888">$ find ~/ -name </span><span style="color: #CD5555">&#39;backup_mariadb_agriculture_*.sql&#39;</span><span style="color: #888888"> -mtime +6 -exec rm -f {} </span><span style="color: #CD5555">\;</span>
 </pre></div>
 
 <br />
@@ -63,7 +63,7 @@ sitemap :
 
 ### 3.1. Edit the cron table
 
-<div style="background: #eeeedd; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #888888">#</span>&gt; crontab -e
+<div style="background: #eeeedd; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #888888">$ crontab -e</span>
 </pre></div>
 
 <br />
