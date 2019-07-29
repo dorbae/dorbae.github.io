@@ -86,7 +86,7 @@ chown qubics:qubics <span style="color: #8B008B; font-weight: bold">${</span><sp
 
 ### 2.1. Edit the cron table
 
-<div style="background: #eeeedd; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #888888">#</span>&gt; crontab -e
+<div style="background: #eeeedd; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #888888"># crontab -e</span>
 </pre></div>
 
 <br />
