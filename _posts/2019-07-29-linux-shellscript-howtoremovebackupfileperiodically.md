@@ -17,7 +17,7 @@ sitemap :
 
 # Intro
 * I have created the backup file from MariaDB once a week
-* [How to dump the backup file from MariaDB](/posts/2019-07-29-dbms-mariadb-backupscript.md)
+* [How to dump the backup file from MariaDB](https://dorbae.github.io/dbms/mariadb/dbms-mariadb-backupscript/)
 
 <br />
 
@@ -32,30 +32,30 @@ sitemap :
 
 <br />
 
-<div style="background: #eeeedd; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #555555">$</span>&gt; touch -t 201907150700 backup_mariadb_agriculture_19.07.15.0700.sql
-<span style="color: #555555">$</span>&gt; touch -t 201907220700 backup_mariadb_agriculture_19.07.22.0700.sql
+<div style="background: #eeeedd; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #888888">$</span>&gt; touch -t 201907150700 backup_mariadb_agriculture_19.07.15.0700.sql
+<span style="color: #888888">$</span>&gt; touch -t 201907220700 backup_mariadb_agriculture_19.07.22.0700.sql
 </pre></div>
 
 <br />
 
-![screenshoot001](2019-07-29-linux-shellscript-howtoremovebackupfileperiodically-001.png)
+![screenshoot001](/assets/images/posts/2019/07/2019-07-29-linux-shellscript-howtoremovebackupfileperiodically-001.png)
 
 <br />
 
 ## 2. Remove old files
 * You can find only the files that you want and execute a specific command to them by **___find___** command
 
-<div markdown="1" style="background: #eeeedd; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #555555">$</span>&gt; find [DIRECTORY] -name [FILE_NAME] -mtime +[DAYS] -exec rm -f {} <span style="color: #CD5555">\;</span>
+<div markdown="1" style="background: #eeeedd; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #888888">$</span>&gt; find [DIRECTORY] -name [FILE_NAME] -mtime +[DAYS] -exec rm -f {} <span style="color: #CD5555">\;</span>
 </pre></div>
 
 <br />
 
-<div markdown="1" style="background: #eeeedd; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #555555">$</span>&gt; find ~/ -name <span style="color: #CD5555">&#39;backup_mariadb_agriculture_*.sql&#39;</span> -mtime +6 -exec rm -f {} <span style="color: #CD5555">\;</span>
+<div markdown="1" style="background: #eeeedd; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #888888">$</span>&gt; find ~/ -name <span style="color: #CD5555">&#39;backup_mariadb_agriculture_*.sql&#39;</span> -mtime +6 -exec rm -f {} <span style="color: #CD5555">\;</span>
 </pre></div>
 
 <br />
 
-![screenshoot002](2019-07-29-linux-shellscript-howtoremovebackupfileperiodically-002.png)
+![screenshoot002](/assets/images/posts/2019/07/2019-07-29-linux-shellscript-howtoremovebackupfileperiodically-002.png)
 
 <br />
 
@@ -63,7 +63,7 @@ sitemap :
 
 ### 3.1. Edit the cron table
 
-<div style="background: #eeeedd; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #555555">#</span>&gt; crontab -e
+<div style="background: #eeeedd; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #888888">#</span>&gt; crontab -e
 </pre></div>
 
 <br />
