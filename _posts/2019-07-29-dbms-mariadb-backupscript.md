@@ -64,14 +64,14 @@ sitemap :
 <span style="color: #00688B">TIMESTAMP</span>=<span style="color: #CD5555">`</span>date +<span style="color: #CD5555">&quot;%y.%m.%d.%H%M&quot;`</span>
 <span style="color: #00688B">BACKUP_FILENAME</span>=backup_mariadb_agriculture_<span style="color: #8B008B; font-weight: bold">${</span><span style="color: #00688B">TIMESTAMP</span><span style="color: #8B008B; font-weight: bold">}</span>.sql
 <span style="color: #00688B">ROOT_HOME</span>=<span style="color: #CD5555">&quot;/root&quot;</span>
-<span style="color: #00688B">QUBICS_HOME</span>=<span style="color: #CD5555">&quot;/home/qubics&quot;</span>
+<span style="color: #00688B">MY_USER_HOME</span>=<span style="color: #CD5555">&quot;/home/dorbae&quot;</span>
 
 <span style="color: #658b00">echo</span> <span style="color: #CD5555">&quot;[`date +&quot;</span>%Y-%m-%d %H:%M:%S<span style="color: #CD5555">&quot;`] Start Backup...&quot;</span>
 <span style="color: #658b00">echo</span> <span style="color: #CD5555">&quot;[`date +&quot;</span>%Y-%m-%d %H:%M:%S<span style="color: #CD5555">&quot;`] Backup File Name = ${BACKUP_FILENAME}&quot;</span>
 <span style="color: #228B22"># Backup MariaDB data as SQL format</span>
 mysqldump -uagric -pagriculture agriculture &gt; <span style="color: #8B008B; font-weight: bold">${</span><span style="color: #00688B">ROOT_HOME</span><span style="color: #8B008B; font-weight: bold">}</span>/<span style="color: #8B008B; font-weight: bold">${</span><span style="color: #00688B">BACKUP_FILENAME</span><span style="color: #8B008B; font-weight: bold">}</span>
 
-<span style="color: #658b00">echo</span> <span style="color: #CD5555">&quot;[`date +&quot;</span>%Y-%m-%d %H:%M:%S<span style="color: #CD5555">&quot;`] Moving file ${ROOT_HOME} to ${QUBICS_HOME}&quot;</span>
+<span style="color: #658b00">echo</span> <span style="color: #CD5555">&quot;[`date +&quot;</span>%Y-%m-%d %H:%M:%S<span style="color: #CD5555">&quot;`] Moving file ${ROOT_HOME} to ${MY_USER_HOME}&quot;</span>
 <span style="color: #228B22"># Move to another user home directory</span>
 mv <span style="color: #8B008B; font-weight: bold">${</span><span style="color: #00688B">ROOT_HOME</span><span style="color: #8B008B; font-weight: bold">}</span>/<span style="color: #8B008B; font-weight: bold">${</span><span style="color: #00688B">BACKUP_FILENAME</span><span style="color: #8B008B; font-weight: bold">}</span> <span style="color: #8B008B; font-weight: bold">${</span><span style="color: #00688B">QUBICS_HOME</span><span style="color: #8B008B; font-weight: bold">}</span>/<span style="color: #8B008B; font-weight: bold">${</span><span style="color: #00688B">BACKUP_FILENAME</span><span style="color: #8B008B; font-weight: bold">}</span>
 <span style="color: #228B22"># Change the owner managing the backup file</span>
