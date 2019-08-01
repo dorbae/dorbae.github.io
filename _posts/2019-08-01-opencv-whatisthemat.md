@@ -181,9 +181,12 @@ free(C);
 * Convert N-dimensions matrices to 1-D aaray
 
 #### 1-D Matrix to 1-D Array
+* eg. 3x3
+
 $ \begin{bmatrix}
-a & b \\\\ 
-c & d
+(0,0) & (0,1) & (0,2) \\ 
+(1,0) & (1,1) & (1,2) \\
+(2,0) & (2,1) & (2,2) \\
 \end{bmatrix}$
 
 <br />
