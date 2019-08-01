@@ -224,3 +224,4 @@ free(C);
 ## References
 * [OpenCV Doc](https://docs.opencv.org/3.4.7/d6/d6d/tutorial_mat_the_basic_image_container.html)
 * [W. Kang's Dev Blog](http://blog.comart.io/posts/opencv-rgba-image-blending)
+* [opencvpython](http://opencvpython.blogspot.com/2012/06/difference-between-matrix-arithmetic-in.html)
