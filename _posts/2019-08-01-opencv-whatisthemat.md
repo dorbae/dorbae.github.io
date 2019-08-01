@@ -183,13 +183,6 @@ free(C);
 #### 1-D Matrix to 1-D Array
 * eg. 3x3
 
-$ \begin{bmatrix}
-(0,0) & (0,1) & (0,2) \\\\ 
-(1,0) & (1,1) & (1,2) \\\\
-(2,0) & (2,1) & (2,2)
-\end{bmatrix}$
-
-
 $$\left[\begin{array}{rrr} 
 1&2&3\\
 4&5&6\\
