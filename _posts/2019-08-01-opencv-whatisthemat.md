@@ -215,7 +215,7 @@ free(C);
 ![screenshot017](/assets/images/posts/2019/08/2019-08-01-opencv-whatisthemat-017.png)
 
 
-> OpenCV saves RGB as BGR
+> Mat manages RGB as BGR
 
 <br />
 
