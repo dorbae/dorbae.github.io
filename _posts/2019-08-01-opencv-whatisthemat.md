@@ -183,11 +183,11 @@ free(C);
 #### 1-D Matrix to 1-D Array
 * eg. 3x3
 
-$$\left[\begin{array}{rrr} 
+$\left[\begin{array}{rrr} 
 1&2&3\\
 4&5&6\\
 7&8&9
-\end{array}\right]$$
+\end{array}\right]$
 
 <br />
 
