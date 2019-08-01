@@ -183,11 +183,39 @@ free(C);
 #### 1-D Matrix to 1-D Array
 * eg. 3x3
 
-$\left[\begin{array}{rrr} 
-1&2&3\\
-4&5&6\\
-7&8&9
-\end{array}\right]$
+* Matrix
+
+![screenshot012](/assets/images/posts/2019/08/2019-08-01-opencv-whatisthemat-012.png)
+
+* Array(Bytes Array)
+
+![screenshot016](/assets/images/posts/2019/08/2019-08-01-opencv-whatisthemat-016.png)
+
+<br />
+
+#### Contiguous
+* The way to order the data in memory
+* There are C-contiguous, Fortran-contiguous and so on
+
+![screenshot013](/assets/images/posts/2019/08/2019-08-01-opencv-whatisthemat-013.png)
+
+![screenshot014](/assets/images/posts/2019/08/2019-08-01-opencv-whatisthemat-014.png)
+
+<br />
+
+### N-d Matrices to 1-D Array
+* eg. RGB(CV_8UC3/) 3-Dimensions
+
+* Matrices
+
+![screenshot015](/assets/images/posts/2019/08/2019-08-01-opencv-whatisthemat-015.png)
+
+* Array(Bytes Array)
+
+![screenshot017](/assets/images/posts/2019/08/2019-08-01-opencv-whatisthemat-017.png)
+
+
+> OpenCV saves RGB as BGR
 
 <br />
 
