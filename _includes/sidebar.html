@@ -1,56 +1,35 @@
 {% if page.author_profile or layout.author_profile or page.sidebar %}
-  <div class="sidebar sticky">
+<div class="sidebar sticky">
   {% if page.author_profile or layout.author_profile %}{% include author-profile.html %}{% endif %}
   {% if page.sidebar %}
-    {% for s in page.sidebar %}
-      {% if s.image %}
-        <img src=
-        {% if s.image contains "://" %}
-          "{{ s.image }}"
-        {% else %}
-          "{{ s.image | relative_url }}"
-        {% endif %}
-        alt="{% if s.image_alt %}{{ s.image_alt }}{% endif %}">
-      {% endif %}
-      {% if s.title %}<h3>{{ s.title }}</h3>{% endif %}
-      {% if s.text %}{{ s.text | markdownify }}{% endif %}
-    {% endfor %}
-    {% if page.sidebar.nav %}
-      {% include nav_list nav=page.sidebar.nav %}
-    {% endif %}
+  {% for s in page.sidebar %}
+  {% if s.image %}
+  <img src={% if s.image contains "://" %} "{{ s.image }}" {% else %} "{{ s.image | relative_url }}" {% endif %}
+    alt="{% if s.image_alt %}{{ s.image_alt }}{% endif %}">
   {% endif %}
-  <!-- 사이트바 메뉴 추가 테스트 2019-03-12
-    UI 가 안 나옴. CSS 수정해야되는데 잘 몰라서 그냥 다시 코멘트 처리
-  -->
+  {% if s.title %}<h3>{{ s.title }}</h3>{% endif %}
+  {% if s.text %}{{ s.text | markdownify }}{% endif %}
+  {% endfor %}
+  {% if page.sidebar.nav %}
+  {% include nav_list nav=page.sidebar.nav %}
+  {% endif %}
+  {% endif %}
+
   <!--
+    2019-08-21 사이드바 카테고리 추가
+  -->
   <div>
     <div class="sidebar-nav-item">Category</div>
     <nav class="content-ul">
       {% for category in site.categories %}
-      <a href="{{ root_url }}/{{ site.category_dir }}#{{ category | first }}"
-         class="sidebar-nav-item pl-3rem">
-                            <span class="name">
-                                {{ category | first }}
-                            </span>
+      <a href="{{ root_url }}/{{ site.category_dir }}#{{ category | first }}" class="sidebar-nav-item pl-3rem">
+        <span class="name">
+          {{ category | first }}
+        </span>
         <span class="badge">{{ category | last | size }}</span>
       </a>
       {% endfor %}
     </nav>
   </div>
-  -->
-  <div>
-      <div class="sidebar-nav-item">Category</div>
-      <nav class="content-ul">
-        {% for category in site.categories %}
-        <a href="{{ root_url }}/{{ site.category_dir }}#{{ category | first }}"
-           class="sidebar-nav-item pl-3rem">
-                              <span class="name">
-                                  {{ category | first }}
-                              </span>
-          <span class="badge">{{ category | last | size }}</span>
-        </a>
-        {% endfor %}
-      </nav>
-    </div>
-  </div>
+</div>
 {% endif %}
