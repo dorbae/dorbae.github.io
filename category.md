@@ -10,7 +10,6 @@ title: Categories
   </ul>
 </div> -->
 
-<!doctype html>
 <html>
  
 <head>
@@ -60,15 +59,13 @@ title: Categories
   <ul class="tree">
     <li>
       <input type="checkbox" id="root">
-      <label for="root">ROOT</label>
+      <label for="root">Category</label>
       <ul>
-        <li><a href="https://opentutorials.org">node1</a></li>
-        <li><a href="https://opentutorials.org">node2</a></li>
         <li>
           <input type="checkbox" id="node3">
-          <label for="node3">node3</label>
+          <label for="apache">Apache</label>
           <ul>
-            <li><a href="https://opentutorials.org">node31</a></li>
+            <li><a href="./apache/activemq">ActiveMQ</a></li>
             <li><a href="https://opentutorials.org">node32</a></li>
             <li><a href="https://opentutorials.org">node33</a></li>
           </ul>
