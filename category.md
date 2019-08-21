@@ -71,25 +71,23 @@ title: Categories
           </ul>
         </li>
       </ul> -->
-      {% assign categories_max = 0 %}
+{% assign categories_max = 0 %}
 {% for category in site.categories %}
-  {% if category[1].size > categories_max %}
-    {% assign categories_max = category[1].size %}
-  {% endif %}
+{% if category[1].size > categories_max %}
+{% assign categories_max = category[1].size %}
+{% endif %}
 {% endfor %}
 
 <ul class="taxonomy__index">
-  {% for i in (1..categories_max) reversed %}
-    {% for category in site.categories %}
-      {% if category[1].size == i %}
-        <li>
-          <strong>{{ category[0] }}</strong> <span class="taxonomy__count">{{ i }}</span>
-        </li>
-      {% endif %}
-    {% endfor %}
-  {% endfor %}
+{% for i in (1..categories_max) reversed %}
+{% for category in site.categories %}
+{% if category[1].size == i %}
+<li><strong>{{ category[0] }}</strong> <span class="taxonomy__count">{{ i }}</span></li>
+{% endif %}
+{% endfor %}
+{% endfor %}
 </ul>
-    </li>
+</li>
   </ul>
  
 </body>
