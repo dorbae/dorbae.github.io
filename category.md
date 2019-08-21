@@ -60,7 +60,7 @@ title: Categories
     <li>
       <input type="checkbox" id="root">
       <label for="root">Category</label>
-      <ul>
+      <!-- <ul>
         <li>
           <input type="checkbox" id="node3">
           <label for="apache">Apache</label>
@@ -70,7 +70,25 @@ title: Categories
             <li><a href="https://opentutorials.org">node33</a></li>
           </ul>
         </li>
-      </ul>
+      </ul> -->
+      {% assign categories_max = 0 %}
+{% for category in site.categories %}
+  {% if category[1].size > categories_max %}
+    {% assign categories_max = category[1].size %}
+  {% endif %}
+{% endfor %}
+
+<ul class="taxonomy__index">
+  {% for i in (1..categories_max) reversed %}
+    {% for category in site.categories %}
+      {% if category[1].size == i %}
+        <li>
+          <strong>{{ category[0] }}</strong> <span class="taxonomy__count">{{ i }}</span>
+        </li>
+      {% endif %}
+    {% endfor %}
+  {% endfor %}
+</ul>
     </li>
   </ul>
  
