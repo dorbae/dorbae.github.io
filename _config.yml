@@ -28,6 +28,7 @@ repository               : "dorbae/dorbae.github.io"
 search                   : true
 # 제목이 아닌 내용까지도 검색할 것인지에 대한 설정
 search_full_content      : true
+site.category_di         : "category/"
 
 # Site Author
 author:
@@ -213,6 +214,3 @@ compress_html:
   clippings: all
   ignore:
     envs: development
-
-
-#site.category_dir: category/
