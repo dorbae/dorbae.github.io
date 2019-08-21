@@ -35,7 +35,7 @@ author:
   avatar           : "/assets/images/dorbae.jpeg"
   bio              : "Do it, do it!"
   location         : "Seoul, Korea"
-  email            : "dorbae.io@gmail.com"
+  #email            : "dorbae.io@gmail.com"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
@@ -43,7 +43,7 @@ author:
     - label: "BlogSpot"
       icon: "fas fa-fw fa-link"
       url: "https://dorbae.blogspot.kr"
-    - label: "Website"
+    - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://https://github.com/dorbae"  
 
@@ -160,6 +160,7 @@ plugins:
   - jekyll-sitemap
   - jekyll-gist
   - jekyll-feed
+  - jekyll-algolia
   - jemoji
   - jekyll-include-cache
 
