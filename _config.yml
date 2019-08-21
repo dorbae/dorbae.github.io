@@ -40,9 +40,12 @@ author:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
       url: mailto:dorbae.io@gmail.com
-    - label: "Website"
+    - label: "BlogSpot"
       icon: "fas fa-fw fa-link"
       url: "https://dorbae.blogspot.kr"
+    - label: "Website"
+      icon: "fab fa-fw fa-github"
+      url: "https://https://github.com/dorbae"  
 
 # blog home에 표시될 blog cover image.
 cover: assets/images/moon.png
