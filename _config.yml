@@ -28,7 +28,7 @@ repository               : "dorbae/dorbae.github.io"
 search                   : true
 # 제목이 아닌 내용까지도 검색할 것인지에 대한 설정
 search_full_content      : true
-site.category_di         : "category/"
+#site.category_id         : "category/"
 
 # Site Author
 author:
@@ -72,8 +72,8 @@ defaults:
       # 포스트 공유 기능을 활성화 할 것인지
       share: true
       related: true
-      sidebar:
-        nav: "docs"
+      #sidebar:
+      #  nav: "docs"
 
 header:
   overlay_image: /assets/images/moon.jpg
