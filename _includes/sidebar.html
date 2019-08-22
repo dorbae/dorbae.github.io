@@ -15,6 +15,27 @@
   {% endif %}
   {% endif %}
 
+
+  <ul class="nav" id="menu">
+      {% for link in include.menusource %}
+      cat1
+        {% if link.submenu %}
+        <ul>
+           {% for sublink in link.submenu %}
+           cat.sub1
+             {% if sublink.submenu %}
+               <ul>
+                 {% for subsublink in sublink.submenu %}
+                 cat.sub.sub.1
+                 {% endfor %}
+               </ul>
+             {% endif %}
+           {% endfor %}
+        </ul>  
+        {% endif %}
+      {% endfor %}
+      </ul>
+
   <!--
     2019-08-21 사이드바 카테고리 추가
   -->
@@ -22,7 +43,7 @@
     <div class="sidebar-nav-item">Category</div>
     <nav class="content-ul">
       {% for category in site.categories %}
-      <a href="https://dorbae.github.io/category/{{ category | first }}" class="sidebar-nav-item pl-1rem">
+      <a href="https://dorbae.github.io/category/{{ category | first }}" class="sidebar-nav-item pl-4rem">
         <span class="name">
           {{ category | first }}
         </span>
