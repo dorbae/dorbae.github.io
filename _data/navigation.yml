@@ -1,8 +1,8 @@
 # main links
 main:
   - title: "Apache"
-    #url: /category/apache/apache
-    children:
+    url: /category/apache/apache
+    sublinks:
       - title: "ActiveMQ"
         url: /category/apache/activemq
       - title: "RocketMQ"
