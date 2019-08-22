@@ -1,5 +1,5 @@
 # main links
-docs:
+main:
   - title: "Apache"
     #url: /category/apache/apache
     children:
