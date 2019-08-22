@@ -1,10 +1,10 @@
 # main links
 main:
   - title: "Apache"
-    url: /category/apache/apache.html
+    url: /category/apache/apache
     sublinks:
       - title: "ActiveMQ"
-        url: /category/apache/activemq.html
+        url: /category/apache/activemq
   - title: "tag"
     url: /tags/
   - title: "Category"
