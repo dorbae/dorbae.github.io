@@ -72,6 +72,8 @@ defaults:
       # 포스트 공유 기능을 활성화 할 것인지
       share: true
       related: true
+      sidebar:
+        nav: "docs"
 
 header:
   overlay_image: /assets/images/moon.jpg
