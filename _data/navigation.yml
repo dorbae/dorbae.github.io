@@ -1,5 +1,5 @@
 # main links
-docs:
+main:
   - title: "Apache"
     #url: /category/apache/apache
     children:
@@ -10,7 +10,7 @@ docs:
 
   - title: "tag"
     #url: /tags/
-    
+
   - title: "Category"
     #url: /categories/
   # - title: "Quick-Start Guide"
