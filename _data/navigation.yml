@@ -3,8 +3,8 @@ main:
   - title: "Apache"
     url: /category/apache/apache.html
     sublinks:
-    - title: "ActiveMQ"
-      url: /category/apache/activemq.html
+      - title: "ActiveMQ"
+        url: /category/apache/activemq.html
   - title: "tag"
     url: /tags/
   - title: "Category"
