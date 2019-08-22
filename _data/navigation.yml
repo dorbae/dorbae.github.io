@@ -5,6 +5,8 @@ main:
     sublinks:
       - title: "ActiveMQ"
         url: /category/apache/activemq
+      - title: "RocketMQ"
+        url: /category/apache/activemq
   - title: "tag"
     url: /tags/
   - title: "Category"
