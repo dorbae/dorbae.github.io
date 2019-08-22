@@ -2,7 +2,7 @@
 main:
   - title: "Apache"
     url: /category/apache/apache
-    sublinks:
+    children:
       - title: "ActiveMQ"
         url: /category/apache/activemq
       - title: "RocketMQ"
