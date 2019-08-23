@@ -216,3 +216,20 @@ compress_html:
   clippings: all
   ignore:
     envs: development
+
+
+navigation:
+- root: Root Menu Text
+  url: /link.html
+  #icon: icon-you-want
+
+- root: Root Menu Text 1
+  #icon: icon-you-want-1
+  first-level:
+    - text: First Level 1
+      url: first-level-link.html
+      second-level:
+        - text: Second Level
+          url: second-level-link.html
+    - text: First Level 2
+      url: first-level-2.html
