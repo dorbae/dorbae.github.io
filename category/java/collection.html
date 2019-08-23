@@ -6,7 +6,7 @@ layout: category
     <h2 class="archive__subtitle">{{ category[0] }}</h2>
     <div class="entries-{{ page.entries_layout | default: 'list' }}">
         {% for post in site.categories.Collection %}
-        {% if category[0] == "Java" %}
+        {% if post.categories[0] == "Java" %}
 	    {% include archive-single.html type=page.entries_layout %}
 	{% endif %}
         {% endfor %}
