@@ -54,8 +54,8 @@
   </div>
  -->
  <div>
-    {% if site.data.samplelist.toc2[0] %}
-      {% for item in site.data.samplelist.toc2 %}
+    {% if site.data.samplelist.toc[0] %}
+      {% for item in site.data.samplelist.toc %}
         <h3>{{ item.title }}</h3>
           {% if item.subfolderitems[0] %}
             <ul>
@@ -75,6 +75,6 @@
         {% endfor %}
     {% endif %}
     </div>
-    
+
 </div> 
 {% endif %}
