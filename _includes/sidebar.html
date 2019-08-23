@@ -55,6 +55,8 @@
  -->
  <div>
     {% if site.data.sidecategory.toc[0] %}
+      <br />
+      <h3>Category</h3>
       {% for item in site.data.sidecategory.toc %}
         <h4><a href="{{ item.url }}">{{ item.title }}</a></h4>
           {% if item.subfolderitems[0] %}
