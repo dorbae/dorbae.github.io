@@ -42,12 +42,12 @@ toc:
       - page: NIO
         url: /category/java/nio
       - page: Sprint Boot
-        url: /category/java/nio
+        url: /category/java/springboot
       - page: Thread
         url: /category/java/thread
   - title: Docker
     url: /category/docker/docker
-  - title: Elasticsearch
+  - title: ElasticStack
     url : /category/elastic/elastic
     subfolderitems:
       - page: LogStash
