@@ -3,11 +3,9 @@ toc:
     url: /categry/apache/apache
     subfolderitems:
       - page: ActiveMQ
-        url: /category/apache/activemq.html
+        url: /category/apache/activemq
       - page: RocketMQ
-        url: /thing2.html
-      - page: Thing 3
-        url: /thing3.html
+        url: /category/apache/rocketmq
   - title: Group 2
     subfolderitems:
       - page: Piece 1
