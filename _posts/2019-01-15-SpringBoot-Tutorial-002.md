@@ -4,7 +4,7 @@ title: "[Spring Boot] Spring Boot Tutorial #2 - Tomcat Deployment"
 comments: true
 author: dorbae
 date: 2019-01-15 +0900
-categories : [Spring Boot,Tutorial]
+categories : [SpringBoot,Tutorial]
 tags: [spring boot,spring,java,tutorial]
 sitemap :
   changefreq : weekly

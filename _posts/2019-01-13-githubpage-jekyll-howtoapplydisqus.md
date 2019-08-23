@@ -5,7 +5,7 @@ comments: true
 author: dorbae
 date: 2019-01-13 +0900
 image: https://dorbae.github.io/assets/images/posts/2019/01/2019-01-13-githubpage-jekyll-howtoapplydisqus-thumnail.png
-categories : [GitHub Page,Jekyll]
+categories : [GitHubPage,Jekyll]
 tags: [github page,jekyll,disqus]
 sitemap :
   changefreq : weekly

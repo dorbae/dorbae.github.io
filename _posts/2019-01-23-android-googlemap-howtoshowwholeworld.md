@@ -6,7 +6,7 @@ image: /assets/images/posts/2019/01/2019-01-23-android-googlemap-howtoshowwholew
 author: dorbae
 date: 2019-01-23 +0900
 image: https://dorbae.github.io/assets/images/posts/2019/01/2019-01-06-python-django-startup-tutorial-001-thumnail.png
-categories : [Android,Google Map]
+categories : [Android,GoogleMap]
 tags: [android,google,maps,api,map,google map,lite mode,whole world]
 sitemap :
   changefreq : weekly

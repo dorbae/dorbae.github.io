@@ -4,7 +4,7 @@ title: "[PyCharm] How to set environment variables in PyCharm"
 comments: true
 author: dorbae
 date: 2019-05-28 +0900
-categories : [Python,Pycharm]
+categories : [Python,PyCharm]
 tags: [python,pycharm,env]
 sitemap :
   changefreq : weekly

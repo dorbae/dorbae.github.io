@@ -1,6 +1,11 @@
 toc:
   - title: Android
     url: /categry/android/android
+    subfolderitems:
+      - page: Google Map
+        url: /category/android/googlemap
+      - page: MPAndroidChart
+        url: /category/android/mpandroidchart
   - title: Apache
     url: /categry/apache/apache
     subfolderitems:
@@ -15,10 +20,75 @@ toc:
     subfolderitems:
       - page: CUBRID
         url: /categry/dbms/cubrid
+      - page: MariaDB
+        url: /categry/dbms/mariadb
+      - page: MySQL
+        url: /categry/dbms/mysql
+      - page: InfluxDB
+        url: /categry/dbms/influxdb
+      - page: Oracle
+        url: /categry/dbms/oracle
   - title: Java
     url: /category/java/java
     subfolderitems:
       - page: Collection
         url: /category/java/collection
       - page: Common
+        url: /category/java/common
+      - page: Eclipse
+        url: /category/java/eclipse
+      - page: Network
+        url: /category/java/network
+      - page: NIO
+        url: /category/java/nio
+      - page: Sprint Boot
+        url: /category/java/nio
+      - page: Thread
+        url: /category/java/thread
+  - title: Docker
+    url: /category/docker/docker
+  - title: Elasticsearch
+    url : /category/elastic/elastic
+    subfolderitems:
+      - page: LogStash
+        url: /category/elastic/logstash
+  - title: English
+    url : /category/english/english
+    subfolderitems:
+      - page: IETLS
+        url: /category/english/ielts
+      - page: Telephone
+        url: /category/english/telephone
+  - title: GitHub
+    subfolderitems:
+      - page: DBeaver
+        url: /category/github/dbeaver
+      - page: GitHub
+        url: /category/github/github
+      - page: GitHub Page
+        url: /category/github/githubpage
+  - title: Linux
+    url: /category/linux/linux
+    subfolderitems:
+      - page: ShellScript
+        url: /category/linux/shellscript
+  - title: Log
+    url: /category/log/log
+  - title: MacOS
+    url: /category/macos/macos
+  - title: Markdown
+    url: /category/markdown/markdown
+  - title: OpenCV
+    url: /category/opencv/opencv
+  - title: IoT
+    url : /category/iot/iot
+    subfolderitems:
+      - page: Collection
         url: /category/java/collection
+  - title: Python
+    url: /category/python/python
+    subfolderitems:
+      - page: Django
+        url: /category/python/django
+      - page: PyCharm
+        url: /category/python/pycharm
