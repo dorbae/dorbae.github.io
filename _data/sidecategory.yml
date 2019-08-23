@@ -1,6 +1,6 @@
 toc:
   - title: Android
-    url: /categry/android/android
+    url: /category/android/android
     subfolderitems:
       - page: Google Map
         url: /category/android/googlemap
@@ -14,20 +14,20 @@ toc:
       - page: RocketMQ
         url: /category/apache/rocketmq
   - title: Business
-    url: /categry/biz/biz
+    url: /category/biz/biz
   - title: DBMS
-    url: /categry/dbms/dbms
+    url: /category/dbms/dbms
     subfolderitems:
       - page: CUBRID
-        url: /categry/dbms/cubrid
+        url: /category/dbms/cubrid
       - page: MariaDB
-        url: /categry/dbms/mariadb
+        url: /category/dbms/mariadb
       - page: MySQL
-        url: /categry/dbms/mysql
+        url: /category/dbms/mysql
       - page: InfluxDB
-        url: /categry/dbms/influxdb
+        url: /category/dbms/influxdb
       - page: Oracle
-        url: /categry/dbms/oracle
+        url: /category/dbms/oracle
   - title: Java
     url: /category/java/java
     subfolderitems:
@@ -83,8 +83,8 @@ toc:
   - title: IoT
     url : /category/iot/iot
     subfolderitems:
-      - page: Collection
-        url: /category/java/collection
+      - page: ESP32
+        url: /category/iot/esp32
   - title: Python
     url: /category/python/python
     subfolderitems:
