@@ -20,3 +20,5 @@ toc:
     subfolderitems:
       - page: Collection
         url: /category/java/collection
+      - page: Common
+        url: /category/java/collection
