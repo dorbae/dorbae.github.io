@@ -1,4 +1,6 @@
 toc:
+  - title: Android
+    url: /categry/android/android
   - title: Apache
     url: /categry/apache/apache
     subfolderitems:
@@ -6,19 +8,15 @@ toc:
         url: /category/apache/activemq
       - page: RocketMQ
         url: /category/apache/rocketmq
-  - title: Group 2
+  - title: Business
+    url: /categry/biz/biz
+  - title: DBMS
+    url: /categry/dbms/dbms
     subfolderitems:
-      - page: Piece 1
-        url: /piece1.html
-      - page: Piece 2
-        url: /piece2.html
-      - page: Piece 3
-        url: /piece3.html
-  - title: Group 3
+      - page: CUBRID
+        url: /categry/dbms/cubrid
+  - title: Java
+    url: /category/java/java
     subfolderitems:
-      - page: Widget 1
-        url: /widget1.html
-      - page: Widget 2
-        url: /widget2.html
-      - page: Widget 3
-        url: /widget3.html
+      - page: Collection
+        url: /category/java/collection
