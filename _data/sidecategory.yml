@@ -28,6 +28,30 @@ toc:
         url: /category/dbms/influxdb
       - page: Oracle
         url: /category/dbms/oracle
+  - title: Docker
+    url: /category/docker/docker
+  - title: ElasticStack
+    url : /category/elastic/elastic
+    subfolderitems:
+      - page: LogStash
+        url: /category/elastic/logstash
+  - title: Eclipse RCP
+    url: /category/eclipsercp/eclipsercp
+  - title: English
+    url : /category/english/english
+    subfolderitems:
+      - page: IETLS
+        url: /category/english/ielts
+      - page: Telephone
+        url: /category/english/telephone
+  - title: GitHub
+    subfolderitems:
+      - page: DBeaver
+        url: /category/github/dbeaver
+      - page: GitHub
+        url: /category/github/github
+      - page: GitHub Page
+        url: /category/github/githubpage
   - title: Java
     url: /category/java/java
     subfolderitems:
@@ -45,28 +69,6 @@ toc:
         url: /category/java/springboot
       - page: Thread
         url: /category/java/thread
-  - title: Docker
-    url: /category/docker/docker
-  - title: ElasticStack
-    url : /category/elastic/elastic
-    subfolderitems:
-      - page: LogStash
-        url: /category/elastic/logstash
-  - title: English
-    url : /category/english/english
-    subfolderitems:
-      - page: IETLS
-        url: /category/english/ielts
-      - page: Telephone
-        url: /category/english/telephone
-  - title: GitHub
-    subfolderitems:
-      - page: DBeaver
-        url: /category/github/dbeaver
-      - page: GitHub
-        url: /category/github/github
-      - page: GitHub Page
-        url: /category/github/githubpage
   - title: Linux
     url: /category/linux/linux
     subfolderitems:
