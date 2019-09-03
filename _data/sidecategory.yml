@@ -87,6 +87,8 @@ toc:
     subfolderitems:
       - page: ESP32
         url: /category/iot/esp32
+      - page: Sensor
+        url: /category/iot/sensor
   - title: Python
     url: /category/python/python
     subfolderitems:
