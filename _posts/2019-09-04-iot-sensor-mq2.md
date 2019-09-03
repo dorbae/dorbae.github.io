@@ -79,13 +79,13 @@ sitemap :
 <br />
 
 ### How deos it work?
-* 1. The tin dioxide is heated in air at high temperature
+* The tin dioxide is heated in air at high temperature
 
 ![screenshot006](/assets/images/posts/2019/09/2019-09-04-iot-sensor-mq2-006.png)
 
 <br />
 
-* 2. Oxygen is adsorbed on the surface
+* Oxygen is adsorbed on the surface
   * Donor electrons in the tin dioxide are attracted toward oxygen
   * This situation prevents electric current flow and the voltage goes down
 
@@ -95,7 +95,7 @@ sitemap :
 
 <br />
 
-* 3. Oxygen decreased as it reacts with gases
+* Oxygen decreased as it reacts with gases
   * Eletrons are then released into the tin dioxide
   * Then, it allows current to flow freely through the snesor and the voltage goes up
 
