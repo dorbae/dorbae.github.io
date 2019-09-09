@@ -77,7 +77,7 @@ sitemap :
 # Cause
 * My architecture
 
-[!screenshot001](/assets/images/posts/2019/09/2019-09-09-java-json-unrecognizedtoken-001.png)
+![screenshot001](/assets/images/posts/2019/09/2019-09-09-java-json-unrecognizedtoken-001.png)
 
 <br />
 
@@ -90,6 +90,7 @@ sitemap :
 * **json.dumps** method nomalizes JSON data followed by [ECMA-404]([http://www.ecma-international.org/publications/standards/Ecma-404.htm)
 * True -> true & None -> null
 * Add this code
+
 ```
 import json
 
@@ -100,6 +101,8 @@ json.dumps(jsonObject)
 ...
 
 ```
+
+<br />
 
 <div markdown="1" style="background: #eeeedd; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
  2
@@ -141,12 +144,13 @@ ObjectMapper mapper = new ObjectMapper();
 mapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
 
 ...
+
 ```
 
 <div markdown="1" style="background: #eeeedd; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
 2
 3
-4</pre></td><td><pre style="margin: 0; line-height: 125%">ObjectMapper mapper = <span style="color: #8B008B; font-weight: bold">new</span> ObjectMapper();
+4</pre></td><td><pre style="margin: 0; line-height: 125% color: #566270">ObjectMapper mapper = <span style="color: #8B008B; font-weight: bold">new</span> ObjectMapper();
 mapper.<span style="color: #658b00">configure</span>(JsonParser.<span style="color: #658b00">Feature</span>.<span style="color: #658b00">ALLOW_SINGLE_QUOTES</span>, <span style="color: #8B008B; font-weight: bold">true</span>); <span style="color: #228B22">// 싱글 쿼테이션 허용</span>
 mapper.<span style="color: #658b00">setSerializationInclusion</span>(JsonInclude.<span style="color: #658b00">Include</span>.<span style="color: #658b00">NON_NULL</span>);
 InfluxDBResultSet[] influxDBResultSetArray = mapper.<span style="color: #658b00">readValue</span>(data, InfluxDBResultSet[].<span style="color: #658b00">class</span>);
