@@ -150,7 +150,7 @@ mapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
 <div markdown="1" style="background: #090707; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
 2
 3
-4</pre></td><td><pre style="margin: 0; line-height: 125%; color: #566270">ObjectMapper mapper = <span style="color: #8B008B; font-weight: bold">new</span> ObjectMapper();
+4</pre></td><td><pre style="margin: 0; line-height: 125%">ObjectMapper mapper = <span style="color: #8B008B; font-weight: bold">new</span> ObjectMapper();
 mapper.<span style="color: #658b00">configure</span>(JsonParser.<span style="color: #658b00">Feature</span>.<span style="color: #658b00">ALLOW_SINGLE_QUOTES</span>, <span style="color: #8B008B; font-weight: bold">true</span>); <span style="color: #228B22">// 싱글 쿼테이션 허용</span>
 mapper.<span style="color: #658b00">setSerializationInclusion</span>(JsonInclude.<span style="color: #658b00">Include</span>.<span style="color: #658b00">NON_NULL</span>);
 InfluxDBResultSet[] influxDBResultSetArray = mapper.<span style="color: #658b00">readValue</span>(data, InfluxDBResultSet[].<span style="color: #658b00">class</span>);
