@@ -4,8 +4,8 @@ title: "[MacOS] htop"
 comments: true
 author: dorbae
 date: 2019-09-10 +0900
-categories : [MacOS,Utility]
-tags: [macos,mac,utility,htop]
+categories : [MacOS,Tool]
+tags: [macos,mac,tool,htop]
 sitemap :
   changefreq : weekly
 ---
