@@ -37,7 +37,7 @@ sitemap :
 $ brew install htop
 </pre>
 
-![screenshot001](/assets/images/posts/2019/09/2019-09-10-macos-utility-htop-001.png)
+![screenshot001](/assets/images/posts/2019/09/2019-09-10-macos-tool-htop-001.png)
 
 <br />
 
@@ -47,17 +47,17 @@ $ brew install htop
 $ htop
 </pre>
 
-![screenshot002](/assets/images/posts/2019/09/2019-09-10-macos-utility-htop-002.png)
+![screenshot002](/assets/images/posts/2019/09/2019-09-10-macos-tool-htop-002.png)
 
 <br />
 
-![screenshot004](/assets/images/posts/2019/09/2019-09-10-macos-utility-htop-004.gif)
+![screenshot004](/assets/images/posts/2019/09/2019-09-10-macos-tool-htop-004.gif)
 
 <br />
 
 * top
 
-![screenshot003](/assets/images/posts/2019/09/2019-09-10-macos-utility-htop-003.png)
+![screenshot003](/assets/images/posts/2019/09/2019-09-10-macos-tool-htop-003.png)
 
 <br />
 
