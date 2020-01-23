@@ -17,7 +17,7 @@ toc:
     url: /categry/bigdata/bigdata
     subfolderitems:
       - page: Data Analysis
-        url: /category/bigdata/dataanalysis
+        url: /category/bigdata/dataanalysis/dataanalysis
   - title: Business
     url: /category/biz/biz
   - title: DBMS
