@@ -91,7 +91,7 @@ SELECT user_id
 
 > Redshift also supports **CONCAT** function. However, this function in Redshift allows only 2 arguments.
 
-> eg. CONCAT('a', 'b') (O) <br /> eg. CONCAT('a', 'b', 'c') (X)
+>> eg. CONCAT('a', 'b') (O) <br /> eg. CONCAT('a', 'b', 'c') (X)
 
 <br />
 

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[Data Analysis] SQL Recipe for Data Analysis Tutorial #2"
+title: "[Data Analysis] SQL Recipe for Data Analysis Tutorial #2 - Manipulating a single value"
 comments: true
 author: dorbae
 date: 2020-01-27 +0900
@@ -29,6 +29,7 @@ sitemap :
 | Translator | 윤인성 |
 | Publisher | 한빛미디어 |
 | Chapter | 3 |
+| Lesson | 5 |
 
 <br >
 
@@ -38,14 +39,13 @@ sitemap :
 
 <br />
 
-## 3. SQL for manufactualing data
-### 3.5. Manipulating a single value
-#### 3.5.1. Replace the code value with a label
+## 3.5. Manipulating a single value
+### 3.5.1. Replace the code value with a label
 * To replace the code value with some label to enhance the readability
 
 <br />
 
-##### Make sample table and data
+#### Make sample table and data
 * Create user master table which has 3 colums
 * register_device column has 3 types of code data
     * 1: Desktop
@@ -80,7 +80,7 @@ SELECT *
 
 <br />
 
-##### Execute Query
+#### Execute Query
 * Use **CASE** clause
 
 ```sql
@@ -99,8 +99,8 @@ SELECT user_id
 
 <br />
 
-#### 3.5.2. Extract some factors from URL
-##### Create access log table
+### 3.5.2. Extract some factors from URL
+#### Create access log table
 * This table has 3 columns such as referrer and url
 * There are several databases that have URL data type
 
@@ -133,7 +133,7 @@ SELECT *
 
 <br />
 
-##### Extract the domain of a referrer
+#### Extract the domain of a referrer
 * Furthermore, Hive and BigQuery have the function hadling URL
 * Unfortunately, you have to extract the domain by using regex expression if you are using other databases
 
@@ -182,7 +182,7 @@ SELECT stamp
 
 <br />
 
-#### 3.5.3. Separate string into array
+### 3.5.3. Separate string into array
 * There are many cases that you have to separate string by comma or space or anything else
 * I'm gonna show path level from URL in **access_log** table
 
@@ -224,8 +224,8 @@ SELECT stamp
 
 <br />
 
-#### 3.5.4. Handling date and timestamp
-##### Extract current date and current timestamp
+### 3.5.4. Handling date and timestamp
+#### Extract current date and current timestamp
 
 ```sql
 -- Extract current date and current timestamp
@@ -256,7 +256,7 @@ SELECT
 
 <br />
 
-##### Convert string data type into date/timestamp
+#### Convert string data type into date/timestamp
 
 ```sql
 -- Convert string data type into date/timestamp
@@ -280,7 +280,7 @@ SELECT
 
 <br />
 
-##### Extract a specific field from date/timestamp
+#### Extract a specific field from date/timestamp
 
 ```sql
 -- Extract a specific field from date/timestamp
@@ -303,10 +303,10 @@ SELECT stamp
 
 <br />
 
-#### 3.5.5. Replace null with defaul value
+### 3.5.5. Replace null with defaul value
 * The result of arithmetic operation with **NULL**
 
-##### Create sample table and insert sample data
+#### Create sample table and insert sample data
 
 ```sql
 -- DROP TABLE IF EXISTS purchase_log_with_coupon;
@@ -337,7 +337,7 @@ SELECT *
 
 <br />
 
-##### Compare the sum with null to the one with default value
+#### Compare the sum with null to the one with default value
 
 ```sql
 -- Calculate the total sales except for coupon
@@ -351,69 +351,6 @@ SELECT purchase_id
 ```
 
 ![screenshot011](/assets/images/posts/2020/01/2020-01-27-bigdata-sql-sqlrecipeforanalysis-002-011.png)
-
-<br />
-
---------
-
-### 3.6. Manipulate multiple values
-#### 3.6.1. Concatenate strings
-##### Create table and insert sample data
-
-```sql
--- DROP TABLE IF EXISTS mst_user_location;
--- Create user location table
-CREATE TABLE mst_user_location (
-    user_id   varchar(255)
-  , pref_name varchar(255)
-  , city_name varchar(255)
-);
-
--- Insert sample data
-INSERT INTO mst_user_location
-VALUES
-    ('U001', 'Seoul-si', 'Seodaemun-gu')
-  , ('U002', 'Kyeonki-do Suwon-si', 'Paldal-gu'  )
-  , ('U003', 'Jeju-do', 'Seoguipo-si')
-;
-
-commit;
-
--- Select sample data
-SELECT *
-  FROM mst_user_location 
-;
-```
-
-![screenshot012](/assets/images/posts/2020/01/2020-01-27-bigdata-sql-sqlrecipeforanalysis-002-012.png)
-
-<br />
-
-##### Concatenate string data type columns
-
-```sql
--- Concatenate pref_name and citiy_name
-SELECT user_id
-     -- PostgreSQL, Hive, SparkSQL, BigQuery
-     , CONCAT(city_name, ', ', pref_name) AS pref_city
-     -- PostgreSQL, Redshift
-     , city_name || ', ' || pref_name AS pref_city2
-  FROM mst_user_location 
-;
-```
-
-![screenshot013](/assets/images/posts/2020/01/2020-01-27-bigdata-sql-sqlrecipeforanalysis-002-013.png)
-
-<br />
-
-> Redshift also supports **CONCAT** function. However, this function in Redshift allows only 2 arguments.
-
-> eg. CONCAT('a', 'b') (O) <br /> eg. CONCAT('a', 'b', 'c') (X)
-
-<br />
-
-
-# Keep continue...
 
 <br />
 
