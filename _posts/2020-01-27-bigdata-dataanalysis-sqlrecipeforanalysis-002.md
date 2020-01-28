@@ -354,6 +354,65 @@ SELECT purchase_id
 
 <br />
 
+--------
+
+### 3.6. Manipulate multiple values
+#### 3.6.1. Concatenate strings
+##### Create table and insert sample data
+
+```sql
+-- DROP TABLE IF EXISTS mst_user_location;
+-- Create user location table
+CREATE TABLE mst_user_location (
+    user_id   varchar(255)
+  , pref_name varchar(255)
+  , city_name varchar(255)
+);
+
+-- Insert sample data
+INSERT INTO mst_user_location
+VALUES
+    ('U001', 'Seoul-si', 'Seodaemun-gu')
+  , ('U002', 'Kyeonki-do Suwon-si', 'Paldal-gu'  )
+  , ('U003', 'Jeju-do', 'Seoguipo-si')
+;
+
+commit;
+
+-- Select sample data
+SELECT *
+  FROM mst_user_location 
+;
+```
+
+![screenshot012](/assets/images/posts/2020/01/2020-01-27-bigdata-sql-sqlrecipeforanalysis-002-012.png)
+
+<br />
+
+##### Concatenate string data type columns
+
+```sql
+-- Concatenate pref_name and citiy_name
+SELECT user_id
+     -- PostgreSQL, Hive, SparkSQL, BigQuery
+     , CONCAT(city_name, ', ', pref_name) AS pref_city
+     -- PostgreSQL, Redshift
+     , city_name || ', ' || pref_name AS pref_city2
+  FROM mst_user_location 
+;
+```
+
+![screenshot013](/assets/images/posts/2020/01/2020-01-27-bigdata-sql-sqlrecipeforanalysis-002-013.png)
+
+<br />
+
+> Redshift also supports **CONCAT** function. However, this function in Redshift allows only 2 arguments.
+
+> eg. CONCAT('a', 'b') (O) <br /> eg. CONCAT('a', 'b', 'c') (X)
+
+<br />
+
+
 # Keep continue...
 
 <br />
