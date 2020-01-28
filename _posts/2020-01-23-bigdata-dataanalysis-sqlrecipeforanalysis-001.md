@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[Data Analysis] SQL Recipe for Data Analysis Tutorial #1"
+title: "[Data Analysis] SQL Recipe for Data Analysis Tutorial #1 - Setup the environment"
 comments: true
 author: dorbae
 date: 2020-01-23 +0900
