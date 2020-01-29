@@ -197,6 +197,151 @@ SELECT year
 
 <br />
 
+### 3.6.3. Calculate the proportion
+#### Create table and insert sample data
+
+```sql
+--DROP TABLE IF EXISTS advertising_stats;
+-- Create advertising status table
+CREATE TABLE advertising_stats (
+    dt          varchar(255)
+  , ad_id       varchar(255)
+  , impressions integer
+  , clicks      integer
+);
+
+-- Insert sample data
+INSERT INTO advertising_stats
+VALUES
+    ('2020-01-28', '001', 100000,  3000)
+  , ('2020-01-28', '002', 120000,  1200)
+  , ('2020-01-28', '003', 500000, 10000)
+  , ('2020-01-29', '001',      0,     0)
+  , ('2020-01-29', '002', 130000,  1400)
+  , ('2020-01-29', '003', 620000, 15000)
+;
+
+commit;
+
+-- Select sample data
+SELECT *
+  FROM advertising_stats 
+;
+```
+
+![screenshot007](/assets/images/posts/2020/01/2020-01-28-bigdata-sql-sqlrecipeforanalysis-003-007.png)
+
+<br />
+
+#### Calculate CTR(Clikc Through Rate)
+* CTR : The frequency of clicks / The frequency of exposure(impression)
+* clicks and impression column are integer type
+* To get double presion result, you have to convert integer into double through **CAST** function
+* Hive, SparkSQL, Redshift, BigQuery support auto conversion when an integer number is divided by an integer number, while you have to convert type explicitly in PostgreSQL
+
+```sql
+-- Calculate CTR(Click through rate)
+SELECT dt
+     , ad_id
+     , CAST(clicks AS double precision) / impressions AS ctr
+     -- 100.0(double) * clicks(integer) -> double
+     , 100.0 * clicks / impressions AS ctr_as_percent
+     -- Hive, SparkSQL, Redshift, BigQuery => Auto conversion 
+     -- , clicks / impressions AS ctr
+  FROM advertising_stats 
+ WHERE dt = '2020-01-28'
+ ORDER BY dt, ad_id
+;
+```
+
+![screenshot008](/assets/images/posts/2020/01/2020-01-28-bigdata-sql-sqlrecipeforanalysis-003-008.png)
+
+<br />
+
+#### Be careful to divide by zero
+* If you try to divide clicks by zero, you'll face the error like below
+
+![screenshot009](/assets/images/posts/2020/01/2020-01-28-bigdata-sql-sqlrecipeforanalysis-003-009.png)
+
+<br />
+
+* To avoid this error, you have to replace 0 with null through **CASE** or **NULLIF** function
+
+```sql
+-- Calculate CTR without error
+SELECT dt
+     , ad_id
+     -- use CASE clause
+     , CASE WHEN impressions > 0 THEN 100.0 * clicks / impressions 
+            END AS ctr_percent_by_case
+     -- PostgreSQL, SparkSQL, Redshift, BigQuery
+     -- The result of arithmetic operation with null is null
+     , 100.0 * clicks / NULLIF(impressions , 0) AS ctr_as_percent_by_null
+     -- Hive (Not support NULLIF)
+     -- , 100.0 * clicks / CASE WHEN imperssions = 0 THEN NULL ELSE impressions END AS ctr_as_percent_by_null
+  FROM advertising_stats 
+ ORDER BY dt, ad_id
+;
+```
+
+![screenshot010](/assets/images/posts/2020/01/2020-01-28-bigdata-sql-sqlrecipeforanalysis-003-010.png)
+
+<br />
+
+### 3.6.4. Calculate the distance between two points
+#### Create a dimension table and insert sample data
+
+```sql
+-- DROP TABLE IF EXISTS location_1d;
+-- Create a dimension table
+CREATE TABLE location_1d (
+    x1 integer
+  , x2 integer
+);
+
+-- Insert sample data
+INSERT INTO location_1d
+VALUES
+    ( 5 , 10)
+  , (10 ,  5)
+  , (-2 ,  4)
+  , ( 3 ,  3)
+  , ( 0 ,  1)
+;
+
+commit;
+
+-- Select sample data
+SELECT *
+  FROM location_1d 
+;
+```
+
+![screenshot011](/assets/images/posts/2020/01/2020-01-28-bigdata-sql-sqlrecipeforanalysis-003-011.png)
+
+<br />
+
+#### Calculate the distance between x1 and x2
+* You can utilize **ABS**, **POWER**, **SQRT** functions
+
+| Function | Description |
+| --- | --- |
+| ABS | Return absolute-value |
+| POWER | Return the square of parameter value |
+| SQRT | Return the square root of parameter value |
+
+```sql
+-- Calculate the distance between x1 and x2
+SELECT abs(x1 - x2) AS abs
+     , sqrt(power(x1 - x2, 2)) AS rms
+  FROM location_1d 
+;
+```
+
+![screenshot012](/assets/images/posts/2020/01/2020-01-28-bigdata-sql-sqlrecipeforanalysis-003-012.png)
+
+<br />
+
 ------------
 
 ## References
