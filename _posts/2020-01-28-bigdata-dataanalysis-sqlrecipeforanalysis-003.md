@@ -466,6 +466,232 @@ SELECT user_id
 
 <br />
 
+#### Calculate the difference between date/time data
+
+```sql
+-- Calculate the difference between today and register_stamp
+SELECT user_id
+     -- if PostgreSQL, Redshift
+     , CURRENT_DATE AS today
+     , register_stamp::date AS register_date
+     , CURRENT_DATE - register_stamp::date AS diff_days
+     --
+     -- if Hive, SparkSQL (datediff)
+     -- , CURRENT_DATE() AS today
+     -- , to_date(register_stamp) AS register_date
+     -- , datediff(CURRENT_DATE(), to_date(register_stamp)) AS diff_days
+     --
+     -- if BigQuery (date_diff)
+     -- , CURRENT_DATE AS today
+     -- , date(timestamp(register_stamp)) AS register_date
+     -- , date_diff(CURRENT_DATE, date(timestamp(register_stamp)), day) AS diff_days
+  FROM mst_users_with_dates muwd 
+;
+```
+
+![screenshot017](/assets/images/posts/2020/01/2020-01-28-bigdata-sql-sqlrecipeforanalysis-003-017.png)
+
+<br />
+
+#### Calculate user's age from the birthday
+* PostgreSQL supports **age** function and it returns days
+  * age(arg) -> current age from arg
+  * arg(arg1, arg2) -> age from arg1 to arg2
+  > Redshift also supports age function, but it is not official
+* You can get YEAR through **EXTRACT** function 
+
+```sql
+-- Calculate user's age from the birthday
+SELECT user_id
+     , CURRENT_DATE AS today
+     , register_stamp::date AS register_date
+     , birth_date::date AS birth_date
+     , EXTRACT(YEAR FROM age(birth_date::date)) AS current_age
+     , EXTRACT(YEAR FROM age(register_stamp::date, birth_date::date)) AS register_age
+     , age(register_stamp::date, birth_date::date) AS register_age2
+  FROM mst_users_with_dates muwd 
+;
+```
+
+![screenshot018](/assets/images/posts/2020/01/2020-01-28-bigdata-sql-sqlrecipeforanalysis-003-018.png)
+
+<br />
+
+#### Calculate year difference
+* Redshift has **datediff** and BigQuery has **date_diff** function for getting the year difference
+* However, it is not exact to calculate the age because it just returns the year difference
+  * eg. datediff(year, '2019-12-31', '2020-01-01') returns 1, nevertheless the age is 0
+
+```sql
+-- Calculate year difference
+SELECT user_id
+     -- if Redshift
+     , CURRENT_DATE AS today
+     , register_stamp::date AS register_date
+     , birth_date::date AS birth_date
+     , datediff(year, birth_date::date, CURRENT_DATE) AS current_age
+     , datediff(year, birth_date::date, register_stamp::date) AS register_age
+     --
+     -- if BigQuery
+     -- , CURRENT_DATE AS today
+     -- , date(timestamp(register_stamp)) AS register_date 
+     -- , date(timestamp(birth_date)) AS birth_date 
+     -- , date_diff(CURRENT_DATE, date(tiemstamp(birth_date)), year) AS current_age
+     -- , date_diff(date(timestamp(registeR_stamp)), date(timestamp(birth_date)), year) AS register_age
+  FROM mst_users_with_dates
+;
+```
+
+<br />
+
+#### How to calculate the age exactly without a special function like age
+* It is possible to get exact age by converting date into integer
+
+```sql
+-- How to calculate the age exactly without a special function like age
+SELECT birth_date_integer 
+     , current_date_integer 
+     , floor((current_date_integer - birth_date_integer) / 10000) AS age
+  FROM (SELECT EXTRACT(YEAR from birth_date::date) * 10000 + EXTRACT(MONTH from birth_date::date) * 100 + EXTRACT(YEAR from birth_date::date) AS birth_date_integer
+             , EXTRACT(YEAR from CURRENT_DATE) * 10000 + EXTRACT(MONTH from CURRENT_DATE) * 100 + EXTRACT(YEAR from CURRENT_DATE) AS current_date_integer
+          FROM mst_users_with_dates muwd)
+;
+```
+
+![screenshot019](/assets/images/posts/2020/01/2020-01-28-bigdata-sql-sqlrecipeforanalysis-003-019.png)
+
+<br />
+
+### 3.6.6. Handle IP address
+* There are many log data which has IP addresses
+* Generally, IP address is stored as string data type. But, there are lots of cases to compare IP addresses
+
+#### Use IP address data type
+* PostgreSQL supports **inet** data type which is useful to compare IP addresses
+
+```sql
+-- Compare IP addresses
+SELECT CAST('127.0.0.1' AS inet) < CAST('127.0.0.2' AS inet) AS lt
+     , CAST('127.0.0.1' AS inet) > CAST('192.168.0.1' AS inet) AS gt
+;
+```
+
+![screenshot020](/assets/images/posts/2020/01/2020-01-28-bigdata-sql-sqlrecipeforanalysis-003-020.png)
+
+<br />
+
+* Find out whether an IP address is contained or not using **<<** or **>>** functions
+
+```sql
+-- Find out whether an IP address is contained or not
+SELECT CAST('127.0.0.1' AS inet) << CAST('127.0.0.0/8' AS inet) AS is_contained;
+```
+
+![screenshot021](/assets/images/posts/2020/01/2020-01-28-bigdata-sql-sqlrecipeforanalysis-003-021.png)
+
+<br />
+
+#### Handle IP address as integer or string
+* Convert IP address into integer data type
+
+```sql
+-- Convert IP address into integer data type
+SELECT ip
+     -- if PostgreSQL, Redshift (split_part)
+     , CAST(split_part(ip, '.', 1) AS integer) AS ip_part_1
+     , CAST(split_part(ip, '.', 2) AS integer) AS ip_part_2
+     , CAST(split_part(ip, '.', 3) AS integer) AS ip_part_3
+     , CAST(split_part(ip, '.', 4) AS integer) AS ip_part_4
+     --
+     -- if Hive, SparkSQL
+     -- , CAST(split(ip, '\\.')[0] AS int) AS ip_part_1
+     -- , CAST(split(ip, '\\.')[1] AS int) AS ip_part_2
+     -- , CAST(split(ip, '\\.')[2] AS int) AS ip_part_3
+     -- , CAST(split(ip, '\\.')[3] AS int) AS ip_part_4
+     --
+     -- if BigQuery
+     -- , CAST(split(ip, '.')[0] AS int) AS ip_part_1
+     -- , CAST(split(ip, '.')[1] AS int) AS ip_part_2
+     -- , CAST(split(ip, '.')[2] AS int) AS ip_part_3
+     -- , CAST(split(ip, '.')[3] AS int) AS ip_part_4
+  FROM (SELECT CAST('192.168.0.1' AS text) AS ip) AS t
+       -- Other databases
+       -- (SELECT '192.168.0.1' AS ip) AS t
+;
+```
+
+![screenshot022](/assets/images/posts/2020/01/2020-01-28-bigdata-sql-sqlrecipeforanalysis-003-022.png)
+
+<br />
+
+* You can get one integer from IP address
+  * Multiply 4 parts from IP address and 2^24, 2^16, 2^8, 2^0 respectively
+
+```sql
+-- Convert IP address into integer
+SELECT ip
+     -- if PostgreSQL, Redshift (split_part)
+     , CAST(split_part(ip, '.', 1) AS integer) * 2^24
+       + CAST(split_part(ip, '.', 2) AS integer) * 2^16
+       + CAST(split_part(ip, '.', 3) AS integer) * 2^8
+       + CAST(split_part(ip, '.', 4) AS integer) * 2^0
+      AS ip_integer
+     --
+     -- if Hive, SparkSQL
+     -- , CAST(split(ip, '\\.')[0] AS int) * pow(2, 24)
+     --   + CAST(split(ip, '\\.')[1] AS int) * pow(2, 16)
+     --   + CAST(split(ip, '\\.')[2] AS int) * pow(2, 8)
+     --   + CAST(split(ip, '\\.')[3] AS int) * pow(2, 0)
+     --
+     -- if BigQuery
+     -- , CAST(split(ip, '.')[SAFE_ORDINAL(1)] AS int64) * pow(2, 24)
+     --   + CAST(split(ip, '.')[SAFE_ORDINAL(2)] AS int64) * pow(2, 16)
+     --   + CAST(split(ip, '.')[SAFE_ORDINAL(3)] AS int64) * pow(2, 8)
+     --   + CAST(split(ip, '.')[SAFE_ORDINAL(4)] AS int64) * pow(2, 0)
+     --  AS ip_integer
+  FROM (SELECT CAST('192.168.0.1' AS text) AS ip) AS t
+       -- Other databases
+       -- (SELECT '192.168.0.1' AS ip) AS t
+;
+```
+
+![screenshot023](/assets/images/posts/2020/01/2020-01-28-bigdata-sql-sqlrecipeforanalysis-003-023.png)
+
+<br />
+
+* Convert IP address into string with 0 padding
+
+```sql
+-- Convert IP address into string with 0 padding
+SELECT ip
+     -- if PostgreSQL, Redshift (lpad)
+     , lpad(split_part(ip, '.', 1), 3, '0')
+       || lpad(split_part(ip, '.', 2), 3, '0')
+       || lpad(split_part(ip, '.', 3), 3, '0')
+       || lpad(split_part(ip, '.', 4), 3, '0')
+       AS ip_padding
+     --
+     -- if Hive, SparkSQL
+     -- , CONCAT(lpad(split(ip, '\\.')[0], 3, '0')
+     --        , lpad(split(ip, '\\.')[1], 3, '0')
+     --        , lpad(split(ip, '\\.')[2], 3, '0')
+     --        , lpad(split(ip, '\\.')[3], 3, '0')
+     --   ) AS ip_padding
+     --
+     -- if BigQuery
+     -- , CONCAT(lpad(split(ip, '.')[SAFE_ORDINAL(1)], 3, '0')
+     --        , lpad(split(ip, '.')[SAFE_ORDINAL(2)], 3, '0')
+     --        , lpad(split(ip, '.')[SAFE_ORDINAL(3)], 3, '0')
+     --        , lpad(split(ip, '.')[SAFE_ORDINAL(4)], 3, '0')
+     --   ) AS ip_padding
+  FROM (SELECT CAST('192.168.0.1' AS text) AS ip) AS t
+       -- Other databases
+       -- (SELECT '192.168.0.1' AS ip) AS t
+;
+```
+
+![screenshot024](/assets/images/posts/2020/01/2020-01-28-bigdata-sql-sqlrecipeforanalysis-003-024.png)
+
 
 <br />
 
