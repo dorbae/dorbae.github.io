@@ -77,9 +77,9 @@ SELECT *
 ```sql
 -- Concatenate pref_name and citiy_name
 SELECT user_id
-     -- PostgreSQL, Hive, SparkSQL, BigQuery
+     -- if PostgreSQL, Hive, SparkSQL, BigQuery
      , CONCAT(city_name, ', ', pref_name) AS pref_city
-     -- PostgreSQL, Redshift
+     -- if PostgreSQL, Redshift
      , city_name || ', ' || pref_name AS pref_city2
   FROM mst_user_location 
 ;
@@ -246,7 +246,7 @@ SELECT dt
      , CAST(clicks AS double precision) / impressions AS ctr
      -- 100.0(double) * clicks(integer) -> double
      , 100.0 * clicks / impressions AS ctr_as_percent
-     -- Hive, SparkSQL, Redshift, BigQuery => Auto conversion 
+     -- if Hive, SparkSQL, Redshift, BigQuery => Auto conversion 
      -- , clicks / impressions AS ctr
   FROM advertising_stats 
  WHERE dt = '2020-01-28'
@@ -274,10 +274,10 @@ SELECT dt
      -- use CASE clause
      , CASE WHEN impressions > 0 THEN 100.0 * clicks / impressions 
             END AS ctr_percent_by_case
-     -- PostgreSQL, SparkSQL, Redshift, BigQuery
+     -- if PostgreSQL, SparkSQL, Redshift, BigQuery
      -- The result of arithmetic operation with null is null
      , 100.0 * clicks / NULLIF(impressions , 0) AS ctr_as_percent_by_null
-     -- Hive (Not support NULLIF)
+     -- if Hive (Not support NULLIF)
      -- , 100.0 * clicks / CASE WHEN imperssions = 0 THEN NULL ELSE impressions END AS ctr_as_percent_by_null
   FROM advertising_stats 
  ORDER BY dt, ad_id
@@ -339,6 +339,133 @@ SELECT abs(x1 - x2) AS abs
 ```
 
 ![screenshot012](/assets/images/posts/2020/01/2020-01-28-bigdata-sql-sqlrecipeforanalysis-003-012.png)
+
+<br />
+
+#### Create two dimensions table and insert sample data
+
+```sql
+-- DROP TABLE IF EXISTS location_2d;
+-- Create two dimensions table
+CREATE TABLE location_2d (
+    x1 integer
+  , y1 integer
+  , x2 integer
+  , y2 integer
+);
+
+-- Insert sample data
+INSERT INTO location_2d
+VALUES
+    (0, 0, 2, 2)
+  , (3, 5, 1, 2)
+  , (5, 3, 2, 1)
+;
+
+commit;
+
+-- Select sample data
+SELECT *
+  FROM location_2d 
+;
+```
+
+![screenshot013](/assets/images/posts/2020/01/2020-01-28-bigdata-sql-sqlrecipeforanalysis-003-013.png)
+
+<br />
+
+#### Calculate the Euclidean distance between (x1, y1) and (x2, y2)
+* You can calculate it through **POWER** and **SQRT**
+* PostgreSQL supports **POINT** data type and **<-->**  the distance operation
+
+```sql
+-- Calculate the Euclidean distance between (x1, y1) and (x2, y2)
+SELECT sqrt(power(x1 - x2, 2) + power(y1 - y2, 2)) AS distance 
+     , point(x1, y1) <-> point(x2, y2) as dist_point
+  FROM location_2d 
+;
+```
+
+![screenshot014](/assets/images/posts/2020/01/2020-01-28-bigdata-sql-sqlrecipeforanalysis-003-014.png)
+
+<br />
+
+### 3.6.5. Calculate Date/Time
+#### Create table and insert sample data
+
+```sql
+-- DROP TABLE IF EXISTS mst_users_with_dates;
+-- Create user table with user's birthday and register datetime
+CREATE TABLE mst_users_with_dates (
+    user_id        varchar(255)
+  , register_stamp varchar(255)
+  , birth_date     varchar(255)
+);
+
+-- Insert sample data
+INSERT INTO mst_users_with_dates
+VALUES
+    ('U001', '2019-02-20 10:00:00', '2000-02-19')
+  , ('U002', '2019-02-21 10:00:00', '2000-03-16')
+  , ('U003', '2019-03-01 10:00:00', '2000-04-09')
+;
+
+commit;
+
+-- Select sample data
+SELECT *
+  FROM mst_users_with_dates 
+;
+```
+
+![screenshot015](/assets/images/posts/2020/01/2020-01-28-bigdata-sql-sqlrecipeforanalysis-003-015.png)
+
+<br />
+
+#### Calculate date/time
+* Hive, SparkSQL don't support date/time functions. So, you have to convert string data into unixtime and convert it into timestamp data type
+
+```sql
+-- Calculate date/time
+SELECT user_id
+     , register_stamp::timestamp AS register_stamp
+     , register_stamp::timestamp + '1 hour'::interval AS after_1_hour
+     , register_stamp::timestamp - '30 minutes'::interval AS before_30_minutes
+     , register_stamp::date AS register_date
+     , register_stamp::date + '1 day'::interval AS after_1_day
+     , register_stamp::date - '1 month'::interval AS before_1_month
+     --
+     -- if Hive, SparkSQL (Not support timstamp operation functions)
+     -- , CAST(register_stamp AS timestamp) AS register_stamp
+     -- , from_unixtime(unix_tiestamp(register_stamp) + 60 * 60) AS after_1_hour
+     -- , from_unixtime(unix_tiestamp(register_stamp) - 30 * 60) AS before_30_minutes
+     -- , to_date(register_stamp) AS register_date
+     -- , date_add(to_date(register_stamp), 1) AS after_1_day
+     -- , add_months(to_date(register_stamp), -1) AS before_1_month
+     --
+     -- if Redshift (dateadd)
+     -- , register_stamp::timestamp AS register_stamp
+     -- , dateadd(hour, 1, register_stamp::timestamp) AS after_1_hour
+     -- , dateadd(minute, -30, register_stamp::timestamp) AS before_30_minutes
+     -- , register_stamp::date AS register_date
+     -- , dateadd(day, 1, register_stamp::date) AS after_1_day
+     -- , dateadd(month, -1, register_stamp::date) AS before_1_month
+     --
+     -- if BigQuery (timestamp_add, timestamp_sub, date_add, date_sub)
+     -- , timestamp(register_stamp) AS register_stamp
+     -- , timestamp_add(timestamp(register_stamp), interval 1 hour) AS after_1_hour
+     -- , timestamp_sub(timestamp(register_stamp), interval 30 minute) AS before_30_minutes
+     -- , date(register_stamp) AS register_date
+     -- , date_add(date(register_stamp), interval 1 day) AS after_1_day
+     -- , date_sub(date(register_stamp), interval 1 month) AS before_1_month
+   FROM mst_users_with_dates
+;
+```
+
+![screenshot016](/assets/images/posts/2020/01/2020-01-28-bigdata-sql-sqlrecipeforanalysis-003-016.png)
+
+<br />
+
 
 <br />
 
