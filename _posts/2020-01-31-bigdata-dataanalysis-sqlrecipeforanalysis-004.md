@@ -1,0 +1,297 @@
+---
+layout: post
+title: "[Data Analysis] SQL Recipe for Data Analysis Tutorial #4 - Manipulating multiple values"
+comments: true
+author: dorbae
+date: 2020-01-31 +0900
+categories : [BigData,DataAnalysis]
+tags: [bigdata,sql,analyze,data,tutorial]
+sitemap :
+  changefreq : weekly
+---
+
+# Goal
+* Studying SQL for data analysis
+* Practicing chapter 3rd in the book
+* Studying SQL for Manipulating data
+
+<br />
+
+---------------
+
+# Practice
+
+## Book for studying
+
+| Title | 데이터 분석을 위한 SQL 레시피 | 
+| --- | --- |
+| Author | Nagato Kasaki, Naoto Tamiya |
+| Translator | 윤인성 |
+| Publisher | 한빛미디어 |
+| Chapter | 3 |
+| Lesson | 7 |
+
+<br >
+
+* I'm gonna study basic SQL syntax and functions for data analysis
+* I'm gonna study how to manipulate a single table
+* I'm gonna study about data-intensive and data-processing
+* I'm gonna try to load test data on PostgreSQL and execute queries in the book
+
+<br />
+
+## 3.7. Manipulating a singlie table
+* Data-intensive
+    * SQL supports a lot of functions for data-intensive
+    * Especially, SQL:2003 standard support Window functions which performs a calculation across a set of table rows that are somehow related to the current row
+* Data-processing
+    * Sometimes, you need to convert a table as the form that you want because it is useful in an aggregation
+
+<br />
+
+* [Download tutorial SQL file](/assets/sql/sql_recipe_tutorial_004.sql)
+
+<br />
+
+### 3.7.1. Make groups
+* Data-intensive means that making one value from multiple records like **COUNT**(returns total record count), **SUM**(returns the sum of all records)
+
+#### Create table and insert sample data
+
+```sql
+--DROP TABLE IF EXISTS review;
+-- Create review table
+CREATE TABLE review (
+    user_id    varchar(255)
+  , product_id varchar(255)
+  , score      numeric
+);
+
+-- Insert sample data
+INSERT INTO review
+VALUES
+    ('U001', 'A001', 4.0)
+  , ('U001', 'A002', 5.0)
+  , ('U001', 'A003', 5.0)
+  , ('U002', 'A001', 3.0)
+  , ('U002', 'A002', 3.0)
+  , ('U002', 'A003', 4.0)
+  , ('U003', 'A001', 5.0)
+  , ('U003', 'A002', 4.0)
+  , ('U003', 'A003', 4.0)
+;
+
+commit;
+
+-- Select sample data
+SELECT *
+  FROM review
+;
+```
+
+![screenshot001](/assets/images/posts/2020/01/2020-01-31-bigdata-sql-sqlrecipeforanalysis-004-001.png)
+
+<br />
+
+#### Calculate several feature values from all records
+| Function | Description |
+| --- | --- |
+| DISTINCT | Removes the duplication |
+| SUM | Returns the sum |
+| AVG | Returns the average |
+| MAX | Returns the maximum value |
+| MIN | Returns the minimum value |
+
+```sql
+-- Calculate several feature values from all records
+SELECT COUNT(*) AS total_count
+     , COUNT(DISTINCT user_id) AS user_count
+     , COUNT(DISTINCT product_id) AS product_count
+     , SUM(score) AS sum
+     , AVG(score) AS avg
+     , MAX(score) AS max
+     , MIN(score) AS min
+  FROM review
+;
+```
+
+![screenshot002](/assets/images/posts/2020/01/2020-01-31-bigdata-sql-sqlrecipeforanalysis-004-002.png)
+
+<br />
+
+#### Calculate serveral feature values from groups repectively
+* **GROUP BY** clause does intensivly by the key
+* I'm gonna make groups by user_id
+
+``` sql
+-- Calculate serveral feature values from groups repectively
+SELECT user_id
+     , COUNT(*) AS total_count
+     , COUNT(DISTINCT product_id) AS product_count
+     , SUM(score) AS sum
+     , AVG(score) AS avg
+     , MAX(score) AS max
+     , MIN(score) AS min
+  FROM review
+ GROUP BY user_id 
+;
+```
+
+![screenshot003](/assets/images/posts/2020/01/2020-01-31-bigdata-sql-sqlrecipeforanalysis-004-003.png)
+
+<br />
+
+#### Handle the value that is applied data-intensive function and the one that is not applied it simultaneously
+* I'll calculate the difference between user's private score(score) and the average score by user(user_avg_score)
+* **OVER(PARTITION BY <column_name>)** : group by column_name
+* **OVER()** : about all records in a table
+
+```sql
+-- Calculate user's private score(score) and the average score by user(user_avg_score)
+SELECT user_id
+     , product_id
+     -- User's private score
+     , score 
+     -- The total average score 
+     , AVG(score) OVER() AS avg_score
+     -- User's average score
+     , AVG(score) OVER(PARTITION BY user_id) AS user_avg_score
+     -- The differnce
+     , score - AVG(score) OVER(PARTITION BY user_id) AS user_avg_score_diff
+  FROM review
+;
+```
+
+![screenshot004](/assets/images/posts/2020/01/2020-01-31-bigdata-sql-sqlrecipeforanalysis-004-004.png)
+
+<br />
+
+#### Create popular product table and insert sample data
+
+```sql
+-- DROP TABLE IF EXISTS popular_products;
+-- Create popular product table
+CREATE TABLE popular_products (
+    product_id varchar(255)
+  , category   varchar(255)
+  , score      numeric
+);
+
+-- Insert sample data
+INSERT INTO popular_products
+VALUES
+    ('A001', 'action', 94)
+  , ('A002', 'action', 81)
+  , ('A003', 'action', 78)
+  , ('A004', 'action', 64)
+  , ('D001', 'drama' , 90)
+  , ('D002', 'drama' , 82)
+  , ('D003', 'drama' , 78)
+  , ('D004', 'drama' , 58)
+;
+     
+commit;
+
+-- Select sample data
+SELECT *
+  FROM popular_products
+;
+```
+
+![screenshot005](/assets/images/posts/2020/01/2020-01-31-bigdata-sql-sqlrecipeforanalysis-004-005.png)
+
+<br />
+
+#### Ordering in a group
+* You can order records through **ORDER BY**
+* There are several functions to return a sequent order
+
+| Function | Description |
+| ---- | ---- |
+| ROW_NUMBER | Returns a unique sequence number |
+| RANK | Returns the rank number in a group and skips the number if there are same rank values <br /> eg. 1, 2, 2, 4, 5 |
+| DENSE_RANK | Returns the rank number in a group and deosn't skip the number if there are same rank values <br /> eg. 1, 2, 2, 3, 4 |
+
+* And also, there are functions that return the previous or next record
+
+| Function | Description |
+| --- | --- |
+| LAG(column_name) | Returns the previous record in a group |
+| LAG(column_name, n) | Returns the previous Nth record in a group
+| LEAD(column_name) | Returns the next record in a group |
+| LEAD(column_name, n) | Returns the next Nth record in a group |
+
+```sql
+-- Ordering in a table
+SELECT product_id
+     , score
+     -- Unique rank by score
+     , ROW_NUMBER() OVER(ORDER BY score DESC) AS rownum
+     -- Skip duplicate rank
+     , RANK() OVER(ORDER BY score DESC) AS rank
+     -- Don't skip duplicate rank
+     , DENSE_RANK() OVER(ORDER BY score DESC) AS dense_rank 
+     -- Previous record
+     , LAG(product_id) OVER(ORDER BY score DESC) AS lag1
+     -- Previous 2nd record
+     , LAG(product_id, 2) OVER(ORDER BY score DESC) AS lag2
+     -- Next record
+     , LEAD(product_id) OVER(ORDER BY score DESC) AS lead1
+     -- Next 2nd record
+     , LEAD(product_id, 2) OVER(ORDER BY score DESC) AS lead2
+  FROM popular_products
+ ORDER BY rownum 
+;
+```
+
+![screenshot006](/assets/images/posts/2020/01/2020-01-31-bigdata-sql-sqlrecipeforanalysis-004-006.png)
+
+<br />
+
+#### Combine ordering and intensive functions
+* There are functions that return frst or last value in a window group like **FIRST_VALUE**, **LAST_VALUE**
+* And you can set the range of a window
+
+```sql
+-- Combine ordering and intensive functions
+SELECT product_id
+     , score
+     , ROW_NUMBER() OVER(ORDER BY score DESC) 
+         AS rownum
+     -- Cumulative score from the score of a high rank to current in a window
+     , SUM(score) 
+         OVER(ORDER BY score DESC
+           ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW)
+         AS cum_score
+     -- Average score between previous record, current, and next record
+     , AVG(score)
+         OVER(ORDER BY score DESC
+           ROWS BETWEEN 1 PRECEDING AND 1 FOLLOWING)
+         AS local_avg
+     -- Product_id of top ranked record
+     , FIRST_VALUE(product_id) 
+         OVER(ORDER BY score DESC
+           ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING)
+         AS first_value
+     -- Product_id of bottom ranked record
+     , LAST_VALUE(product_id) 
+         OVER(ORDER BY score DESC
+           ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING)
+         AS first_value
+  FROM popular_products
+ ORDER BY rownum 
+;
+```
+
+![screenshot007](/assets/images/posts/2020/01/2020-01-31-bigdata-sql-sqlrecipeforanalysis-004-007.png)
+
+<br />
+
+
+<br />
+
+------------
+
+## References
+* 데이터 분석을 위한 SQL 레시피 - 한빛미디어
+* [SQL:2003 Wiki](https://en.wikipedia.org/wiki/SQL:2003)
