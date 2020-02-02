@@ -360,4 +360,4 @@ SELECT purchase_id
 
 ## References
 * 데이터 분석을 위한 SQL 레시피 - 한빛미디어
-* [HTTP Referer Wiki](https://en.wikipedia.org/wiki/HTTP_referer)
+* [HTTP Referer Wiki](https://en.wikipedia.org/wiki/HTTP_referer){:target="_blank"}

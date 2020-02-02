@@ -512,7 +512,7 @@ SELECT purchase_id
 * However, it is useful to analyze data and there are many cases which need it
 
 #### Quarterly sales table and insert sample data
-* This table is already exits because I made it in [Tutorial #3 - Manipulating multiple values / 3.6.2. Compare multiple values](/bigdata/dataanalysis/2020-01-28-bigdata-dataanalysis-sqlrecipeforanalysis-003){:target="_blank"}
+* This table is already exits because I made it in [Tutorial #3 - Manipulating multiple values / 3.6.2. Compare multiple values](/bigdata/dataanalysis/bigdata-dataanalysis-sqlrecipeforanalysis-003){:target="_blank"}
 * If you haven't this table, execute the query below
 
 ```sql
@@ -713,4 +713,4 @@ SELECT l.purchase_id
 
 ## References
 * 데이터 분석을 위한 SQL 레시피 - 한빛미디어
-* [SQL:2003 Wiki](https://en.wikipedia.org/wiki/SQL:2003)
+* [SQL:2003 Wiki](https://en.wikipedia.org/wiki/SQL:2003){:target="_blank"}

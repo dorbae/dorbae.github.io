@@ -146,4 +146,4 @@ docker start -i -p 5432:5432/tcp postgres-da
 
 ## References
 * 데이터 분석을 위한 SQL 레시피 - 한빛미디어
-* [DockerHub PostgreSQL](https://hub.docker.com/_/postgres)
+* [DockerHub PostgreSQL](https://hub.docker.com/_/postgres){:target="_blank"}
