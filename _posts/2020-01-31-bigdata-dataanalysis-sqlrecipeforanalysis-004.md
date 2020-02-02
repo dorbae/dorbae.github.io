@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[Data Analysis] SQL Recipe for Data Analysis Tutorial #4 - Manipulating multiple values"
+title: "[Data Analysis] SQL Recipe for Data Analysis Tutorial #4 - Manipulating a single table"
 comments: true
 author: dorbae
 date: 2020-01-31 +0900
@@ -392,7 +392,7 @@ SELECT DISTINCT category
 
 <br />
 
-### 3.7.3. Covert columns into rows
+### 3.7.3. Convert columns into rows
 #### Create table and insert sample data
 
 ```sql
@@ -505,7 +505,207 @@ SELECT purchase_id
 
 ![screenshot015](/assets/images/posts/2020/01/2020-01-31-bigdata-sql-sqlrecipeforanalysis-004-015.png)
 
+<br />
 
+### 3.7.4. Convert rows into columns
+* It is more complicate than converting columns into rows
+* However, it is useful to analyze data and there are many cases which need it
+
+#### Quarterly sales table and insert sample data
+* This table is already exits because I made it in [Tutorial #3 - Manipulating multiple values / 3.6.2. Compare multiple values](/_posts/2020-01-28-bigdata-dataanalysis-sqlrecipeforanalysis-003.md)
+* If you haven't this table, execute the query below
+
+```sql
+-- DROP TABLE IF EXISTS quarterly_sales;
+-- Create quarterly sales table
+CREATE TABLE quarterly_sales (
+    year integer
+  , q1   integer
+  , q2   integer
+  , q3   integer
+  , q4   integer
+);
+
+-- Insert sample data
+INSERT INTO quarterly_sales
+VALUES
+    (2017, 82000, 83000, 78000, 83000)
+  , (2018, 85000, 85000, 80000, 81000)
+  , (2019, 92000, 81000, NULL , NULL )
+;
+
+commit;
+
+-- Select sample data
+SELECT * 
+  FROM quarterly_sales
+;
+```
+
+![screenshot016](/assets/images/posts/2020/01/2020-01-31-bigdata-sql-sqlrecipeforanalysis-004-016.png)
+
+<br />
+
+#### Convert rows into columns
+* You have to make pivot table and do CROSS JOIN with it
+
+```sql
+-- CROSS JOIN with a pivot table
+SELECT q.year
+     -- Print labels from Q1 to Q4
+     , CASE WHEN p.idx = 1 THEN 'q1'
+            WHEN p.idx = 2 THEN 'q2'
+            WHEN p.idx = 3 THEN 'q3'
+            WHEN p.idx = 4 THEN 'q4'
+            END AS quarters
+     -- Print sales from Q1 to Q4
+     , CASE WHEN p.idx = 1 THEN q.q1
+            WHEN p.idx = 2 THEN q.q2
+            WHEN p.idx = 3 THEN q.q3
+            WHEN p.idx = 4 THEN q.q4
+            END AS sales
+  FROM quarterly_sales AS q
+    CROSS JOIN
+      -- Create sequence table followed columns in quaterly_sales
+      (SELECT 1 AS idx
+       UNION ALL
+       SELECT 2 AS idx
+       UNION ALL
+       SELECT 3 AS idx
+       UNION ALL
+       SELECT 4 AS idx
+      ) AS p
+;  
+```
+
+![screenshot017](/assets/images/posts/2020/01/2020-01-31-bigdata-sql-sqlrecipeforanalysis-004-017.png)
+
+<br />
+
+#### Create purchase log table and insert sample data
+
+```sql
+-- DROP TABLE IF EXISTS purchase_log;
+-- Create purchase_log
+CREATE TABLE purchase_log (
+    purchase_id integer
+  , product_ids varchar(255)
+);
+
+-- Insert sample data
+INSERT INTO purchase_log
+VALUES
+    (100001, 'A001,A002,A003')
+  , (100002, 'D001,D002')
+  , (100003, 'A001')
+;
+
+commit;
+
+-- Select sample data
+SELECT *
+  FROM purchase_log
+;
+```
+
+![screenshot018](/assets/images/posts/2020/01/2020-01-31-bigdata-sql-sqlrecipeforanalysis-004-018.png)
+
+<br />
+
+#### Convert array into rows
+* Several middlewares support **TABLE_FUNCTION** whichi returns a table
+* For example, PostgreSQL and BigQuery have **unnest(array)** function and Hive and SparkSQL have **explode(array)** function and they convert an array into a table
+
+```sql
+-- Convert an array into a table
+-- if PostgreSQL
+SELECT unnest(ARRAY['A001', 'A002', 'A003']) AS product_id;
+-- if BigQuery
+-- SELECT * FROM unnest(ARRAY['A001', 'A002', 'A003']) AS product_id;
+-- if Hive, SparkSQL
+-- SELECT explode(ARRAY['A001', 'A002', 'A003']) AS product_id;
+```
+
+![screenshot019](/assets/images/posts/2020/01/2020-01-31-bigdata-sql-sqlrecipeforanalysis-004-019.png)
+
+<br />
+
+* You have to use **CROSS JOIN** in PostgreSQL or BigQuery and use **LATERAL VIEW** in Hive or SparkSQL
+
+```sql
+-- Convert a stirng with delimiters into a table
+SELECT purchase_id
+     , product_id
+  FROM purchase_log AS p
+    -- if PostgreSQL
+    CROSS JOIN unnest(pg_catalog.string_to_array(product_ids, ',')) AS product_id
+    -- if BigQuery
+    -- CROSS JOIN unnest(split(product_ids, ',')) AS prouct_id
+    -- if Hive, SparkSQL
+    -- LATERAL VIEW explode(split(producT_ids, ',') e AS producT_id
+;
+```
+
+![screenshot020](/assets/images/posts/2020/01/2020-01-31-bigdata-sql-sqlrecipeforanalysis-004-020.png)
+
+<br />
+
+* You can use scalar value and a table function in the same time in PostgreSQL 
+* PostgreSQL supports **regexp_split_to_table()** which returns a table from an string by the regualar expression
+
+```sql
+-- Convert a stirng with delimiters into a table withtout cross join
+SELECT purchase_id
+     , regexp_split_to_table(product_ids, ',') AS product_id
+  FROM purchase_log
+;
+```
+
+![screenshot021](/assets/images/posts/2020/01/2020-01-31-bigdata-sql-sqlrecipeforanalysis-004-021.png)
+
+<br />
+
+#### Convert a string into rows in Redshift
+* Redshift doesn't support array data type offically
+* Therefore, it is more complicate for you to do it in Redshift and you have to do several pre processing
+
+```sql
+-- Calculate the count of products through the count of delimiters in Redshift
+SELECT purchase_id
+     , product_ids
+     -- Remove comman by product_id 
+     -- and calculate the count of products through the count of delimiters
+     , 1 + char_length(product_ids) - char_length(replace(product_ids, ',', ''))
+         AS product_num
+  FROM purchase_log
+;
+```
+
+![screenshot022](/assets/images/posts/2020/01/2020-01-31-bigdata-sql-sqlrecipeforanalysis-004-022.png)
+
+<br />
+
+```sql
+-- Convert a string into rows using a pivot table in Redshift
+SELECT l.purchase_id
+     , l.product_ids
+     -- Set a sequence by the count of products
+     , p.idx
+     , split_part(l.product_ids, ',', p.idx) AS product_id 
+  FROM purchase_log AS l
+    JOIN
+      (SELECT 1 AS idx
+       UNION ALL
+       SELECT 2 AS idx
+       UNION ALL
+       SELECT 3 AS idx 
+      ) AS p
+      -- Join when id of the pivot table is less than the count of products
+      ON p.idx <= (1 + char_length(product_ids) - char_length(replace(product_ids, ',', '')))
+;
+```
+
+![screenshot023](/assets/images/posts/2020/01/2020-01-31-bigdata-sql-sqlrecipeforanalysis-004-023.png)
 
 <br />
 
