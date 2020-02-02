@@ -287,6 +287,225 @@ SELECT product_id
 
 <br />
 
+#### Define a window frame
+* Define a relative frame based on current record
+* '**ROWS BETWEEN** start **AND** end' is the basic clause
+* You can use **CURRENT_ROW**(current row), **n PRECEDING**(n previous row), **n FOLLOWING**(n next row), **UNBOUNDED PROCEDING**(all previous rows), **UNBOUNDED FOLLOWING**(all next rows) keyword in start or end
+* If you don't define a window frame, the ranges of default frame are whole rows without ORDER BY or from the first record to current record with ORDER BY
+* PostgresSQL supports **array_agg(column_name)** keyword and Hive, SparkSQL support **collect_list(column_name)** for data-intensive
+  > Redshift supports **listagg** such as array_agg and collect_list. However, it is unable to used with a window frame
+
+```sql
+-- Integrate product_id by window frames
+SELECT product_id
+     , ROW_NUMBER() OVER(ORDER BY score DESC) 
+         AS rownum
+     -- All records
+     , array_agg(product_id)	-- collect_list(product_id)
+         OVER(ORDER BY score DESC
+           ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING)
+         AS whole_agg
+     -- From the first record to current record
+     , array_agg(product_id)
+         OVER(ORDER BY score DESC
+           ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW)
+         AS cum_agg
+     -- From previous record to next record
+     , array_agg(product_id)
+         OVER(ORDER BY score DESC
+           ROWS BETWEEN 1 PRECEDING AND 1 FOLLOWING)
+         AS local_agg
+  FROM popular_products
+ WHERE category = 'action'
+ ORDER BY rownum 
+;
+```
+
+![screenshot008](/assets/images/posts/2020/01/2020-01-31-bigdata-sql-sqlrecipeforanalysis-004-008.png)
+
+<br />
+
+#### Combine PARTITION BY and ORDER BY
+
+```sql
+-- Combine PARTITION BY and ORDER BY
+SELECT category
+     , product_id
+     , score
+     -- Unique rank by category
+     , ROW_NUMBER()
+         OVER(PARTITION BY category ORDER BY score DESC)
+         AS rownum
+     -- Rank with duplication by category
+     , RANK()
+         OVER(PARTITION BY category ORDER BY score DESC)
+         AS rank
+     -- Rank with duplication and skip duplicate rank
+     , DENSE_RANK()
+         OVER(PARTITION BY category ORDER BY score DESC)
+         AS dense_rank
+  FROM popular_products pp 
+ ORDER BY category, rownum 
+;
+```
+
+![screenshot009](/assets/images/posts/2020/01/2020-01-31-bigdata-sql-sqlrecipeforanalysis-004-009.png)
+
+<br />
+
+#### Extract top n by category
+
+```sql
+-- Extract top 2 products by category
+SELECT *
+  FROM 
+    (SELECT category
+          , product_id
+          , score
+          , ROW_NUMBER()
+              OVER(PARTITION BY category ORDER BY score DESC)
+              AS rank
+      FROM popular_products pp 
+   ) AS popular_products_with_rank
+ WHERE rank  <= 2
+ ORDER BY category, rank 
+;
+```
+
+![screenshot010](/assets/images/posts/2020/01/2020-01-31-bigdata-sql-sqlrecipeforanalysis-004-010.png)
+
+<br />
+
+```sql
+-- Extrat top ranked product by category
+SELECT DISTINCT category
+    -- the top ranked product_id
+    , FIRST_VALUE(product_id)
+        OVER(PARTITION BY category ORDER BY score DESC
+          ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING)
+        AS product_id
+  FROM popular_products pp
+;
+```
+
+![screenshot011](/assets/images/posts/2020/01/2020-01-31-bigdata-sql-sqlrecipeforanalysis-004-011.png)
+
+<br />
+
+### 3.7.3. Covert columns into rows
+#### Create table and insert sample data
+
+```sql
+-- DROP TABLE IF EXISTS daily_kpi;
+-- Create KPI(Key Point Indicator) table
+CREATE TABLE daily_kpi (
+    dt        varchar(255)
+  , indicator varchar(255)
+  , val       integer
+);
+
+-- Insert sample data
+INSERT INTO daily_kpi
+VALUES
+    ('2020-01-01', 'impressions', 1800)
+  , ('2020-01-01', 'sessions'   ,  500)
+  , ('2020-01-01', 'users'      ,  200)
+  , ('2020-01-02', 'impressions', 2000)
+  , ('2020-01-02', 'sessions'   ,  700)
+  , ('2020-01-02', 'users'      ,  250)
+;
+
+commit;
+
+-- Select sample data
+SELECT *
+  FROM daily_kpi
+;
+```
+
+![screenshot012](/assets/images/posts/2020/01/2020-01-31-bigdata-sql-sqlrecipeforanalysis-004-012.png)
+
+<br />
+
+#### Convert rows into columns
+* Use GROUP BY and MAX(CASE) because there are no duplicate indicators per dt
+
+```sql
+-- Convert rows into columns through GROUP_BY and MAX(CASE)
+SELECT dt
+     , MAX(CASE WHEN indicator = 'impressions' THEN val END)
+         AS impressions
+     , MAX(CASE WHEN indicator = 'sessions' THEN val END)
+         AS sessions
+     , MAX(CASE WHEN indicator = 'users' THEN val END)
+         AS users
+  FROM daily_kpi 
+ GROUP BY dt 
+ ORDER BY dt 
+;
+```
+
+![screenshot013](/assets/images/posts/2020/01/2020-01-31-bigdata-sql-sqlrecipeforanalysis-004-013.png)
+
+<br />
+
+#### Create purchase log table and insert sampled data
+
+```sql
+-- DROP TABLE IF EXISTS purchase_detail_log;
+-- Create purchase log table
+CREATE TABLE purchase_detail_log (
+    purchase_id integer
+  , product_id  varchar(255)
+  , price       integer
+);
+
+-- Insert sample data
+INSERT INTO purchase_detail_log
+VALUES
+    (100001, 'A001', 3000)
+  , (100001, 'A002', 4000)
+  , (100001, 'A003', 2000)
+  , (100002, 'D001', 5000)
+  , (100002, 'D002', 3000)
+  , (100003, 'A001', 3000)
+;
+
+commit;
+
+-- Select sample data
+SELECT *
+  FROM purchase_detail_log
+;
+```
+
+![screenshot014](/assets/images/posts/2020/01/2020-01-31-bigdata-sql-sqlrecipeforanalysis-004-014.png)
+
+<br />
+
+#### Convert rows into 1 row with comma delimiters
+* PostgreSQL and BigQuery support **string_agg(column_name, delimiter)** and Redshift also supports **listagg(column_name, delimiter)** to integrate rows into 1 row with delimiters
+* Hive and SparkSQL are available to integrate them through **collect_list(column_name)** and **concat_ws(delimiter, array)**
+
+```sql
+-- Convert rows into 1 row with comma delimiters
+SELECT purchase_id
+     -- if PostgresSQL, BigQuery
+     , string_agg(product_id, ',') AS product_ids
+     -- if Redshift
+     -- , listagg(product_id, ',') AS product_ids
+     -- if Hive, SparkSQL
+     -- , concat_ws(',', collect_list(product_id)) AS product_ids
+     , SUM(price) AS amount
+  FROM purchase_detail_log 
+ GROUP BY purchase_id 
+ ORDER BY purchase_id 
+;
+```
+
+![screenshot015](/assets/images/posts/2020/01/2020-01-31-bigdata-sql-sqlrecipeforanalysis-004-015.png)
+
+
 
 <br />
 
