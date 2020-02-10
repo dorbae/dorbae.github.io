@@ -124,7 +124,7 @@ SELECT dt
 
 ### 4.9.2. Extract the change followed by date through a moving average
 * You can easily recognize the increase and decrease chage through the moving average 
-* Image that you have to make the below chart
+* Imagine that you have to make the below chart
 
 ![screenshot004](/assets/images/posts/2020/02/2020-02-06-bigdata-sql-sqlrecipeforanalysis-006-004.png)
 
@@ -157,7 +157,7 @@ SELECT dt
 <br />
 
 ### 4.9.3. Calculate the accumulated sales amount of this month
-* Image that you have to make the below chart
+* Imagine that you have to make the below chart
 
 ![screenshot006](/assets/images/posts/2020/02/2020-02-06-bigdata-sql-sqlrecipeforanalysis-006-006.png)
 
@@ -190,6 +190,8 @@ SELECT dt
 #### Enhance the readability of query through WITH clause
 * substring functions were used repeatly and it ruined the code readablity
 * You can make it better by **WITH**
+
+> In BigData analysis, it is usually more important to make the query distinctly than the performance
 
 ```sql
 -- Make a temporary view indicating daily sales amount
@@ -250,7 +252,132 @@ SELECT dt
 
 <br />
 
-# Continue...
+### 4.9.4. Calculate the sales per month and compare to the one of last year
+
+#### Create purchase log table
+* Insert sample data which contains sale amount from 2018 to 2019
+
+```sql
+-- DROP TABLE IF EXISTS purchase_log4;
+CREATE TABLE purchase_log4 (
+    dt              varchar(255)
+  , order_id        integer
+  , user_id         varchar(255)
+  , purchase_amount integer
+);
+
+-- Insert sample data
+INSERT INTO purchase_log4
+VALUES
+    ('2018-01-01',    1, 'rhwpvvitou', 13900)
+  , ('2018-02-08',   95, 'chtanrqtzj', 28469)
+  , ('2018-03-09',  168, 'bcqgtwxdgq', 18899)
+  , ('2018-04-11',  250, 'kdjyplrxtk', 12394)
+  , ('2018-05-11',  325, 'pgnjnnapsc',  2282)
+  , ('2018-06-12',  400, 'iztgctnnlh', 10180)
+  , ('2018-07-11',  475, 'eucjmxvjkj',  4027)
+  , ('2018-08-10',  550, 'fqwvlvndef',  6243)
+  , ('2018-09-10',  625, 'mhwhxfxrxq',  3832)
+  , ('2018-10-11',  700, 'wyrgiyvaia',  6716)
+  , ('2018-11-10',  775, 'cwpdvmhhwh', 16444)
+  , ('2018-12-10',  850, 'eqeaqvixkf', 29199)
+  , ('2019-01-09',  925, 'efmclayfnr', 22111)
+  , ('2019-02-10', 1000, 'qnebafrkco', 11965)
+  , ('2019-03-12', 1075, 'gsvqniykgx', 20215)
+  , ('2019-04-12', 1150, 'ayzvjvnocm', 11792)
+  , ('2019-05-13', 1225, 'knhevkibbp', 18087)
+  , ('2019-06-10', 1291, 'wxhxmzqxuw', 18859)
+  , ('2019-07-10', 1366, 'krrcpumtzb', 14919)
+  , ('2019-08-08', 1441, 'lpglkecvsl', 12906)
+  , ('2019-09-07', 1516, 'mgtlsfgfbj',  5696)
+  , ('2019-10-07', 1591, 'trgjscaajt', 13398)
+  , ('2019-11-06', 1666, 'ccfbjyeqrb',  6213)
+  , ('2019-12-05', 1741, 'onooskbtzp', 26024)
+;
+
+commit;
+
+-- Select sample data
+SELECT * FROM purchase_log4;
+```
+
+![screenshot010](/assets/images/posts/2020/02/2020-02-06-bigdata-sql-sqlrecipeforanalysis-006-010.png)
+
+<br />
+
+#### Calculate the sales per month and compare to the one of last year
+* Imagine that you have to make the below chart
+
+![screenshot011](/assets/images/posts/2020/02/2020-02-06-bigdata-sql-sqlrecipeforanalysis-006-011.png)
+
+<br />
+
+```sql
+-- Calculate the sales per month and compare to the one of last year
+WITH
+daily_purchase AS (
+  SELECT dt
+       -- Extract year, month, date respectively
+       -- if PostgreSQL, Hive, SparkSQL, Redshift, use substring
+       -- if BigQuery, use substr
+       , substring(dt, 1, 4) AS year
+       , substring(dt, 6, 2) AS month
+       , substring(dt, 9, 2) AS date
+       , SUM(purchase_amount) AS purchase_amount
+       , COUNT(order_id) AS orders
+    FROM purchase_log4
+   GROUP BY dt
+)
+SELECT month
+     , SUM(CASE year WHEN '2018' THEN purchase_amount END) AS amount_2018
+     , SUM(CASE year WHEN '2019' THEN purchase_amount END) AS amount_2019
+     , 100.0 * SUM(CASE year WHEN '2019' THEN purchase_amount END)
+       / SUM(CASE year WHEN '2018' THEN purchase_amount END)
+         AS rate
+  FROM daily_purchase 
+ GROUP BY month 
+ ORDER BY month
+;
+```
+
+![screenshot012](/assets/images/posts/2020/02/2020-02-06-bigdata-sql-sqlrecipeforanalysis-006-012.png)
+
+<br />
+
+### 4.9.5. Utilize Z chart
+* **Z chart**
+    * A diagram charting values over a period (frequently one year) and showing simultaneously monthly figures (or weekly or daily), cumulative totals and the moving averages. 
+    * It normally takes a Z shape, hence its title and is of use in clarifying the trends present in the data displayed
+
+![screenshot013](/assets/images/posts/2020/02/2020-02-06-bigdata-sql-sqlrecipeforanalysis-006-013.png)
+
+<br />
+
+#### What factors are needed for Z chart
+* Monthly figure
+    * The sum amount of that month
+    * It can be weekly or daily
+
+![screenshot014](/assets/images/posts/2020/02/2020-02-06-bigdata-sql-sqlrecipeforanalysis-006-014.png)
+
+<br />
+
+* Cumulative total
+    * Cumulative total from the first month of this year to current month
+
+![screenshot015](/assets/images/posts/2020/02/2020-02-06-bigdata-sql-sqlrecipeforanalysis-006-015.png)
+
+<br />
+
+* Moving total
+    * Total amount from 11 month ago to current
+
+![screenshot016](/assets/images/posts/2020/02/2020-02-06-bigdata-sql-sqlrecipeforanalysis-006-016.png)
+
+<br />
+
+# To be continue....
+
 
 <br />
 
@@ -258,3 +385,4 @@ SELECT dt
 
 ## References
 * 데이터 분석을 위한 SQL 레시피 - 한빛미디어
+* [Z chart - Monash University](https://www.monash.edu/business/marketing/marketing-dictionary/z/z-chart)
