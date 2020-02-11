@@ -376,6 +376,46 @@ SELECT month
 
 <br />
 
+#### How to analyze Z chart
+* Noticeable point on the cumulative total
+    * The line for the cumulative total figure will be more straight as the monthly figures are regular
+
+    ![screenshot017](/assets/images/posts/2020/02/2020-02-06-bigdata-sql-sqlrecipeforanalysis-006-017.png)
+
+    <br />
+
+    * The lean of the line for the cumulative total figure will become steep as the monthly figures are getting bigger
+
+    ![screenshot018](/assets/images/posts/2020/02/2020-02-06-bigdata-sql-sqlrecipeforanalysis-006-018.png)
+
+    <br />
+
+    * The lean of the line for the cumulative total figure will be flatting off as the monthly figures are getting smaller
+
+    ![screenshot019](/assets/images/posts/2020/02/2020-02-06-bigdata-sql-sqlrecipeforanalysis-006-019.png)
+
+<br />
+
+* Noticeable point on the moving total
+    * The line for the moving total will be straight when the sales amount is regular from last year to this year
+
+    ![screenshot020](/assets/images/posts/2020/02/2020-02-06-bigdata-sql-sqlrecipeforanalysis-006-020.png)
+
+    <br />
+
+    * The graph will rise up when there is an increasing trend for sales amount
+
+    ![screenshot021](/assets/images/posts/2020/02/2020-02-06-bigdata-sql-sqlrecipeforanalysis-006-021.png)
+
+    <br />
+
+    * The graph will drop when there is a decreasing trend for sales amount
+
+    ![screenshot022](/assets/images/posts/2020/02/2020-02-06-bigdata-sql-sqlrecipeforanalysis-006-022.png)
+
+    <br />
+
+
 # To be continue....
 
 
