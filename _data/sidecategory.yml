@@ -18,6 +18,8 @@ toc:
     subfolderitems:
       - page: Data Analysis
         url: /category/bigdata/dataanalysis/dataanalysis
+      - page: Hive
+        url: /category/bigdata/hive
   - title: Business
     url: /category/biz/biz
   - title: DBMS
