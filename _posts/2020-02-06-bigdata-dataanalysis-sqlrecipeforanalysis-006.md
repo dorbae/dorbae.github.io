@@ -415,8 +415,125 @@ SELECT month
 
     <br />
 
+* Various shapes of Z chart
 
-# To be continue....
+![screenshot023](/assets/images/posts/2020/02/2020-02-06-bigdata-sql-sqlrecipeforanalysis-006-023.png)
+
+![screenshot024](/assets/images/posts/2020/02/2020-02-06-bigdata-sql-sqlrecipeforanalysis-006-024.png)
+
+![screenshot025](/assets/images/posts/2020/02/2020-02-06-bigdata-sql-sqlrecipeforanalysis-006-025.png)
+
+<br />
+
+* How to aggregate data for Z chart throug SQL
+
+```sql
+--- Z chart for sales in 2019
+WITH
+daily_purchase AS (
+  SELECT dt
+       -- Extract year, month, date respectively
+       -- if PostgreSQL, Hive, SparkSQL, Redshift, use substring
+       -- if BigQuery, use substr
+       , substring(dt, 1, 4) AS year
+       , substring(dt, 6, 2) AS month
+       , SUM(purchase_amount) AS purchase_amount
+       , COUNT(order_id) AS orders
+    FROM purchase_log4
+   GROUP BY dt
+)
+, monthly_purchase AS (
+  -- Monthly figure
+  SELECT year 
+       , month
+       , SUM(purchase_amount) AS amount
+    FROM daily_purchase 
+   GROUP BY year, month 
+)
+, calc_index AS (
+  SELECT year 
+       , month
+       , amount
+       -- cumulative total
+       , SUM(CASE WHEN year = '2019' THEN amount END)
+           OVER(ORDER BY year, month ROWS UNBOUNDED PRECEDING)
+           AS agg_amount
+       -- Moving total
+       , SUM(amount)
+           OVER(ORDER BY year, month ROWS BETWEEN 11 PRECEDING AND CURRENT ROW)
+           AS year_avg_amount
+    FROM monthly_purchase
+   ORDER BY year, month 
+)
+-- Select data for 2019
+SELECT concat(year, '-', month) AS year_month
+     , amount 
+     , agg_amount 
+     , year_avg_amount 
+  FROM calc_index
+ WHERE year = '2019'
+ ORDER BY year_month
+;
+```
+
+![screenshot026](/assets/images/posts/2020/02/2020-02-06-bigdata-sql-sqlrecipeforanalysis-006-026.png)
+
+<br />
+
+### 4.9.6. The significant point for analyzing sales
+* You have to turn to data about surrounding factors like purchase count, a unit cost to understand the reason why there are changes on sales
+
+```sql
+-- Aggregate data related with sales
+WITH
+daily_purchase AS (
+  SELECT dt
+       -- Extract year, month, date respectively
+       -- if PostgreSQL, Hive, SparkSQL, Redshift, use substring
+       -- if BigQuery, use substr
+       , substring(dt, 1, 4) AS year
+       , substring(dt, 6, 2) AS month
+       , SUM(purchase_amount) AS purchase_amount
+       , COUNT(order_id) AS orders
+    FROM purchase_log4
+   GROUP BY dt
+)
+, monthly_purchase AS (
+  -- Monthly figure
+  SELECT year 
+       , month
+       , SUM(orders) AS orders
+       , AVG(purchase_amount) AS avg_amount
+       , SUM(purchase_amount) AS monthly
+    FROM daily_purchase 
+   GROUP BY year, month 
+)
+SELECT concat(year, '-', month) AS year_month
+     , orders
+     , avg_amount 
+     , monthly 
+     , SUM(monthly)
+         OVER(PARTITION BY year 
+              ORDER BY monthly 
+              ROWS UNBOUNDED preceding)
+         AS agg_amount
+     -- sales amount 12 months ago
+     , LAG(monthly, 12)
+         OVER(ORDER BY year, month)
+         -- if SparkSQL
+         -- OVER(ORDER BY year, month
+         --      ROWS BETWEEN 12 PRECEDING AND 12 PRECEDING)
+         AS last_year
+     -- The rate compared to sales amount 12m ago
+     , 100.0 * monthly / LAG(monthly, 12)
+                           OVER(ORDER BY year, month)
+         AS rate
+  FROM monthly_purchase
+ ORDER BY year_month
+;
+``` 
+
+![screenshot027](/assets/images/posts/2020/02/2020-02-06-bigdata-sql-sqlrecipeforanalysis-006-027.png)
 
 
 <br />
