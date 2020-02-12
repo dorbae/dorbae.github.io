@@ -7,14 +7,14 @@ toc:
       - page: MPAndroidChart
         url: /category/android/mpandroidchart
   - title: Apache
-    url: /categry/apache/apache
+    url: /category/apache/apache
     subfolderitems:
       - page: ActiveMQ
         url: /category/apache/activemq
       - page: RocketMQ
         url: /category/apache/rocketmq
   - title: BigData
-    url: /categry/bigdata/bigdata
+    url: /category/bigdata/bigdata
     subfolderitems:
       - page: Data Analysis
         url: /category/bigdata/dataanalysis/dataanalysis
