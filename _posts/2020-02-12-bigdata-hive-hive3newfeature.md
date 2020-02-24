@@ -21,7 +21,7 @@ sitemap :
 
 ## What's new in this release: Apache Hive
 * Apache Hive 3.0.0 was released on 21 May 2018 and the recent version is 3.1.2(based on 18 Feb 2020).
-* One of the noticeable features is that Hive 3.0 support seamless **ACID**(Atomicity, Consistency, Isolation, Durability) and you have to consider serveral thing about the transactional tables created by a Hive version prior to Hive 3.
+* One of the noticeable features is that Hive 3.0 supportㄴ seamless **ACID**(Atomicity, Consistency, Isolation, Durability) and you have to consider serveral thing about the transactional tables created by a Hive version prior to Hive 3.
 * Futhermore, several SQL features and useful connectors were added.
 * And also, it enhance the performance through improved LLAP and Apache Spark.
 
