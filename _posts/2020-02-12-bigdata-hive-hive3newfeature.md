@@ -82,6 +82,7 @@ sitemap :
 * The Spark application will need to access a Hive Server Interactive (with LLAP activated) to read Hive managed tables, but it won’t need it to write to Hive managed tables or read/write Hive external tables.
 
 ![screenshot002](/assets/images/posts/2019/02/2020-02-12-bigdata-hive-hive3newfeature-002.png)
+
 * Execute Query Process
     * 1. Driver submits query to HiveServer
     * 2. Compile query and return "splits" to Driver
