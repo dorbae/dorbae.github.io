@@ -72,7 +72,7 @@ sitemap :
             * AvroSerDe
         * Exactly-once ingestion from Kafka to Druid can be done through Hive.
 
-![screenshot001](/assets/images/posts/2019/02/2020-02-12-bigdata-hive-hive3newfeature-001.png)
+![screenshot001](/assets/images/posts/2020/02/2020-02-12-bigdata-hive-hive3newfeature-001.png)
 
 <br />
 
@@ -81,7 +81,7 @@ sitemap :
 * This connector takes advantage of Hive LLAP to allow streaming/ACID interaction between Hive and Spark.
 * The Spark application will need to access a Hive Server Interactive (with LLAP activated) to read Hive managed tables, but it won’t need it to write to Hive managed tables or read/write Hive external tables.
 
-![screenshot002](/assets/images/posts/2019/02/2020-02-12-bigdata-hive-hive3newfeature-002.png)
+![screenshot002](/assets/images/posts/2020/02/2020-02-12-bigdata-hive-hive3newfeature-002.png)
 
 * Execute Query Process
     * 1. Driver submits query to HiveServer
