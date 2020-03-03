@@ -40,7 +40,6 @@ toc:
     subfolderitems:
       - page: AWS
         url: /category/cloud/aws
-    subfolderitems:
       - page: NCP
         url: /category/cloud/ncp
   - title: Docker
