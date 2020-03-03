@@ -35,6 +35,14 @@ toc:
         url: /category/dbms/influxdb
       - page: Oracle
         url: /category/dbms/oracle
+  - title: Cloud
+    url: /category/cloud/cloud
+    subfolderitems:
+      - page: AWS
+        url: /category/cloud/aws
+    subfolderitems:
+      - page: NCP
+        url: /category/cloud/ncp
   - title: Docker
     url: /category/docker/docker
   - title: ElasticStack
