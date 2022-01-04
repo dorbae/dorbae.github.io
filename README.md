@@ -15,7 +15,7 @@
 * [What Every Developer Should Know About CouchDB](https://www.dimagi.com/blog/what-every-developer-should-know-about-couchdb/) (1)
 * [CouchDB Implementation](http://horicky.blogspot.com/2008/10/couchdb-implementation.html)
 
-### Programing Languages
+### Programming Languages
 #### Scala
 * [Twitter Scala school](https://twitter.github.io/scala_school/ko/index.html)
 
@@ -24,3 +24,6 @@
 #### AWS
 ##### Lambda
 * [Announcing improved VPC networking for AWS Lambda functions](https://aws.amazon.com/ko/blogs/compute/announcing-improved-vpc-networking-for-aws-lambda-functions/)
+
+### Kubernetes
+* [Kubernetes network](https://medium.com/finda-tech/kubernetes-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EC%A0%95%EB%A6%AC-fccd4fd0ae6)
