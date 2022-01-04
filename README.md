@@ -27,3 +27,6 @@
 
 ### Kubernetes
 * [Kubernetes network](https://medium.com/finda-tech/kubernetes-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EC%A0%95%EB%A6%AC-fccd4fd0ae6)
+
+### Network
+* [Extensible VXLAN](https://www.cisco.com/c/ko_kr/support/docs/lan-switching/vlan/212682-virtual-extensible-lan-and-ethernet-virt.html)
