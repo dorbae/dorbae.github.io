@@ -30,3 +30,5 @@
 
 ### Network
 * [Extensible VXLAN](https://www.cisco.com/c/ko_kr/support/docs/lan-switching/vlan/212682-virtual-extensible-lan-and-ethernet-virt.html)
+### Lecture
+* [Nomad Coder](https://nomadcoders.co/)
