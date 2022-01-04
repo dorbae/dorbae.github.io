@@ -4,6 +4,8 @@
 ### Databases
 #### Elasticsearch
 * [Elasticsearch in production](https://www.elastic.co/kr/blog/found-elasticsearch-in-production)
+#### CouchDBG
+* [What Every Developer Should Know About CouchDB](https://www.dimagi.com/blog/what-every-developer-should-know-about-couchdb/)
 
 ### Programming Languages
 #### Scala
