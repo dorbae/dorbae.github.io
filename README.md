@@ -4,6 +4,7 @@
 ### Databases
 #### Elasticsearch
 * [Elasticsearch in production](https://www.elastic.co/kr/blog/found-elasticsearch-in-production)
+* [Elasticsearch Internals: Networking Introduction](https://www.elastic.co/kr/blog/found-elasticsearch-networking)
 * [Java client local vs transport vs rest api](https://www.devdiscoveries.com/java-elasticsearch-become-up-and-running/)
 #### CouchDB
 * [What Every Developer Should Know About CouchDB](https://www.dimagi.com/blog/what-every-developer-should-know-about-couchdb/)
