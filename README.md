@@ -18,6 +18,8 @@
 #### Apache Bookkeeper
 * [Bookkeeper Github](https://github.com/apache/bookkeeper)
 ### Programming Languages
+#### Java
+* [JVM Internal - NAVER D2](https://d2.naver.com/helloworld/1230)
 #### Scala
 * [Twitter Scala school](https://twitter.github.io/scala_school/ko/index.html)
 #### GO
