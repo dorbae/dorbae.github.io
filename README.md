@@ -52,3 +52,5 @@
 ### Lecture
 ----
 * [Nomad Coder](https://nomadcoders.co/)
+### Mac
+* [Mac setup for developers](https://subicura.com/2017/11/22/mac-os-development-environment-setup.html)
