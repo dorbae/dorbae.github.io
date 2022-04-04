@@ -15,6 +15,8 @@
 #### CouchDB
 * [What Every Developer Should Know About CouchDB](https://www.dimagi.com/blog/what-every-developer-should-know-about-couchdb/) (1)
 * [CouchDB Implementation](http://horicky.blogspot.com/2008/10/couchdb-implementation.html)
+#### Vitess
+* [What is Vitess?](https://gamechangers.tistory.com/116)
 ### Storage
 ----
 ### Message Broker
