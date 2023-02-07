@@ -32,6 +32,7 @@
 ----
 #### Java
 * [JVM Internal - NAVER D2](https://d2.naver.com/helloworld/1230)
+* [How to en/disable core dump](https://inside.java/2021/04/30/failed-writing-core-dump/) (1)
 #### Scala
 * [Twitter Scala school](https://twitter.github.io/scala_school/ko/index.html)
 #### GO
