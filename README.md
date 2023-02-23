@@ -60,6 +60,10 @@
 * [System Design Interviews: A step by step guide](https://www.educative.io/courses/grokking-the-system-design-interview/B8nMkqBWONo)
 * [Book - 가상 면접 사례로 배우는 대규모 시스템 설계 기초](http://www.kyobobook.co.kr/product/detailViewKor.laf?ejkGb=KOR&barcode=9788966263158)(1)
 ### Network
+
+### AI/ML
+* [Practical Deep Learning](https://course.fast.ai/)
+* [Neural Networks: Zero To Hero](https://github.com/karpathy/nn-zero-to-hero)
 ----
 * [Extensible VXLAN](https://www.cisco.com/c/ko_kr/support/docs/lan-switching/vlan/212682-virtual-extensible-lan-and-ethernet-virt.html)
 ### Lecture
