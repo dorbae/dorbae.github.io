@@ -49,13 +49,16 @@
 ----
 * [Docker Internal](http://cloudrain21.com/examination-of-docker-process-binary)
 * [Container networking](https://iximiuz.com/en/posts/container-networking-is-simple/)
+* [Docker Layers](https://malwareanalysis.tistory.com/213)
 ----
 ### Kubernetes
 * [Kubernetes network](https://medium.com/finda-tech/kubernetes-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EC%A0%95%EB%A6%AC-fccd4fd0ae6)
+* [Kubernetes network advanced](https://malwareanalysis.tistory.com/248)
+* [Book - 쿠버네티스 완벽 가이드](https://product.kyobobook.co.kr/detail/S000001834656) (1)
 ----
 ### Architecture
 * [System Design Interviews: A step by step guide](https://www.educative.io/courses/grokking-the-system-design-interview/B8nMkqBWONo)
-* [Book - 가상 면접 사례로 배우는 대규모 시스템 설계 기초](http://www.kyobobook.co.kr/product/detailViewKor.laf?ejkGb=KOR&barcode=9788966263158)
+* [Book - 가상 면접 사례로 배우는 대규모 시스템 설계 기초](http://www.kyobobook.co.kr/product/detailViewKor.laf?ejkGb=KOR&barcode=9788966263158)(1)
 ### Network
 ----
 * [Extensible VXLAN](https://www.cisco.com/c/ko_kr/support/docs/lan-switching/vlan/212682-virtual-extensible-lan-and-ethernet-virt.html)
