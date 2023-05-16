@@ -71,3 +71,6 @@
 * [Nomad Coder](https://nomadcoders.co/)
 ### Mac
 * [Mac setup for developers](https://subicura.com/2017/11/22/mac-os-development-environment-setup.html)
+----
+### Etc
+* [Special characters in cron expression](https://www.baeldung.com/cron-expressions#1-special-characters-in-expression) (1)
