@@ -33,10 +33,12 @@
 #### Java
 * [JVM Internal - NAVER D2](https://d2.naver.com/helloworld/1230)
 * [How to en/disable core dump](https://inside.java/2021/04/30/failed-writing-core-dump/) (1)
+* [JIT compiler](https://inspirit941.tistory.com/352)
 #### Scala
 * [Twitter Scala school](https://twitter.github.io/scala_school/ko/index.html)
 #### GO
 * [Simple tutorial](http://golang.site/go/article/2-Go-%EC%84%A4%EC%B9%98%EC%99%80-Go-%ED%8E%B8%EC%A7%91%EA%B8%B0-%EC%86%8C%EA%B0%9C)
+* [Go Contex](https://inspirit941.tistory.com/425)
 #### Python
 * [How to work in the main function and import modules](https://www.geeksforgeeks.org/python-main-function/) (1)
 ### Cloud
