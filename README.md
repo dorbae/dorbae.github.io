@@ -15,6 +15,7 @@
 #### CouchDB
 * [What Every Developer Should Know About CouchDB](https://www.dimagi.com/blog/what-every-developer-should-know-about-couchdb/) (1)
 * [CouchDB Implementation](http://horicky.blogspot.com/2008/10/couchdb-implementation.html)
+* [CouchDB 2.0’s read and write behaviour in a cluster](https://dx13.co.uk/articles/2015/10/19/couchdb-20s-read-and-write-behaviour-in-a-cluster/)
 #### Vitess
 * [What is Vitess?](https://gamechangers.tistory.com/116)
 ### Storage
@@ -28,6 +29,9 @@
 #### RabbitMQ
 #### Apache Bookkeeper
 * [Bookkeeper Github](https://github.com/apache/bookkeeper)
+### Event Bus
+#### Apache EventMesgh
+* [Introduction to EventMesh](https://eventmesh.apache.org/docs/introduction/)
 ### Programming Languages
 ----
 #### Java
@@ -39,6 +43,9 @@
 #### GO
 * [Simple tutorial](http://golang.site/go/article/2-Go-%EC%84%A4%EC%B9%98%EC%99%80-Go-%ED%8E%B8%EC%A7%91%EA%B8%B0-%EC%86%8C%EA%B0%9C)
 * [Go Contex](https://inspirit941.tistory.com/425)
+* [HTTP connection pool in Go](https://tech.buzzvil.com/blog/http-connection-pool-in-go-explained/)
+* [Go scheduler](https://morsmachine.dk/go-scheduler)
+* [Go scalable scheduler design](https://docs.google.com/document/d/1TTj4T2JO42uD5ID9e89oa0sLKhJYD0Y_kqxDv3I3XMw/edit?pli=1#heading=h.mmq8lm48qfcw)
 #### Python
 * [How to work in the main function and import modules](https://www.geeksforgeeks.org/python-main-function/) (1)
 ### Cloud
@@ -57,6 +64,8 @@
 * [Kubernetes network](https://medium.com/finda-tech/kubernetes-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EC%A0%95%EB%A6%AC-fccd4fd0ae6)
 * [Kubernetes network advanced](https://malwareanalysis.tistory.com/248)
 * [Book - 쿠버네티스 완벽 가이드](https://product.kyobobook.co.kr/detail/S000001834656) (1)
+### Istio
+* [Locality failover](https://istio.io/latest/docs/tasks/traffic-management/locality-load-balancing/failover/)
 ----
 ### Architecture
 * [System Design Interviews: A step by step guide](https://www.educative.io/courses/grokking-the-system-design-interview/B8nMkqBWONo)
@@ -76,3 +85,4 @@
 ----
 ### Etc
 * [Special characters in cron expression](https://www.baeldung.com/cron-expressions#1-special-characters-in-expression) (1)
+* [eBPF: Unlocking the Kernel](https://www.youtube.com/watch?v=Wb_vD3XZYOA)
