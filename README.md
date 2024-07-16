@@ -16,6 +16,8 @@
 * [What Every Developer Should Know About CouchDB](https://www.dimagi.com/blog/what-every-developer-should-know-about-couchdb/) (1)
 * [CouchDB Implementation](http://horicky.blogspot.com/2008/10/couchdb-implementation.html)
 * [CouchDB 2.0’s read and write behaviour in a cluster](https://dx13.co.uk/articles/2015/10/19/couchdb-20s-read-and-write-behaviour-in-a-cluster/)
+* [Understanding Index](https://blog.cloudant.com/2016/01/31/Understanding-Cloudant-Indexing.html) (1)
+* [Cloudant Blog](https://blog.cloudant.com/)
 #### Vitess
 * [What is Vitess?](https://gamechangers.tistory.com/116)
 ### Storage
