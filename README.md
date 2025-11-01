@@ -50,6 +50,7 @@
 * [Go scalable scheduler design](https://docs.google.com/document/d/1TTj4T2JO42uD5ID9e89oa0sLKhJYD0Y_kqxDv3I3XMw/edit?pli=1#heading=h.mmq8lm48qfcw)
 #### Python
 * [How to work in the main function and import modules](https://www.geeksforgeeks.org/python-main-function/) (1)
+* [Book - 엔지니어를 위한 파이썬](https://product.kyobobook.co.kr/detail/S000001916875) (1)
 ### Cloud
 ----
 * [Cloud Level4](http://www.jslab.kr/2021/11/05/cloud-l4/)
@@ -82,6 +83,7 @@
 ### Lecture
 ----
 * [Nomad Coder](https://nomadcoders.co/)
+* [Python Data Analysis: NumPy & Pandas Masterclass](https://www.udemy.com/course/python-pandas/learn/lecture/33185832)
 ### Mac
 * [Mac setup for developers](https://subicura.com/2017/11/22/mac-os-development-environment-setup.html)
 ----
